@@ -67,8 +67,7 @@ passport.use(new LocalStrategy(
 //     next(createError(404));
 // });
 
-db.sync({ force: false })
-    // .then(() => User.sync())
+db.sync({ force: true })
     .then((con) => {
         console.log(`${con.options.dialect} database ${con.config.database} connected at ${con.config.host}:${con.config.port}`)
         app.listen(3000, () => console.log('SERVER LISTENING AT PORT 3000'))

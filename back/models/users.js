@@ -7,7 +7,11 @@ const crypto = require('crypto')
 class User extends S.Model { }
 User.init(
     {
-        username: {
+        firstName: {
+            type: S.STRING,
+            allowNull: false,
+        },
+        lastName: {
             type: S.STRING,
             allowNull: false,
         },
@@ -17,6 +21,30 @@ User.init(
                 isEmail: true
             },
             allowNull: false
+        },
+        address1: {
+            type: S.STRING,
+            allowNull: false,
+        },
+        address2: {
+            type: S.STRING,
+            allowNull: false,
+        },
+        address3: {
+            type: S.STRING,
+            allowNull: false,
+        },
+        postCode: {
+            type: S.STRING,
+            allowNull: false,
+        },
+        phone: {
+            type: S.STRING,
+            allowNull: false,
+        },
+        rol_id: {
+            type: S.STRING,
+            defaultValue: 'client'
         },
         password: {
             type: S.STRING,

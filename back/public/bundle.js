@@ -42405,7 +42405,7 @@ var userLogout = function userLogout() {
 var login = function login(user) {
   return function (dispatch) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/auth/login", {
-      username: user.username,
+      email: user.email,
       password: user.password
     }).then(function (userLogeado) {
       return dispatch(userLogin(userLogeado.data));
