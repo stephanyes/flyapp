@@ -9,22 +9,27 @@ import ProductsContainer from "../containers/productIDContainer";
 import ProductIDContainer from "../containers/productIDContainer";
 import CartContainer from "../containers/CartContainer";
 import NavbarContainer from "../containers/NavbarContainer";
+import Footer from "../components/Footer";
 
-class Main extends React.Component {
+export default class Main extends React.Component {
+  constructor() {
+    super();
+  }
   render() {
     return (
       <div>
         <NavbarContainer />
 
         <Switch>
-          <Route exact path="/home" component={HomeContainer} />
-          <Route exact path="/login" component={LoginContainer} />
+          <Route exact path="/" component={HomeContainer} />
+          {/* <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/experiences" component={ProductsContainer} />
           <Route path="/experiences/:id" component={ProductIDContainer} />
           <Route exact path="cart" component={CartContainer} />
-          <Redirect from="/" to="/" />
+          <Redirect from="/" to="/" /> */}
         </Switch>
+        <Footer />
       </div>
     );
   }
@@ -36,4 +41,4 @@ class Main extends React.Component {
 //   };
 // };
 
-export default connect(mapStateToProps)(Main);
+// export default connect(mapStateToProps)(Main);
