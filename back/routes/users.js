@@ -5,16 +5,43 @@ const passport = require('passport')
 
 const { User } = require('../models/index')
 
-// const isLogedIn = (req, res, next) => {
-//     console.log('se ejecuta');
-//     if (req.isAuthenticated()) {
-//         console.log('pase el middleware');
-//         next()
-//     } else {
-//         console.log('entre aca porque no pase el md!');
-//         res.redirect('/login')
-//     }
-// }
+const isClient = (req, res, next) => {
+    console.log('se ejecuta');
+    if (req.isAuthenticated()) {
+        console.log('pase el middleware');
+        next()
+    } else {
+        console.log('entre aca porque no pase el md!');
+        res.redirect('/login')
+    }
+}
+
+const isAdmin = (req, res, next) => {
+    console.log('se ejecuta');
+    if (req.isAuthenticated()) {
+        console.log('pase el middleware');
+        if (req.user.dataValues.rol_id === 'admin') {
+            next()
+        }
+    } else {
+        console.log('entre aca porque no pase el md!');
+        res.redirect('/login')
+    }
+}
+
+const isSuperAdmin = (req, res, next) => {
+    console.log('se ejecuta');
+    if (req.isAuthenticated()) {
+        console.log('pase el middleware');
+        if (req.user.dataValues.rol_id === 'superAdmin') {
+            console.log('verifique superAdmin')
+            next()
+        }
+    } else {
+        console.log('entre aca porque no pase el md!');
+        res.redirect('/login')
+    }
+}
 
 
 router.post('/logout', (req, res) => {
@@ -22,29 +49,36 @@ router.post('/logout', (req, res) => {
     res.redirect("/")
 })
 
-router.post('/login', passport.authenticate('local'), (req, res, next) => {
-    console.log('USER', req.user)
-    console.log('Autentico OK')
+router.post('/login', passport.authenticate("local"), (req, res, next) => {
+    console.log('entre al login')
     res.status(201).json(req.user)
 })
 
-
-
-
 router.post('/register', (req, res) => {
-    console.log('holis')
     User.create(req.body)
         .then(user => console.log(user))
         .then((user) => res.send(user))
+        .then(() => console.log("usuario creado"))
 })
 
-router.get('/user', function chequeoLogin(req, res) {
-    if (req.user) {
-        res.send(`Estas en el perfil de ${req.user.dataValues.firstName}`)
-    }
-    else res.send('no ingreso como user wachin')
+//Esto levanta la info del cliente isloggdIn es el middleware que esta arriba
+//para busqueda x axios (con esto levantamos la info del user , pasamos info del back al front)
+router.get('/user', isClient, (req, res) => {
+    res.json(req.user)
+})
 
-
+router.put('/superAdmin', isSuperAdmin, (req, res, next) => {
+    console.log('entre a /superAdmin')
+    User.update({ rol_id: req.body.rol }, { //acordarse de que el req.body tenga el rol y el ID
+        where: {
+            id: req.body.id
+        },
+        returning: true,
+        plain: true
+    }).then(resultado => {
+        let usuario = resultado[1]
+        res.status(202).send(usuario)
+    })
 })
 
 
