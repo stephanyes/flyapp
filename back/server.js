@@ -5,7 +5,8 @@ const createError = require('http-errors')
 const cookieParser = require('cookie-parser');
 const db = require('./db/db')
 const passport = require('passport')
-const routes = require("./routes")
+const productos = require("./routes/productos")
+const users = require("./routes/users")
 const { User } = require('../back/models/index')
 const path = require('path')
 
@@ -29,7 +30,9 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use('/auth', routes)
+app.use('/products', productos)
+app.use('/auth', users)
+
 
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))

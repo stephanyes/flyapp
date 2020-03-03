@@ -2,7 +2,7 @@
   "name": "omdb-back",
   "version": "1.0.0",
   "description": "api movie site",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js"
   },
