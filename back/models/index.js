@@ -1,9 +1,63 @@
-const Favorite = require('./favoritos')
+const Product = require('./productos')
 const User = require('./users')
+const Cart = require('./carrito')
+const Role = require('./roles')
+const Order = require('./order')
+const Category = require('./category')
+const Comment = require('./comment_product')
+const S = require("sequelize");
+const sequelize = require("../db/db");
 
 
-User.hasMany(Favorite);
+//Tablas intermedias
+class Product_Cart extends S.Model { }
+Product_Cart.init({
+    product_id: {
+        type: S.INTEGER,
+        references: {
+            model: Product,
+            key: 'id'
+        }
+    },
+    cart_id: {
+        type: S.INTEGER,
+        references: {
+            model: Cart,
+            key: 'id'
+        }
+    },
+    quantity: {
+        type: S.INTEGER,
+        defaultValue: 0
+    }
+}, { sequelize, modelName: "product_cart" });
+
+class Order_product extends S.Model { }
+Order_product.init({
+    quantity: {
+        type: S.INTEGER,
+        defaultValue: 0
+    }
+}, { sequelize, modelName: "order_product" })
+
+
+//Relaciones
+Cart.belongsToMany(Product, { through: "product_cart" })
+Product.belongsToMany(Cart, { through: "product_cart" })
+
+//order_product
+Order.belongsToMany(Product, { through: "order_product" })
+Product.belongsToMany(Order, { through: "order_product" })
+
+User.hasOne(Cart) // esta cheequeado?
+
+Category.hasOne(Product)
+User.hasOne(Order)
+User.hasOne(Comment)
+Product.hasOne(Comment)
+
+
 
 module.exports = {
-    Favorite, User
+    Product, User, Cart, Role, Category, Order
 }
