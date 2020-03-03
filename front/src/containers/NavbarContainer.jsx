@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default () => (
   <div>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,14 +21,32 @@ export default () => (
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="#">
-              Experiences <span class="sr-only">(current)</span>
-            </a>
+            <Link className="nav-link" to="/experiences">
+              Experiences
+            </Link>
+          </li>
+          <li className="nav-item active">
+            <Link className="nav-link" to="/experience">
+              Unique Product
+            </Link>
+          </li>
+          <li className="nav-item active">
+            <Link className="nav-link" to="/login">
+              Login
+            </Link>
+          </li>
+          <li className="nav-item active">
+            <Link className="nav-link" to="/register">
+              Register
+            </Link>
+          </li>
+          <li className="nav-item active">
+            <Link className="nav-link" to="/cart">
+              Cart
+            </Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
-              Link
-            </a>
+            <a className="nav-link" href="#"></a>
           </li>
         </ul>
         <form className="form-inline my-2 my-lg-0">
