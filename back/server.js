@@ -5,9 +5,12 @@ const createError = require('http-errors')
 const cookieParser = require('cookie-parser');
 const db = require('./db/db')
 const passport = require('passport')
-const routes = require("./routes")
+const productos = require("./routes/productos")
+const users = require("./routes/users")
 const { User } = require('../back/models/index')
 const path = require('path')
+const LocalStrategy = require('passport-local').Strategy
+
 
 
 const app = express();
@@ -19,9 +22,11 @@ app.use(cookieParser())
 
 
 
-const LocalStrategy = require('passport-local').Strategy
+
 app.use(session({
-    secret: 'tuMadre'
+    secret: 'tuMadre',
+    resave: true,
+    saveUninitialized: true
 }))
 
 
@@ -29,12 +34,23 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use('/auth', routes)
+passport.use(new LocalStrategy({
+    usernameField: 'email'
+},
 
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-});
-
+    (username, password, done) => {
+        User.findOne({
+            where: { email: username }
+        })
+            .then(user => {
+                if (!user || !user.validPassword(password)) {
+                    return done(null, false, { message: 'User or Password are incorrect!' })
+                }
+                return done(null, user)
+            })
+            .catch(done)
+    }
+))
 
 //serealizar y deserializar el passport
 passport.serializeUser((user, done) => {
@@ -47,20 +63,12 @@ passport.deserializeUser((id, done) => {
         })
 })
 
-passport.use(new LocalStrategy(
-    (username, password, done) => {
-        User.findOne({
-            where: { username: username }
-        })
-            .then(user => {
-                if (!user || !user.validPassword(password)) {
-                    return done(null, false, { message: 'User or Password are incorrect!' })
-                }
-                return done(null, user)
-            })
-            .catch(done)
-    }
-))
+app.use('/products', productos)
+app.use('/auth', users)
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+});
 
 // // catch 404 and forward to error handler
 // app.use(function (req, res, next) {
@@ -68,7 +76,6 @@ passport.use(new LocalStrategy(
 // });
 
 db.sync({ force: false })
-    // .then(() => User.sync())
     .then((con) => {
         console.log(`${con.options.dialect} database ${con.config.database} connected at ${con.config.host}:${con.config.port}`)
         app.listen(3000, () => console.log('SERVER LISTENING AT PORT 3000'))
