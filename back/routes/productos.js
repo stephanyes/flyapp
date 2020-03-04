@@ -2,12 +2,13 @@
 const express = require('express');
 const router = express.Router();
 
-const { Product } = require('../models/productos')
+const Product = require('../models/productos')
 
 
 //Trae todos
-router.get('/', (req, res) => {
-    Product.findAll().then(product => res.status(200).send(product))
+router.get('/all', (req, res) => {
+    Product.findAll()
+        .then(products => res.status(200).json(products))
 })
 
 //Trae uno en particular
