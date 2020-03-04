@@ -1,19 +1,36 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export default () => (
-  <div>
+  <div
+    style={{
+      backgroundColor: "white"
+    }}
+  >
     <div className="row align-items-center">
       <div className="col">
-        <div className="jumbotron">
-          <h1 className="display-4">Hello, world!</h1>
-          <p className="lead">
+        <div
+          className="jumbotron"
+          style={{
+            backgroundColor: "white"
+          }}
+        >
+          <h1 className="font-weight-bold">Best experiences for your enjoy!</h1>
+          <p className="font-weight-normal">
             This is a simple hero unit, a simple jumbotron-style component for
             calling extra attention to featured content or information.
           </p>
-
-          <a className="btn btn-primary btn-lg" href="#" role="button">
-            Learn more
-          </a>
+          <Link
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#2EC4B6",
+              borderColor: "#2EC4B6"
+            }}
+            to="/experiences"
+          >
+            Disvover Experiences
+          </Link>
+          {/* .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #8064A2 !important; */}
         </div>
       </div>
       <div className="col">
@@ -24,6 +41,13 @@ export default () => (
         />
       </div>
     </div>
+    <nav
+      className="navbar sticky-top"
+      style={{
+        backgroundColor: "#ffffff",
+        padding: "20px"
+      }}
+    ></nav>
     {/* <div className="container"> */}
     <h1>Experiences that matters</h1>
     {/* </div> */}

@@ -40909,6 +40909,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _containers_CartContainer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../containers/CartContainer */ "./src/containers/CartContainer.jsx");
 /* harmony import */ var _containers_NavbarContainer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../containers/NavbarContainer */ "./src/containers/NavbarContainer.jsx");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/Footer */ "./src/components/Footer.jsx");
+/* harmony import */ var _containers_ProfileContainer__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../containers/ProfileContainer */ "./src/containers/ProfileContainer.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -40926,6 +40927,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -40978,6 +40980,10 @@ function (_React$Component) {
         exact: true,
         path: "/cart",
         component: _containers_CartContainer__WEBPACK_IMPORTED_MODULE_9__["default"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+        exact: true,
+        path: "/profile",
+        component: _containers_ProfileContainer__WEBPACK_IMPORTED_MODULE_12__["default"]
       })));
     }
   }]);
@@ -41182,29 +41188,47 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      backgroundColor: "white"
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "row align-items-center"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "jumbotron"
+    className: "jumbotron",
+    style: {
+      backgroundColor: "white"
+    }
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
-    className: "display-4"
-  }, "Hello, world!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-    className: "lead"
-  }, "This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    className: "font-weight-bold"
+  }, "Best experiences for your enjoy!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "font-weight-normal"
+  }, "This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "btn btn-primary btn-lg",
-    href: "#",
-    role: "button"
-  }, "Learn more"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      backgroundColor: "#2EC4B6",
+      borderColor: "#2EC4B6"
+    },
+    to: "/experiences"
+  }, "Disvover Experiences"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "https://insideone.s3-sa-east-1.amazonaws.com/image-home-04.png",
     "class": "img-fluid",
     alt: "Responsive image"
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Experiences that matters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+    className: "navbar sticky-top",
+    style: {
+      backgroundColor: "#ffffff",
+      padding: "20px"
+    }
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Experiences that matters"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-deck"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card"
@@ -41423,11 +41447,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-    className: "navbar navbar-expand-lg navbar-light bg-light"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    "class": "navbar navbar-expand-lg navbar-light",
+    style: {
+      backgroundColor: "#ffffff"
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "navbar-brand",
-    href: "#"
-  }, "FLYAPP"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    to: "/"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://insideone.s3-sa-east-1.amazonaws.com/flyapp-logo.png",
+    height: "40",
+    alt: ""
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "navbar-toggler",
     type: "button",
     "data-toggle": "collapse",
@@ -41466,23 +41497,24 @@ __webpack_require__.r(__webpack_exports__);
     className: "nav-item active"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "nav-link",
-    to: "/cart"
-  }, "Cart")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "nav-item"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+    to: "/profile"
+  }, "My Account")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+    className: "nav-item active"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     className: "nav-link",
-    href: "#"
-  }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    to: "/cart"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://insideone.s3-sa-east-1.amazonaws.com/buy-cart-black.png",
+    height: "20",
+    alt: ""
+  })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "form-inline my-2 my-lg-0"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     className: "form-control mr-sm-2",
     type: "search",
     placeholder: "Search",
     "aria-label": "Search"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-outline-success my-2 my-sm-0",
-    type: "submit"
-  }, "Search")))));
+  })))));
 });
 
 /***/ }),
@@ -41585,6 +41617,36 @@ __webpack_require__.r(__webpack_exports__);
   }, "Card title that wraps to a new line"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     "class": "card-text"
   }, "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."))))));
+});
+
+/***/ }),
+
+/***/ "./src/containers/ProfileContainer.jsx":
+/*!*********************************************!*\
+  !*** ./src/containers/ProfileContainer.jsx ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card text-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    className: "font-weight-bold"
+  }, "Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+    className: "font-weight-normal"
+  }, "This is your actual profile."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "card-body"
+  }, "This is some text within a card body.")));
 });
 
 /***/ }),
@@ -41896,6 +41958,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEBPACK_IMPORTED_MODULE_0__["compose"];
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers__WEBPACK_IMPORTED_MODULE_3__["default"], composeEnhancers(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(Object(redux_logger__WEBPACK_IMPORTED_MODULE_1__["createLogger"])(), redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"]))));
+<<<<<<< HEAD
+=======
 
 /***/ }),
 
@@ -41911,6 +41975,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_USER", function() { return CREATE_USER; });
 // Register
 var CREATE_USER = 'CREATE_USER';
+>>>>>>> 40632f8444a3a49ee185ad34ed5d4e42808a7d5b
 
 /***/ }),
 

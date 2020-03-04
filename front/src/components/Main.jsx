@@ -10,6 +10,7 @@ import ProductIDContainer from "../containers/productIDContainer";
 import CartContainer from "../containers/CartContainer";
 import NavbarContainer from "../containers/NavbarContainer";
 import Footer from "../components/Footer";
+import ProfileContainer from "../containers/ProfileContainer";
 
 export default class Main extends React.Component {
   constructor() {
@@ -27,14 +28,10 @@ export default class Main extends React.Component {
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/cart" component={CartContainer} />
-          {/* <Route exact path="/login" component={LoginContainer} />
-          <Route exact path="/register" component={RegisterContainer} />
-          <Route exact path="/experiences" component={ProductsContainer} />
-          <Route path="/experiences/:id" component={ProductIDContainer} />
-          <Route exact path="cart" component={CartContainer} />
-          <Redirect from="/" to="/" /> */}
+          <Route exact path="/profile" component={ProfileContainer} />
+
+          {/* <Redirect from="/" to="/" />  */}
         </Switch>
-        {/* <Footer /> */}
       </div>
     );
   }
