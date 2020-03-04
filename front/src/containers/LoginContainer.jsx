@@ -1,43 +1,49 @@
 import React from "react";
+import { connect } from "react-redux";
 
-export default () => (
-  <div>
-    <div className="row align-items-center">
-      <div className="col">
-        <img
-          src="https://insideone.s3-sa-east-1.amazonaws.com/login-image.png"
-          className="img-fluid"
-          alt="Responsive image"
-        />
-      </div>
-      <div className="col">
-        <form>
-          <div className="form-group">
-            <h2>Login</h2>
-            <label for="exampleInputEmail1">Email address</label>
-            <input
-              type="email"
-              className="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-            />
-            <small id="emailHelp" className="form-text text-muted">
-              We'll never share your email with anyone else.
-            </small>
-          </div>
-          <div className="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="exampleInputPassword1"
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Login
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-);
+import Login from "../components/Login";
+import { login } from "../store/actions/login";
+
+class LoginContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      //para tener input controlado lo guardamos en state mediante handleChange
+      email: "",
+      password: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(e) {
+    console.log(e.target.value);
+
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.mandandoUser(this.state); //login toma {email, password}
+  }
+  render() {
+    console.log(this.state);
+    return (
+      <Login
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        state={this.state}
+      />
+    );
+  }
+}
+
+const mapDispatchToProps = function(dispatch, ownProps) {
+  return {
+    mandandoUser: user => dispatch(login(user)) // ACA TENGO QUE USAR LA ACCION, CAMBIAR NOMBRE
+  };
+};
+
+export default connect(null, mapDispatchToProps)(LoginContainer);
