@@ -34,8 +34,8 @@ build/Release
 
 # Dependency directories
 node_modules/
-public/bundle.js
-public/bundle.js.map
+back/public/bundle.js
+back/public/bundle.js.map
 jspm_packages/
 
 # Typescript v1 declaration files
