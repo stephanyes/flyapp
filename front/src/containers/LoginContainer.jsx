@@ -17,6 +17,8 @@ class LoginContainer extends React.Component {
   }
 
   handleChange(e) {
+    console.log(e.target.value);
+
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -24,9 +26,10 @@ class LoginContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login(this.state); //login toma {email, password}
+    this.props.mandandoUser(this.state); //login toma {email, password}
   }
   render() {
+    console.log(this.state);
     return (
       <Login
         handleChange={this.handleChange}
@@ -39,7 +42,7 @@ class LoginContainer extends React.Component {
 
 const mapDispatchToProps = function(dispatch, ownProps) {
   return {
-    login: user => dispatch(login(user)) // ACA TENGO QUE USAR LA ACCION, CAMBIAR NOMBRE
+    mandandoUser: user => dispatch(login(user)) // ACA TENGO QUE USAR LA ACCION, CAMBIAR NOMBRE
   };
 };
 

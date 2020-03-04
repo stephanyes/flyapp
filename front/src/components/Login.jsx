@@ -12,12 +12,13 @@ export default ({ handleSubmit, handleChange, state }) => {
           />
         </div>
         <div className="col">
-          <form onSubmit={handleSubmit}>
+          <form>
             {/* onSubmit para disparar el action-creator */}
             <div className="form-group">
               <h2>Login</h2>
               <label for="exampleInputEmail1">Email address</label>
               <input
+                name="email"
                 type="email"
                 className="form-control"
                 id="exampleInputEmail1"
@@ -31,13 +32,18 @@ export default ({ handleSubmit, handleChange, state }) => {
             <div className="form-group">
               <label for="exampleInputPassword1">Password</label>
               <input
+                name="password"
                 type="password"
                 className="form-control"
                 id="exampleInputPassword1"
                 onChange={e => handleChange(e)} // mismo que con el email
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button
+              onClick={handleSubmit}
+              type="submit"
+              className="btn btn-primary"
+            >
               Submit
             </button>
           </form>
