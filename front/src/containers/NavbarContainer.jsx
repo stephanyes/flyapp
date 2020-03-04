@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-export default (props) => {
-  console.log(props)
-  return(
+export default () => (
   <div>
     <nav
       class="navbar navbar-expand-lg navbar-light"
@@ -19,7 +17,6 @@ export default (props) => {
       </Link>
 
       <button
-        
         className="navbar-toggler"
         type="button"
         data-toggle="collapse"
@@ -70,7 +67,6 @@ export default (props) => {
         </ul>
         <form className="form-inline my-2 my-lg-0">
           <input
-            onChange={props.handleChange}
             className="form-control mr-sm-2"
             type="search"
             placeholder="Search"
@@ -91,5 +87,4 @@ export default (props) => {
       </div>
     </nav>
   </div>
-)
-        }
+);

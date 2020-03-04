@@ -9,7 +9,7 @@ export const RECEIVE_MOVIE = 'RECEIVE_MOVIE';
 export const CREATE_USER = 'CREATE_USER';
 //Products
 export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS'
-//Search Bar
-export const RECEIVE_SEARCHBAR = "RECEIVE_SEARCHBAR"
+export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT'
+
 
 

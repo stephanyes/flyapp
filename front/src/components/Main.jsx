@@ -8,9 +8,9 @@ import RegisterContainer from "../containers/RegisterContainer";
 import ProductsContainer from "../containers/ProductsContainer";
 import ProductIDContainer from "../containers/productIDContainer";
 import CartContainer from "../containers/CartContainer";
+import NavbarContainer from "../containers/NavbarContainer";
 import Footer from "../components/Footer";
 import ProfileContainer from "../containers/ProfileContainer";
-import SearchContainer from "../containers/SearchContainer";
 
 export default class Main extends React.Component {
   constructor() {
@@ -19,7 +19,7 @@ export default class Main extends React.Component {
   render() {
     return (
       <div>
-        <SearchContainer />
+        <NavbarContainer />
 
         <Switch>
           <Route exact path="/" component={HomeContainer} />
