@@ -7,11 +7,10 @@ import searchReducer from './searchReducer';
 import homeReducer from './homeReducer';
 
 
-
 export default combineReducers({
     userLogin: loginReducer,
     register: registerReducer,
-    productList: productsReducer,
+      productList: productsReducer,
     search_bar: searchReducer,
     home: homeReducer
 });
