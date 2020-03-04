@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-
+const Sequelize = require('sequelize')
 const Product = require('../models/productos')
 
 
@@ -10,7 +10,21 @@ router.get('/all', (req, res) => {
     Product.findAll()
         .then(products => res.status(200).json(products))
 })
-
+//Trae Busquedas del Navbar
+router.use("/searchBar", (req,res)=>{
+    console.log("entre al search")
+    
+    const Op = Sequelize.Op;
+    Product.findAll({
+        limit: 10,
+        where: {
+            name: {
+                [Op.like]: '%' + req.body.search + '%'
+            }
+        }
+    })
+    .then(products => {console.log(products),res.status(200).json(products)})
+})    
 //Trae uno en particular
 router.get('/:id', (req, res) => {
     Product.findByPk({
