@@ -8,7 +8,6 @@ class LoginContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      //para tener input controlado lo guardamos en state mediante handleChange
       email: "",
       password: ""
     };
@@ -17,8 +16,6 @@ class LoginContainer extends React.Component {
   }
 
   handleChange(e) {
-    console.log(e.target.value);
-
     this.setState({
       [e.target.name]: e.target.value
     });
@@ -26,10 +23,11 @@ class LoginContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.mandandoUser(this.state); //login toma {email, password}
+    this.props.mandandoUser(this.state);
+    this.props.history.push("/");
   }
+
   render() {
-    console.log(this.state);
     return (
       <Login
         handleChange={this.handleChange}
@@ -42,7 +40,7 @@ class LoginContainer extends React.Component {
 
 const mapDispatchToProps = function(dispatch, ownProps) {
   return {
-    mandandoUser: user => dispatch(login(user)) // ACA TENGO QUE USAR LA ACCION, CAMBIAR NOMBRE
+    mandandoUser: user => dispatch(login(user))
   };
 };
 

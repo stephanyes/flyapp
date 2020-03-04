@@ -12,8 +12,7 @@ export default ({ handleSubmit, handleChange, state }) => {
           />
         </div>
         <div className="col">
-          <form>
-            {/* onSubmit para disparar el action-creator */}
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <h2>Login</h2>
               <label for="exampleInputEmail1">Email address</label>
@@ -39,11 +38,7 @@ export default ({ handleSubmit, handleChange, state }) => {
                 onChange={e => handleChange(e)} // mismo que con el email
               />
             </div>
-            <button
-              onClick={handleSubmit}
-              type="submit"
-              className="btn btn-primary"
-            >
+            <button type="submit" className="btn btn-primary">
               Submit
             </button>
           </form>
