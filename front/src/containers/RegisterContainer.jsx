@@ -7,6 +7,34 @@ export default () => (
         <form>
           <div className="form-group">
             <h2>Register</h2>
+            <label for="inputFirstName">First name</label>
+            <input type="text" className="form-control" id="inputFirstName" />
+          </div>
+          <div className="form-group">
+            <label for="inputLastName">Last name</label>
+            <input type="text" className="form-control" id="inputLastName" />
+          </div>
+          <div className="form-group">
+            <label for="inputAdressLine1">Address line 1</label>
+            <input type="text" className="form-control" id="inputAdressLine1" />
+          </div>
+          <div className="form-group">
+            <label for="inputAdressLine2">Address line 2</label>
+            <input type="text" className="form-control" id="inputAdressLine2" />
+          </div>
+          <div className="form-group">
+            <label for="inputAdressLine3">Address line 3</label>
+            <input type="text" className="form-control" id="inputAdressLine3" />
+          </div>
+          <div className="form-group">
+            <label for="inputPostcode">Postcode</label>
+            <input type="text" className="form-control" id="inputPostcode" />
+          </div>
+          <div className="form-group">
+            <label for="inputPhone">Phone</label>
+            <input type="number" className="form-control" id="inputPhone" />
+          </div>
+          <div className="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input
               type="email"
@@ -19,21 +47,21 @@ export default () => (
             </small>
           </div>
           <div className="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="inputPassword1">Password</label>
             <input
               type="password"
               className="form-control"
-              id="exampleInputPassword1"
+              id="inputPassword1"
             />
           </div>
           <button type="submit" className="btn btn-primary">
-            Submit
+            Register
           </button>
         </form>
       </div>
       <div className="col">
         <img
-          src="https://d9np3dj86nsu2.cloudfront.net/image/9dd9160b543675549b9ad6bfddd6bab0"
+          src="https://insideone.s3-sa-east-1.amazonaws.com/register-image.png"
           className="img-fluid"
           alt="Responsive image"
         />

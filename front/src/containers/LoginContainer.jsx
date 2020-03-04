@@ -5,7 +5,7 @@ export default () => (
     <div className="row align-items-center">
       <div className="col">
         <img
-          src="https://d9np3dj86nsu2.cloudfront.net/image/9dd9160b543675549b9ad6bfddd6bab0"
+          src="https://insideone.s3-sa-east-1.amazonaws.com/login-image.png"
           className="img-fluid"
           alt="Responsive image"
         />
@@ -34,7 +34,7 @@ export default () => (
             />
           </div>
           <button type="submit" className="btn btn-primary">
-            Submit
+            Login
           </button>
         </form>
       </div>
