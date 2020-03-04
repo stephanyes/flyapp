@@ -41001,6 +41001,144 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./src/components/Register.jsx":
+/*!*************************************!*\
+  !*** ./src/components/Register.jsx ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
+  var handleSubmit = _ref.handleSubmit,
+      handleFirstName = _ref.handleFirstName,
+      handleEmail = _ref.handleEmail,
+      handlePassword = _ref.handlePassword,
+      handleLastName = _ref.handleLastName,
+      handleAddress1 = _ref.handleAddress1,
+      handleAddress2 = _ref.handleAddress2,
+      handleAddress3 = _ref.handleAddress3,
+      handlePostCode = _ref.handlePostCode,
+      handlePhone = _ref.handlePhone;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "row align-items-center"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Register"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "inputFirstName"
+  }, "First name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: handleFirstName,
+    name: "firstName",
+    type: "text",
+    className: "form-control",
+    id: "inputFirstName"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "inputLastName"
+  }, "Last name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: handleLastName,
+    name: "lastName",
+    type: "text",
+    className: "form-control",
+    id: "inputLastName"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "inputAdressLine1"
+  }, "Address line 1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: handleAddress1,
+    name: "address1",
+    type: "text",
+    className: "form-control",
+    id: "inputAdressLine1"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "inputAdressLine2"
+  }, "Address line 2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: handleAddress2,
+    name: "address2",
+    type: "text",
+    className: "form-control",
+    id: "inputAdressLine2"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "inputAdressLine3"
+  }, "Address line 3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: handleAddress3,
+    name: "address3",
+    type: "text",
+    className: "form-control",
+    id: "inputAdressLine3"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "inputPostcode"
+  }, "Postcode"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: handlePostCode,
+    name: "postCode",
+    type: "text",
+    className: "form-control",
+    id: "inputPostcode"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "inputPhone"
+  }, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: handlePhone,
+    name: "phone",
+    type: "number",
+    className: "form-control",
+    id: "inputPhone"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "exampleInputEmail1"
+  }, "Email address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: handleEmail,
+    name: "email",
+    type: "email",
+    className: "form-control",
+    id: "exampleInputEmail1",
+    "aria-describedby": "emailHelp"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
+    id: "emailHelp",
+    className: "form-text text-muted"
+  }, "We'll never share your email with anyone else.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-group"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    "for": "inputPassword1"
+  }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    onChange: handlePassword,
+    name: "password",
+    type: "password",
+    className: "form-control",
+    id: "inputPassword1"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: handleSubmit,
+    type: "submit",
+    className: "btn btn-primary"
+  }, "Register"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://insideone.s3-sa-east-1.amazonaws.com/register-image.png",
+    className: "img-fluid",
+    alt: "Responsive image"
+  }))));
+});
+
+/***/ }),
+
 /***/ "./src/containers/CartContainer.jsx":
 /*!******************************************!*\
   !*** ./src/containers/CartContainer.jsx ***!
@@ -41524,99 +41662,177 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _store_actions_register__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/actions/register */ "./src/store/actions/register.js");
+/* harmony import */ var _components_Register__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Register */ "./src/components/Register.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-/* harmony default export */ __webpack_exports__["default"] = (function () {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row align-items-center"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Register"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "inputFirstName"
-  }, "First name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    className: "form-control",
-    id: "inputFirstName"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "inputLastName"
-  }, "Last name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    className: "form-control",
-    id: "inputLastName"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "inputAdressLine1"
-  }, "Address line 1"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    className: "form-control",
-    id: "inputAdressLine1"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "inputAdressLine2"
-  }, "Address line 2"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    className: "form-control",
-    id: "inputAdressLine2"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "inputAdressLine3"
-  }, "Address line 3"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    className: "form-control",
-    id: "inputAdressLine3"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "inputPostcode"
-  }, "Postcode"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "text",
-    className: "form-control",
-    id: "inputPostcode"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "inputPhone"
-  }, "Phone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "number",
-    className: "form-control",
-    id: "inputPhone"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "exampleInputEmail1"
-  }, "Email address"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "email",
-    className: "form-control",
-    id: "exampleInputEmail1",
-    "aria-describedby": "emailHelp"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
-    id: "emailHelp",
-    className: "form-text text-muted"
-  }, "We'll never share your email with anyone else.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "inputPassword1"
-  }, "Password"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "password",
-    className: "form-control",
-    id: "inputPassword1"
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    type: "submit",
-    className: "btn btn-primary"
-  }, "Register"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: "https://insideone.s3-sa-east-1.amazonaws.com/register-image.png",
-    className: "img-fluid",
-    alt: "Responsive image"
-  }))));
-});
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+var RegisterContainer =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(RegisterContainer, _React$Component);
+
+  function RegisterContainer(props) {
+    var _this;
+
+    _classCallCheck(this, RegisterContainer);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(RegisterContainer).call(this, props));
+    _this.state = {
+      firstName: "",
+      lastName: "",
+      address1: "",
+      address2: "",
+      address3: "",
+      postCode: "",
+      email: "",
+      phone: "",
+      password: ""
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleFirstName = _this.handleFirstName.bind(_assertThisInitialized(_this));
+    _this.handleLastName = _this.handleLastName.bind(_assertThisInitialized(_this));
+    _this.handleAddress1 = _this.handleAddress1.bind(_assertThisInitialized(_this));
+    _this.handleAddress2 = _this.handleAddress2.bind(_assertThisInitialized(_this));
+    _this.handleAddress3 = _this.handleAddress3.bind(_assertThisInitialized(_this));
+    _this.handlePostCode = _this.handlePostCode.bind(_assertThisInitialized(_this));
+    _this.handleEmail = _this.handleEmail.bind(_assertThisInitialized(_this));
+    _this.handlePassword = _this.handlePassword.bind(_assertThisInitialized(_this));
+    _this.handlePhone = _this.handlePhone.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(RegisterContainer, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      this.props.crear(this.state);
+    }
+  }, {
+    key: "handleFirstName",
+    value: function handleFirstName(e) {
+      var value = e.target.value;
+      this.setState({
+        firstName: value
+      });
+    }
+  }, {
+    key: "handleLastName",
+    value: function handleLastName(e) {
+      var value = e.target.value;
+      this.setState({
+        lastName: value
+      });
+    }
+  }, {
+    key: "handleAddress1",
+    value: function handleAddress1(e) {
+      var value = e.target.value;
+      this.setState({
+        address1: value
+      });
+    }
+  }, {
+    key: "handleAddress2",
+    value: function handleAddress2(e) {
+      var value = e.target.value;
+      this.setState({
+        address2: value
+      });
+    }
+  }, {
+    key: "handleAddress3",
+    value: function handleAddress3(e) {
+      var value = e.target.value;
+      this.setState({
+        address3: value
+      });
+    }
+  }, {
+    key: "handlePostCode",
+    value: function handlePostCode(e) {
+      var value = e.target.value;
+      this.setState({
+        postCode: value
+      });
+    }
+  }, {
+    key: "handlePhone",
+    value: function handlePhone(e) {
+      var value = e.target.value;
+      this.setState({
+        phone: value
+      });
+    }
+  }, {
+    key: "handleEmail",
+    value: function handleEmail(e) {
+      var value = e.target.value;
+      this.setState({
+        email: value
+      });
+    }
+  }, {
+    key: "handlePassword",
+    value: function handlePassword(e) {
+      var value = e.target.value;
+      this.setState({
+        password: value
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-group"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Register__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        handleFirstName: this.handleFirstName,
+        handleEmail: this.handleEmail,
+        handlePassword: this.handlePassword,
+        handleSubmit: this.handleSubmit,
+        handleLastName: this.handleLastName,
+        handleAddress1: this.handleAddress1,
+        handleAddress2: this.handleAddress2,
+        handleAddress3: this.handleAddress3,
+        handlePostCode: this.handlePostCode,
+        handlePhone: this.handlePhone
+      }));
+    }
+  }]);
+
+  return RegisterContainer;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch, state) {
+  return {
+    crear: function crear(user) {
+      return dispatch(Object(_store_actions_register__WEBPACK_IMPORTED_MODULE_2__["fetchUserModel"])(user));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mapDispatchToProps)(RegisterContainer));
 
 /***/ }),
 
@@ -41682,15 +41898,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( // <Provider store={store}>
-//     <BrowserRouter>
-//         <Route path="/" component={Main} />
-//     </BrowserRouter>
-// </Provider>,
-react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_4__["Provider"], {
+  store: _store__WEBPACK_IMPORTED_MODULE_5__["default"]
+}, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
   path: "/",
   component: _components_Main__WEBPACK_IMPORTED_MODULE_3__["default"]
-})), document.getElementById("app"));
+}))), document.getElementById("app"));
+
+/***/ }),
+
+/***/ "./src/store/actions/register.js":
+/*!***************************************!*\
+  !*** ./src/store/actions/register.js ***!
+  \***************************************/
+/*! exports provided: fetchUserModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserModel", function() { return fetchUserModel; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _reducers_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../reducers/constants */ "./src/store/reducers/constants.js");
+
+
+
+var createUser = function createUser(user) {
+  return {
+    type: _reducers_constants__WEBPACK_IMPORTED_MODULE_1__["CREATE_USER"],
+    user: user
+  };
+};
+
+var fetchUserModel = function fetchUserModel(user) {
+  return function (dispatch) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/auth/register", user);
+  };
+};
 
 /***/ }),
 
@@ -41714,6 +41958,24 @@ __webpack_require__.r(__webpack_exports__);
 
 var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEBPACK_IMPORTED_MODULE_0__["compose"];
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers__WEBPACK_IMPORTED_MODULE_3__["default"], composeEnhancers(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(Object(redux_logger__WEBPACK_IMPORTED_MODULE_1__["createLogger"])(), redux_thunk__WEBPACK_IMPORTED_MODULE_2__["default"]))));
+<<<<<<< HEAD
+=======
+
+/***/ }),
+
+/***/ "./src/store/reducers/constants.js":
+/*!*****************************************!*\
+  !*** ./src/store/reducers/constants.js ***!
+  \*****************************************/
+/*! exports provided: CREATE_USER */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_USER", function() { return CREATE_USER; });
+// Register
+var CREATE_USER = 'CREATE_USER';
+>>>>>>> 40632f8444a3a49ee185ad34ed5d4e42808a7d5b
 
 /***/ }),
 
@@ -41727,9 +41989,45 @@ var composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEB
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
+/* harmony import */ var _registerReducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./registerReducer */ "./src/store/reducers/registerReducer.js");
 //Aca levantamos todos lo0s reducers
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({}));
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  register: _registerReducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+}));
+
+/***/ }),
+
+/***/ "./src/store/reducers/registerReducer.js":
+/*!***********************************************!*\
+  !*** ./src/store/reducers/registerReducer.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./src/store/reducers/constants.js");
+
+var initialState = {
+  user: {}
+};
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    //Single
+    case _constants__WEBPACK_IMPORTED_MODULE_0__["CREATE_USER"]:
+      return Object.assign({}, state, {
+        user: action.user
+      });
+
+    default:
+      return state;
+  }
+});
 
 /***/ })
 

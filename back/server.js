@@ -33,6 +33,8 @@ app.use(session({
 //usar passport
 app.use(passport.initialize())
 app.use(passport.session())
+app.use('/products', productos)
+app.use('/auth', users)
 
 passport.use(new LocalStrategy({
     usernameField: 'email'
@@ -63,8 +65,6 @@ passport.deserializeUser((id, done) => {
         })
 })
 
-app.use('/products', productos)
-app.use('/auth', users)
 
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
