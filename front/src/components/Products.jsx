@@ -1,41 +1,43 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default ({ products }) => {
-    return (
-        < div >
-            <div className="card text-center">
-                <div className="card-body">
-                    <h1 className="card-title">Experiences</h1>
-                    <h4 className="card-text">
-                        We give you a lot of special experiences for your enjoy
-            </h4>
+export default ({ products, handleClick }) => {
+  return (
+    <div>
+      <div className="card text-center">
+        <div className="card-body">
+          <h1 className="card-title">Experiences</h1>
+          <h4 className="card-text">
+            We give you a lot of special experiences for your enjoy
+          </h4>
+        </div>
+      </div>
+      <div className="container">
+        <div className="card-columns">
+          {products
+            ? products.map(single => (
+                <div className="card" key={single.id}>
+                  <Link to={`/experience/${single.id}`}>
+                    <img
+                      src={single.img_1}
+                      className="card-img-top"
+                      alt="..."
+                    />
+                  </Link>
+                  <div className="card-body">
+                    <h5 className="card-title">{single.name}</h5>
+                    <p className="card-text">{single.description}</p>
+                    <p>Price: {single.price}</p>
+                    <p>Stock: {single.stock}</p>
+                  </div>
                 </div>
-            </div>
-            <div className="container">
-                <div className="card-columns">
-                    {products ?
-                        products.map((single) => (
-                            <div className="card" key={single.id}>
-                                <img
-                                    src={single.img_1}
-                                    className="card-img-top"
-                                    alt="..."
-                                />
-                                <div className="card-body">
-                                    <h5 className="card-title">{single.name}</h5>
-                                    <p className="card-text">
-                                        {single.description}
-                                    </p>
-                                    <p>Price: {single.price}</p>
-                                    <p>Stock: {single.stock}</p>
-                                </div>
-                            </div>
-                        )) : null}
-                </div>
-            </div>
-        </div >
-    )
-}
+              ))
+            : null}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // id: 1
 // name: "Parachute jump in Dubai"

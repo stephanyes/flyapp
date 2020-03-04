@@ -24,7 +24,7 @@ export default class Main extends React.Component {
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/experiences" component={ProductsContainer} />
-          <Route exact path="/experience" component={ProductIDContainer} />
+          <Route path="/experience/:id" component={ProductIDContainer} />
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/cart" component={CartContainer} />
