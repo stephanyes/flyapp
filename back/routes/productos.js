@@ -13,11 +13,7 @@ router.get('/all', (req, res) => {
 
 //Trae uno en particular
 router.get('/:id', (req, res) => {
-    Product.findByPk({
-        where: {
-            id: req.params.id
-        }
-    }).then(product => res.status(200).send(product))
+    Product.findByPk(req.params.id).then(product => res.status(200).send(product))
 })
 
 //Crea un producto
