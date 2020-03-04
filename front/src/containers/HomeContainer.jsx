@@ -18,7 +18,7 @@ export default () => (
       </div>
       <div className="col">
         <img
-          src="https://d9np3dj86nsu2.cloudfront.net/image/9dd9160b543675549b9ad6bfddd6bab0"
+          src="https://insideone.s3-sa-east-1.amazonaws.com/image-home-04.png"
           class="img-fluid"
           alt="Responsive image"
         />
@@ -98,6 +98,7 @@ export default () => (
         </div>
       </div>
     </div>
+
     <div className="card text-center">
       <div className="card-body">
         <h1 className="card-title">Specials experiences for you</h1>
@@ -169,7 +170,7 @@ export default () => (
     <div className="row align-items-center">
       <div className="col">
         <img
-          src="https://d9np3dj86nsu2.cloudfront.net/image/9dd9160b543675549b9ad6bfddd6bab0"
+          src="https://insideone.s3-sa-east-1.amazonaws.com/image-home-01.png"
           class="img-fluid"
           alt="Responsive image"
         />
