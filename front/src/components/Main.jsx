@@ -20,7 +20,6 @@ export default class Main extends React.Component {
     return (
       <div>
         <SearchContainer />
-
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/experiences" component={ProductsContainer} />
@@ -29,7 +28,6 @@ export default class Main extends React.Component {
           <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/cart" component={CartContainer} />
           <Route exact path="/profile" component={ProfileContainer} />
-
           {/* <Redirect from="/" to="/" />  */}
         </Switch>
       </div>
