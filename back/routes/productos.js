@@ -22,20 +22,20 @@ router.post('/', (req, res) => {
     Product.create(req.body).then(created => res.status(201).send(created))
 })
 //Trae Busquedas del Navbar
-router.use("/searchBar", (req,res)=>{
+router.use("/searchBar", (req, res) => {
     console.log("entre al search")
-    
+
     const Op = Sequelize.Op;
     Product.findAll({
         limit: 10,
         where: {
             name: {
-                [Op.like]: '%' + req.body.search + '%'
+                [Op.iLike]: '%' + req.body.search + '%'
             }
         }
     })
-    .then(products => {res.status(200).json(products)})
-})    
+        .then(products => { res.status(200).json(products) })
+})
 //Modifica un producto
 router.put('/:id', (req, res) => {
     Product.update(req.body, {

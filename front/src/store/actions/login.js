@@ -13,7 +13,10 @@ const userLogout = () => ({
 
 export const login = (user) => dispatch =>
     axios.post(`/auth/login`, { email: user.email, password: user.password })
-        .then(userLogeado => dispatch(userLogin(userLogeado.data)))
+        .then(userLogeado => {
+            // console.log(userLogeado.data); userLogeado.data devuelve el usuario
+            return dispatch(userLogin(userLogeado.data))
+        })
 
 export const logout = () => dispatch =>
     axios.get(`/auth/logout`)

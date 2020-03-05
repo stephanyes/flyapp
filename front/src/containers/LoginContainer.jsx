@@ -23,8 +23,7 @@ class LoginContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.mandandoUser(this.state);
-    this.props.history.push("/");
+    this.props.mandandoUser(this.state).then(this.props.history.push("/"));
   }
 
   render() {

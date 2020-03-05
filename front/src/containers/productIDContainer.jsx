@@ -6,7 +6,6 @@ import { fetchSingleProduct } from "../store/actions/products";
 class ProductIDContainer extends React.Component {
   componentDidMount() {
     this.props.seteador(this.props.match.params.id);
-    console.log(this.props);
   }
   render() {
     const { product } = this.props;
