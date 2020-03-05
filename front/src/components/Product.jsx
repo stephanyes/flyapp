@@ -1,20 +1,63 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default ({ producto }) => {
   return (
     <div>
-      <div className="row aling-items-center">
-        <div className="col">
-          <div className="jumbotron">
+      <div
+        className="row aling-items-center"
+        style={{
+          backgroundColor: "#ffffff"
+        }}
+      >
+        <div
+          className="col"
+          style={{
+            padding: "40px"
+          }}
+        >
+          <div
+            className="jumbotron"
+            style={{
+              backgroundColor: "#ffffff"
+            }}
+          >
             <h4>****</h4>
-            <h1 className="display-4">{producto.name}</h1>
+            <h1
+              className="font-weight-bold"
+              style={{
+                paddingBottom: "10px"
+              }}
+            >
+              {producto.name}
+            </h1>
 
-            <p className="lead">{producto.description} </p>
-            <h5>{`U$D ${producto.price}`}</h5>
+            <p
+              className="font-weight-normal"
+              style={{
+                paddingBottom: "20px"
+              }}
+            >
+              {producto.description}{" "}
+            </p>
+            <h5
+              className="font-weight-normal"
+              style={{
+                paddingBottom: "20px",
+                marginBottom: "20px"
+              }}
+            >{`U$D ${producto.price}`}</h5>
             <h6>{`Stock: ${producto.stock}`}</h6>
-            <a className="btn btn-primary btn-lg" href="#" role="button">
+            <Link
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#2EC4B6",
+                borderColor: "#2EC4B6"
+              }}
+              to="/cart"
+            >
               Add to Cart
-            </a>
+            </Link>
           </div>
         </div>
 

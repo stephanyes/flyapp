@@ -13,7 +13,12 @@ export default ({
   handlePhone
 }) => (
   <div>
-    <div className="row align-items-center">
+    <div
+      className="row align-items-center"
+      style={{
+        backgroundColor: "#ffffff"
+      }}
+    >
       <div className="col">
         {/* 
         
@@ -123,8 +128,20 @@ export default ({
         </form>
  */}
 
-        <form>
-          <h2>Register</h2>
+        <form
+          style={{
+            padding: "40px",
+            marginLeft: "20px"
+          }}
+        >
+          <h1
+            className="font-weight-bold"
+            style={{
+              paddingBottom: "20px"
+            }}
+          >
+            Register
+          </h1>
           <div className="form-row">
             <div className="form-group col-md-6">
               <label for="inputFirstName">First Name</label>
@@ -203,7 +220,12 @@ export default ({
               />
             </div>
 
-            <div className="form-group col-md-4">
+            <div
+              className="form-group col-md-4"
+              style={{
+                paddingBottom: "20px"
+              }}
+            >
               <label for="inputZip">Zip</label>
               <input
                 onChange={handlePostCode}
@@ -218,6 +240,10 @@ export default ({
             onClick={handleSubmit}
             type="submit"
             className="btn btn-primary"
+            style={{
+              backgroundColor: "#2EC4B6",
+              borderColor: "#2EC4B6"
+            }}
           >
             Register
           </button>
