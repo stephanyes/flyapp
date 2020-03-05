@@ -3,7 +3,12 @@ import React from "react";
 export default ({ handleSubmit, handleChange, state }) => {
   return (
     <div>
-      <div className="row align-items-center">
+      <div
+        className="row align-items-center"
+        style={{
+          backgroundColor: "#ffffff"
+        }}
+      >
         <div className="col">
           <img
             src="https://d9np3dj86nsu2.cloudfront.net/image/9dd9160b543675549b9ad6bfddd6bab0"
@@ -12,9 +17,22 @@ export default ({ handleSubmit, handleChange, state }) => {
           />
         </div>
         <div className="col">
-          <form onSubmit={handleSubmit}>
+          <form
+            onSubmit={handleSubmit}
+            style={{
+              padding: "40px",
+              marginRight: "20px"
+            }}
+          >
             <div className="form-group">
-              <h2>Login</h2>
+              <h1
+                className="font-weight-bold"
+                style={{
+                  paddingBottom: "20px"
+                }}
+              >
+                Login
+              </h1>
               <label for="exampleInputEmail1">Email address</label>
               <input
                 name="email"
@@ -28,7 +46,12 @@ export default ({ handleSubmit, handleChange, state }) => {
                 We'll never share your email with anyone else.
               </small>
             </div>
-            <div className="form-group">
+            <div
+              className="form-group"
+              style={{
+                paddingBottom: "20px"
+              }}
+            >
               <label for="exampleInputPassword1">Password</label>
               <input
                 name="password"
@@ -38,7 +61,14 @@ export default ({ handleSubmit, handleChange, state }) => {
                 onChange={e => handleChange(e)} // mismo que con el email
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              style={{
+                backgroundColor: "#2EC4B6",
+                borderColor: "#2EC4B6"
+              }}
+            >
               Submit
             </button>
           </form>
