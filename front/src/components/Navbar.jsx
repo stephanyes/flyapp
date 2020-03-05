@@ -48,11 +48,13 @@ export default ({ handleChange, user }) => {
             />
             <ul className="navbar-nav mr-auto">
               {user.firstName ? (
-                <li className="nav-item active">
-                  <Link className="nav-link" to="/profile">
-                    {user.firstName}
-                  </Link>
-                </li>
+                <ul className="navbar-nav mr-auto">
+                  <li className="nav-item active">
+                    <Link className="nav-link" to="/profile">
+                      {user.firstName}
+                    </Link>
+                  </li>
+                </ul>
               ) : (
                 <ul className="navbar-nav mr-auto">
                   <li className="nav-item active">
