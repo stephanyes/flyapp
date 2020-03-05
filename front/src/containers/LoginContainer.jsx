@@ -20,7 +20,6 @@ class LoginContainer extends React.Component {
     this.handleChange1 = this.handleChange1.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    
   }
 
   handleChange1(e) {
@@ -29,16 +28,19 @@ class LoginContainer extends React.Component {
     });
   }
   handleChange2(e) {
+    console.log("hoooooooooooooooooo");
     this.setState({
       password: e.target.value
     });
   }
 
   handleSubmit(e) {
+    console.log("hola lcdtm");
     e.preventDefault();
-    this.props.mandandoUser(this.state)
-    .then(() => this.props.history.push("/"))
-    .catch(()=> this.setState({error:true}))
+    this.props
+      .mandandoUser(this.state)
+      .then(() => this.props.history.push("/"))
+      .catch(() => this.setState({ error: true }));
   }
 
   render() {
@@ -52,7 +54,5 @@ class LoginContainer extends React.Component {
     );
   }
 }
-
-
 
 export default connect(null, mapDispatchToProps)(LoginContainer);

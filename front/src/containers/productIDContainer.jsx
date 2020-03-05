@@ -2,6 +2,7 @@ import React from "react";
 import Product from "../components/Product";
 import { connect } from "react-redux";
 import { fetchSingleProduct } from "../store/actions/products";
+import Axios from "axios";
 
 class ProductIDContainer extends React.Component {
   constructor() {
@@ -15,16 +16,18 @@ class ProductIDContainer extends React.Component {
 
   storingLocal(e, producto) {
     e.preventDefault();
-    console.log(producto);
-    let algo = JSON.parse(window.localStorage.getItem("testing"));
-    if (algo) {
-      window.localStorage.setItem(
-        "testing",
-        JSON.stringify([...algo, producto])
-      );
-    } else {
-      window.localStorage.setItem("testing", JSON.stringify([producto]));
-    }
+    Axios.post("/cart/addtocart", { producto }).then(() => {
+      console.log(producto);
+      let algo = JSON.parse(window.localStorage.getItem("testing"));
+      if (algo) {
+        window.localStorage.setItem(
+          "testing",
+          JSON.stringify([...algo, producto])
+        );
+      } else {
+        window.localStorage.setItem("testing", JSON.stringify([producto]));
+      }
+    });
   }
 
   render() {
