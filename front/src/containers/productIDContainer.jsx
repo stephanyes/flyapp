@@ -11,7 +11,6 @@ class ProductIDContainer extends React.Component {
   }
   componentDidMount() {
     this.props.seteador(this.props.match.params.id);
-    console.log(this.props);
   }
 
   storingLocal(e, producto) {

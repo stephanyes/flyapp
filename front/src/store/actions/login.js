@@ -13,8 +13,17 @@ const userLogout = () => ({
 
 export const login = (user) => dispatch =>
     axios.post(`/auth/login`, { email: user.email, password: user.password })
-        .then(userLogeado => dispatch(userLogin(userLogeado.data)))
+        .then(userLogeado => {
+            return dispatch(userLogin(userLogeado.data))
+        })
 
 export const logout = () => dispatch =>
     axios.get(`/auth/logout`)
         .then(() => dispatch(userLogout()))
+
+
+export const mantenermeLogueado = () => dispatch =>
+    axios.get("http://localhost:3000/auth/user")
+        .then(res => {
+            return dispatch(userLogin(res.data))
+        })

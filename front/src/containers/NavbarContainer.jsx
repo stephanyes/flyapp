@@ -1,80 +1,68 @@
 import React from "react";
-import { Link } from "react-router-dom";
-export default props => {
-  console.log(props);
-  return (
-    <div>
-      <nav
-        class="navbar navbar-expand-lg navbar-light"
-        style={{
-          backgroundColor: "#ffffff"
-        }}
-      >
-        <Link className="navbar-brand" to="/">
-          <img
-            src="https://insideone.s3-sa-east-1.amazonaws.com/flyapp-logo.png"
-            height="40"
-            alt=""
-          />
-        </Link>
+import { connect } from "react-redux";
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+import { fetchSearchBar } from "../store/actions/search";
+import Search from "../components/Search";
+import Navbar from "../components/Navbar";
+import { withRouter } from "react-router-dom";
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <Link className="nav-link" to="/experiences">
-                Experiences
-              </Link>
-            </li>
-          </ul>
-          <form className="form-inline my-2 my-lg-0">
-            <input
-              onChange={props.handleChange}
-              className="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item active">
-                <Link className="nav-link" to="/register">
-                  Register
-                </Link>
-              </li>
-              <li className="nav-item active">
-                <Link className="nav-link" to="/profile">
-                  My Account
-                </Link>
-              </li>
-              <li className="nav-item active">
-                <Link className="nav-link" to="/cart">
-                  <img
-                    src="https://insideone.s3-sa-east-1.amazonaws.com/buy-cart-black.png"
-                    height="20"
-                    alt=""
-                  />
-                </Link>
-              </li>
-            </ul>
-          </form>
-        </div>
-      </nav>
-    </div>
-  );
+import { mantenermeLogueado } from "../store/actions/login";
+
+const mapStateToProps = state => {
+  return {
+    state,
+    user: state.userLogin.loginUser
+  };
 };
+
+const mapDispatchToProps = (dispatch, state) => {
+  return {
+    productFinder: searched => dispatch(fetchSearchBar(searched)),
+    mantenermeLogueado: () => dispatch(mantenermeLogueado())
+  };
+};
+
+class NavbarContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.mantenermeLogueado();
+  }
+
+  handleChange(evt) {
+    let search = evt.target.value;
+    this.setState({
+      inputValue: search
+    });
+    if (search.length > 1) {
+      this.props
+        .productFinder(search)
+        .then(() => this.props.history.push("/results"));
+    } else return this.props.history.push("/");
+  }
+
+  render() {
+    const { user } = this.props;
+    return (
+      <div>
+        <Navbar
+          user={user}
+          props={this.props}
+          state={this.state}
+          handleChange={this.handleChange}
+        />
+        <Search props={this.props} state={this.state} />
+      </div>
+    );
+  }
+}
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(NavbarContainer)
+);

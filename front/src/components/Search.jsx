@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default props => {
-  // console.log(props)
   let products = props.props.state.search_bar.searchBar;
   let input = props.state.inputValue;
-  console.log(props.props.history.location.pathname);
   return (
     <div
       style={{
