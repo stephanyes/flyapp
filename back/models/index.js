@@ -12,14 +12,14 @@ const sequelize = require("../db/db");
 class Product_Cart extends S.Model {}
 Product_Cart.init(
   {
-    product_id: {
+    productId: {
       type: S.INTEGER,
       references: {
         model: Product,
         key: "id"
       }
     },
-    cart_id: {
+    cartId: {
       type: S.INTEGER,
       references: {
         model: Cart,
@@ -48,12 +48,11 @@ Order_product.init(
 //Relaciones
 Cart.belongsToMany(Product, { through: "product_cart" });
 Product.belongsToMany(Cart, { through: "product_cart" });
-
 //order_product
 Order.belongsToMany(Product, { through: "order_product" });
 Product.belongsToMany(Order, { through: "order_product" });
 
-User.hasOne(Cart, { foreignKey: "id" }); // esta cheequeado?
+User.hasOne(Cart); // esta cheequeado?
 
 Category.hasOne(Product);
 User.hasOne(Order);
