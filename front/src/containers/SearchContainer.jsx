@@ -1,17 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 
-// import Search from "../components/Search";
-// import NavbarContainer from "./NavbarContainer";
 import Navbar from "../components/Navbar";
 
 import { withRouter } from "react-router-dom";
 import { fetchSearchBar } from "../store/actions/search";
 import Search from "../components/Search";
+import NavbarContainer from "./NavbarContainer";
 
 const mapStateToProps = state => {
   return {
-    state
+    state,
+    user: state.userLogin.loginUser
   };
 };
 const mapDispatchToProps = (dispatch, state) => {
@@ -41,9 +41,11 @@ class SearchContainer extends React.Component {
   }
 
   render() {
+    const { user } = this.props;
     return (
       <div>
         <Navbar
+          user={user}
           props={this.props}
           state={this.state}
           handleChange={this.handleChange}

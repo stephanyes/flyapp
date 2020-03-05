@@ -4,24 +4,17 @@ import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 
 class NavbarContainer extends React.Component {
-  componentDidMount() {
-    console.log(this.props.user);
-  }
-
   render() {
-    const { user } = this.props;
-    return <Navbar user={user} />;
+    return <Navbar />;
   }
 }
 
 const mapStateToProps = state => {
-  return {
-    user: state.userLogin.loginUser
-  };
+  return {};
 };
 
 const mapDispatchToProps = dispatch => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarContainer);
+export default connect(null, null)(NavbarContainer);

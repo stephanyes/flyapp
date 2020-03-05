@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 export default ({ handleChange, user }) => {
   return (
     <div>
-      <h1>Hola{/* QUIERO PROBAR user.name*/}</h1>
       <nav
         class="navbar navbar-expand-lg navbar-light"
         style={{
@@ -38,21 +37,27 @@ export default ({ handleChange, user }) => {
                 Experiences
               </Link>
             </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to="/register">
-                Register
-              </Link>
-            </li>
-            <li className="nav-item active">
-              <Link className="nav-link" to="/profile">
-                My Account
-              </Link>
-            </li>
+            {user.firstName ? (
+              <li className="nav-item active">
+                <Link className="nav-link" to="/profile">
+                  My Account
+                </Link>
+              </li>
+            ) : (
+              <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item active">
+                  <Link className="nav-link" to="/register">
+                    Register
+                  </Link>
+                </li>
+              </ul>
+            )}
+
             <li className="nav-item active">
               <Link className="nav-link" to="/cart">
                 <img
