@@ -10,17 +10,12 @@ const users = require("./routes/users")
 const { User } = require('../back/models/index')
 const path = require('path')
 const LocalStrategy = require('passport-local').Strategy
-
-
-
 const app = express();
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 app.use(cookieParser())
-
-
 
 
 app.use(session({
@@ -33,8 +28,17 @@ app.use(session({
 //usar passport
 app.use(passport.initialize())
 app.use(passport.session())
-app.use('/products', productos)
-app.use('/auth', users)
+
+
+passport.serializeUser((user, done) => {
+    done(null, user.id)
+})
+passport.deserializeUser((id, done) => {
+    User.findByPk(id)
+        .then(user => {
+            done(null, user)
+        })
+})
 
 passport.use(new LocalStrategy({
     usernameField: 'email'
@@ -50,22 +54,15 @@ passport.use(new LocalStrategy({
                 }
                 return done(null, user)
             })
-            .catch(done)
+            .catch((err)=>{console.log(err) 
+                done(err)})
     }
 ))
 
+
+app.use('/products', productos)
+app.use('/auth', users)
 //serealizar y deserializar el passport
-passport.serializeUser((user, done) => {
-    done(null, user.id)
-})
-passport.deserializeUser((id, done) => {
-    User.findByPk(id)
-        .then(user => {
-            done(null, user)
-        })
-})
-
-
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 });
