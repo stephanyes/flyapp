@@ -1,81 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default () => (
-  <div
-    style={{
-      backgroundColor: "white"
-    }}
-  >
-    <div
-      className="card text-center"
-      style={{
-        borderColor: "#ffffff"
-      }}
-    >
-      <div
-        className="card-body"
-        style={{
-          padding: "40px"
-        }}
-      >
-        <h1
-          className="font-weight-bold"
-          style={{
-            padding: "10px"
-          }}
-        >
-          Profile
-        </h1>
-        <h5
-          className="font-weight-normal"
-          style={{
-            marginBottom: "20px"
-          }}
-        >
-          This is your actual profile
-        </h5>
-        <Link
-          className="btn btn-primary btn-lg"
-          style={{
-            backgroundColor: "#2EC4B6",
-            borderColor: "#2EC4B6"
-          }}
-          to="/"
-        >
-          Logout
-        </Link>
-      </div>
-    </div>
+import Profile from "../components/Profile";
+import { logout } from "../store/actions/login";
 
-    <div
-      className="container"
-      style={{
-        padding: "20px"
-      }}
-    >
-      <h3 className="font-weight-bold">Previous purchases</h3>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-  </div>
-);
+const mapDispatchToProps = function(dispatch, ownProps) {
+  return {
+    logout: user => dispatch(logout(user))
+  };
+};
+const mapStateToProps = function(state) {
+  return {};
+};
+
+class ProfileContainer extends React.Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(e) {
+    this.props
+      .logout()
+      .then(() => this.props.history.push("/"))
+      .catch(() => this.setState({ error: true }));
+  }
+  render() {
+    return <Profile handleClick={this.handleClick} />;
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);

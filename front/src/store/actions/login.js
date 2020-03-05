@@ -18,7 +18,7 @@ export const login = (user) => dispatch =>
         })
 
 export const logout = () => dispatch =>
-    axios.get(`/auth/logout`)
+    axios.post(`/auth/logout`)
         .then(() => dispatch(userLogout()))
 
 
