@@ -6,11 +6,6 @@ const userLogin = (user) => ({
     user,
 });
 
-const actualizarLogin = (userActualizado) => ({
-    type: "ACTUALIZAR_LOGIN",
-    userActualizado,
-})
-
 const userLogout = () => ({
     type: USER_LOGOUT,
     user: {}
@@ -30,5 +25,5 @@ export const logout = () => dispatch =>
 export const mantenermeLogueado = () => dispatch =>
     axios.get("http://localhost:3000/auth/user")
         .then(res => {
-            return dispatch(actualizarLogin(res.data))
+            return dispatch(userLogin(res.data))
         })

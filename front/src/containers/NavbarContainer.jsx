@@ -5,6 +5,8 @@ import { fetchSearchBar } from "../store/actions/search";
 import Search from "../components/Search";
 import Navbar from "../components/Navbar";
 
+import { mantenermeLogueado } from "../store/actions/login";
+
 class NavbarContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -12,6 +14,10 @@ class NavbarContainer extends React.Component {
       inputValue: ""
     };
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.mantenermeLogueado();
   }
 
   handleChange(evt) {
@@ -51,7 +57,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, state) => {
   return {
-    productFinder: searched => dispatch(fetchSearchBar(searched))
+    productFinder: searched => dispatch(fetchSearchBar(searched)),
+    mantenermeLogueado: () => dispatch(mantenermeLogueado())
   };
 };
 

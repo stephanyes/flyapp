@@ -40,7 +40,7 @@ export default ({ handleChange, user }) => {
             {user.firstName ? (
               <li className="nav-item active">
                 <Link className="nav-link" to="/profile">
-                  My Account
+                  {`${user.firstName}`}
                 </Link>
               </li>
             ) : (
