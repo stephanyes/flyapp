@@ -10,7 +10,8 @@ export default (state = initialState, action) => {
             return Object.assign({}, state, { loginUser: action.user }); //action.user = req.user de rutas
         case USER_LOGOUT:
             return Object.assign({}, state, { loginUser: action.user }); // action.user = {}
-
+        case "ACTUALIZAR_LOGIN":
+            return Object.assign({}, state, { loginUser: action.userActualizado }); //action.user = req.user de rutas
         default:
             return state;
     }

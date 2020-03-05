@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ producto }) => {
+export default ({ producto, storing }) => {
   return (
     <div>
       <div
@@ -49,12 +49,13 @@ export default ({ producto }) => {
             >{`U$D ${producto.price}`}</h5>
             <h6>{`Stock: ${producto.stock}`}</h6>
             <Link
+              onClick={e => storing(e, producto)}
               className="btn btn-primary btn-lg"
               style={{
                 backgroundColor: "#2EC4B6",
                 borderColor: "#2EC4B6"
               }}
-              to="/cart"
+              to={`/experience/${producto.id}`}
             >
               Add to Cart
             </Link>

@@ -6,13 +6,11 @@ const passport = require('passport')
 const { User } = require('../models/index')
 
 const isClient = (req, res, next) => {
-    console.log('se ejecuta');
+    
     if (req.isAuthenticated()) {
         console.log('pase el middleware');
-        next()
-    } else {
-        console.log('entre aca porque no pase el md!');
-        res.redirect('/login')
+        res.json(req.user)
+    } else { res.json("")
     }
 }
 
@@ -45,12 +43,15 @@ const isSuperAdmin = (req, res, next) => {
 
 
 router.post('/logout', (req, res) => {
-    req.logout();
-    res.redirect("/")
+    console.log(req.user)
+    var a = req.logout()
+    // req.logout();
+    console.log(a)
+    res.json(req.user)
 })
 
 router.post('/login', passport.authenticate("local"), (req, res, next) => {
-    console.log('entre al login')
+    // console.log(req.user,'entre al login')
     res.status(201).json(req.user)
 })
 
@@ -63,9 +64,7 @@ router.post('/register', (req, res) => {
 
 //Esto levanta la info del cliente isloggdIn es el middleware que esta arriba
 //para busqueda x axios (con esto levantamos la info del user , pasamos info del back al front)
-router.get('/user', isClient, (req, res) => {
-    res.json(req.user)
-})
+router.get('/user', isClient)
 
 router.put('/superAdmin', isSuperAdmin, (req, res, next) => {
     console.log('entre a /superAdmin')
