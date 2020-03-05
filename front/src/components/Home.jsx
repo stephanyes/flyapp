@@ -48,7 +48,7 @@ export default ({ products }) => {
               }}
               to="/experiences"
             >
-              Disvover Experiences
+              Discover Experiences
             </Link>
           </div>
         </div>
