@@ -28,12 +28,14 @@ class LoginContainer extends React.Component {
     });
   }
   handleChange2(e) {
+    console.log("hoooooooooooooooooo");
     this.setState({
       password: e.target.value
     });
   }
 
   handleSubmit(e) {
+    console.log("hola lcdtm");
     e.preventDefault();
     this.props
       .mandandoUser(this.state)
