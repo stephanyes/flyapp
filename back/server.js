@@ -18,7 +18,6 @@ app.use(express.json());
 app.use(express.static(__dirname + "/public"));
 app.use(cookieParser());
 
-
 app.use(
   session({
     secret: "tuMadre",
@@ -28,20 +27,17 @@ app.use(
 );
 
 //usar passport
-app.use(passport.initialize())
-app.use(passport.session())
-
+app.use(passport.initialize());
+app.use(passport.session());
 
 passport.serializeUser((user, done) => {
-    done(null, user.id)
-})
+  done(null, user.id);
+});
 passport.deserializeUser((id, done) => {
-    User.findByPk(id)
-        .then(user => {
-            done(null, user)
-        })
-})
-
+  User.findByPk(id).then(user => {
+    done(null, user);
+  });
+});
 
 app.use("/products", productos);
 app.use("/auth", users);
@@ -70,11 +66,11 @@ passport.use(
   )
 );
 
-app.use('/products', productos)
-app.use('/auth', users)
+app.use("/products", productos);
+app.use("/auth", users);
 //serealizar y deserializar el passport
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // // catch 404 and forward to error handler

@@ -37,36 +37,6 @@ export default ({ handleChange, user }) => {
                 Experiences
               </Link>
             </li>
-            {user.firstName ? (
-              <li className="nav-item active">
-                <Link className="nav-link" to="/profile">
-                  {`${user.firstName}`}
-                </Link>
-              </li>
-            ) : (
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                  <Link className="nav-link" to="/login">
-                    Login
-                  </Link>
-                </li>
-                <li className="nav-item active">
-                  <Link className="nav-link" to="/register">
-                    Register
-                  </Link>
-                </li>
-              </ul>
-            )}
-
-            <li className="nav-item active">
-              <Link className="nav-link" to="/cart">
-                <img
-                  src="https://insideone.s3-sa-east-1.amazonaws.com/buy-cart-black.png"
-                  height="20"
-                  alt=""
-                />
-              </Link>
-            </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <input
@@ -76,6 +46,37 @@ export default ({ handleChange, user }) => {
               placeholder="Search"
               aria-label="Search"
             />
+            <ul className="navbar-nav mr-auto">
+              {user.firstName ? (
+                <li className="nav-item active">
+                  <Link className="nav-link" to="/profile">
+                    {user.firstName}
+                  </Link>
+                </li>
+              ) : (
+                <ul className="navbar-nav mr-auto">
+                  <li className="nav-item active">
+                    <Link className="nav-link" to="/login">
+                      Login
+                    </Link>
+                  </li>
+                  <li className="nav-item active">
+                    <Link className="nav-link" to="/register">
+                      Register
+                    </Link>
+                  </li>
+                </ul>
+              )}
+              <li className="nav-item active">
+                <Link className="nav-link" to="/cart">
+                  <img
+                    src="https://insideone.s3-sa-east-1.amazonaws.com/buy-cart-black.png"
+                    height="20"
+                    alt=""
+                  />
+                </Link>
+              </li>
+            </ul>
           </form>
         </div>
       </nav>

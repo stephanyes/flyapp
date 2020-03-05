@@ -4,8 +4,23 @@ import { connect } from "react-redux";
 import { fetchSearchBar } from "../store/actions/search";
 import Search from "../components/Search";
 import Navbar from "../components/Navbar";
+import { withRouter } from "react-router-dom";
 
 import { mantenermeLogueado } from "../store/actions/login";
+
+const mapStateToProps = state => {
+  return {
+    state,
+    user: state.userLogin.loginUser
+  };
+};
+
+const mapDispatchToProps = (dispatch, state) => {
+  return {
+    productFinder: searched => dispatch(fetchSearchBar(searched)),
+    mantenermeLogueado: () => dispatch(mantenermeLogueado())
+  };
+};
 
 class NavbarContainer extends React.Component {
   constructor(props) {
@@ -48,18 +63,6 @@ class NavbarContainer extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    state,
-    user: state.userLogin.loginUser
-  };
-};
-
-const mapDispatchToProps = (dispatch, state) => {
-  return {
-    productFinder: searched => dispatch(fetchSearchBar(searched)),
-    mantenermeLogueado: () => dispatch(mantenermeLogueado())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarContainer);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(NavbarContainer)
+);

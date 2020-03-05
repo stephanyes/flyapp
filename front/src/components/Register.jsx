@@ -143,7 +143,10 @@ export default ({
       </div>
       <div className="col">
         <img
-          src="https://insideone.s3-sa-east-1.amazonaws.com/register-image.png"
+          style={{
+            maxHeight: "660px"
+          }}
+          src="https://insideone.s3-sa-east-1.amazonaws.com/register-image-x2.png"
           className="img-fluid"
           alt="Responsive image"
         />
