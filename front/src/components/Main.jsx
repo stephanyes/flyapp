@@ -8,9 +8,8 @@ import RegisterContainer from "../containers/RegisterContainer";
 import ProductsContainer from "../containers/ProductsContainer";
 import ProductIDContainer from "../containers/productIDContainer";
 import CartContainer from "../containers/CartContainer";
-import Footer from "../components/Footer";
 import ProfileContainer from "../containers/ProfileContainer";
-import SearchContainer from "../containers/SearchContainer";
+import NavbarContainer from "../containers/NavbarContainer";
 
 export default class Main extends React.Component {
   constructor() {
@@ -19,8 +18,7 @@ export default class Main extends React.Component {
   render() {
     return (
       <div>
-        <SearchContainer />
-
+        <NavbarContainer />
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/experiences" component={ProductsContainer} />
@@ -29,18 +27,8 @@ export default class Main extends React.Component {
           <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/cart" component={CartContainer} />
           <Route exact path="/profile" component={ProfileContainer} />
-
-          {/* <Redirect from="/" to="/" />  */}
         </Switch>
       </div>
     );
   }
 }
-
-// const mapStateToProps = state => {
-//   return {
-//     userLogged: state.userLogged.loginUser
-//   };
-// };
-
-// export default connect(mapStateToProps)(Main);
