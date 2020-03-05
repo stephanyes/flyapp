@@ -79,14 +79,20 @@ export default ({ products }) => {
         {products
           ? products.slice(0, 4).map(singles => (
               <div className="card" key={singles.id}>
-                <img src={singles.img_1} class="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="font-weight-bold">{singles.name}</h5>
-                  <p className="font-weight-normal">{singles.description}</p>
-                  <p className="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                </div>
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit"
+                  }}
+                  to={`/experience/${singles.id}`}
+                >
+                  <img src={singles.img_1} class="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="font-weight-bold">{singles.name}</h5>
+                    <p className="font-weight-normal">{singles.description}</p>
+                    <p className="font-weight-bold">u$S {singles.price}</p>
+                  </div>
+                </Link>
               </div>
             ))
           : null}
@@ -118,7 +124,7 @@ export default ({ products }) => {
               padding: "10px"
             }}
           >
-            We give you a lot of special experiences for your enjoy
+            We give you a lot of special experiences for your enjoy.
           </h5>
           <Link
             className="btn btn-primary btn-lg"
@@ -143,14 +149,20 @@ export default ({ products }) => {
         {products
           ? products.slice(4, 7).map(singles => (
               <div className="card" key={singles.id}>
-                <img src={singles.img_1} class="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="font-weight-bold">{singles.name}</h5>
-                  <p className="font-weight-normal">{singles.description}</p>
-                  <p className="card-text">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                  </p>
-                </div>
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit"
+                  }}
+                  to={`/experience/${singles.id}`}
+                >
+                  <img src={singles.img_1} class="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="font-weight-bold">{singles.name}</h5>
+                    <p className="font-weight-normal">{singles.description}</p>
+                    <p className="font-weight-bold">u$S {singles.price}</p>
+                  </div>
+                </Link>
               </div>
             ))
           : null}
@@ -187,10 +199,18 @@ export default ({ products }) => {
               className="font-weight-light"
               style={{
                 paddingLeft: "40px",
-                paddingBottom: "10px"
+                paddingBottom: "5px"
               }}
             >
-              hi@flyapp.com
+              <a
+                href="mailto:hi@flyapp.com"
+                style={{
+                  textDecoration: "none",
+                  color: "inherit"
+                }}
+              >
+                hi@flyapp.com
+              </a>
             </h5>
             <h5
               className="font-weight-light"
@@ -199,8 +219,17 @@ export default ({ products }) => {
                 paddingBottom: "5px"
               }}
             >
-              +1 305 4224 783
+              <a
+                href="tel:+13054224783"
+                style={{
+                  textDecoration: "none",
+                  color: "inherit"
+                }}
+              >
+                +1 305 4224 783
+              </a>
             </h5>
+
             <h5
               className="font-weight-light"
               style={{
@@ -208,7 +237,16 @@ export default ({ products }) => {
                 paddingBottom: "5px"
               }}
             >
-              Av. Lincoln 2362, Washington, DC, EE.UU.
+              <a
+                href="https://goo.gl/maps/45sCh4noE98TvaKm7"
+                target="_blank"
+                style={{
+                  textDecoration: "none",
+                  color: "inherit"
+                }}
+              >
+                Av. Lincoln 2362, Washington, DC, EE.UU.
+              </a>
             </h5>
           </div>
         </div>

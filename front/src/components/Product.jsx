@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 
 export default ({ producto }) => {
   return (
-    <div>
+    <div
+      style={{
+        backgroundColor: "#ffffff"
+      }}
+    >
       <div
         className="row aling-items-center"
         style={{
@@ -13,7 +17,8 @@ export default ({ producto }) => {
         <div
           className="col"
           style={{
-            padding: "40px"
+            padding: "40px",
+            backgroundColor: "#ffffff"
           }}
         >
           <div
@@ -47,22 +52,43 @@ export default ({ producto }) => {
                 marginBottom: "20px"
               }}
             >{`U$D ${producto.price}`}</h5>
-            <h6>{`Stock: ${producto.stock}`}</h6>
+
             <Link
               className="btn btn-primary btn-lg"
               style={{
                 backgroundColor: "#2EC4B6",
+                borderColor: "#2EC4B6",
+                marginRight: "20px"
+              }}
+              to="/experiences"
+            >
+              Add to Cart
+            </Link>
+            <Link
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#ffffff",
+                color: "#2EC4B6",
                 borderColor: "#2EC4B6"
               }}
               to="/cart"
             >
-              Add to Cart
+              Proceed to Checkout
             </Link>
           </div>
         </div>
 
         <div className="col">
-          <img src={producto.img_1} class="img-fluid" alt="Responsive image" />
+          <img
+            style={{
+              height: "660px",
+              position: "fixed",
+              right: "0"
+            }}
+            src={producto.img_1}
+            class="img-fluid"
+            alt="Responsive image"
+          />
         </div>
       </div>
     </div>

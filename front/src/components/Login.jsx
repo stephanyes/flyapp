@@ -11,7 +11,10 @@ export default ({ handleSubmit, handleChange, state }) => {
       >
         <div className="col">
           <img
-            src="https://d9np3dj86nsu2.cloudfront.net/image/9dd9160b543675549b9ad6bfddd6bab0"
+            style={{
+              maxHeight: "660px"
+            }}
+            src="https://insideone.s3-sa-east-1.amazonaws.com/login-image-x2.png"
             className="img-fluid"
             alt="Responsive image"
           />
