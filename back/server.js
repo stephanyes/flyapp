@@ -10,7 +10,7 @@ const users = require("./routes/users");
 const { User } = require("../back/models/index");
 const path = require("path");
 const LocalStrategy = require("passport-local").Strategy;
-
+const cart = require("./routes/cart");
 const app = express();
 
 app.use(express.urlencoded({ extended: false }));
@@ -29,8 +29,19 @@ app.use(
 //usar passport
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+passport.deserializeUser((id, done) => {
+  User.findByPk(id).then(user => {
+    done(null, user);
+  });
+});
+
 app.use("/products", productos);
 app.use("/auth", users);
+app.use("/cart", cart);
 
 passport.use(
   new LocalStrategy(
@@ -55,16 +66,9 @@ passport.use(
   )
 );
 
+app.use("/products", productos);
+app.use("/auth", users);
 //serealizar y deserializar el passport
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-passport.deserializeUser((id, done) => {
-  User.findByPk(id).then(user => {
-    done(null, user);
-  });
-});
-
 app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });

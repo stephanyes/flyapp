@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ handleSubmit, handleChange, state }) => {
+export default ({ handleSubmit, handleChange1,handleChange2, state }) => {
   return (
     <div>
       <div
@@ -43,7 +43,7 @@ export default ({ handleSubmit, handleChange, state }) => {
                 className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                onChange={e => handleChange(e)} // onChange para guardar el input en el estado de LoginContainer
+                onChange={handleChange1} // onChange para guardar el input en el estado de LoginContainer
               />
               <small id="emailHelp" className="form-text text-muted">
                 We'll never share your email with anyone else.
@@ -61,7 +61,7 @@ export default ({ handleSubmit, handleChange, state }) => {
                 type="password"
                 className="form-control"
                 id="exampleInputPassword1"
-                onChange={e => handleChange(e)} // mismo que con el email
+                onChange={handleChange2} // mismo que con el email
               />
             </div>
             <button
