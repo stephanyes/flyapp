@@ -30,7 +30,7 @@ router.use("/searchBar", (req,res)=>{
         limit: 10,
         where: {
             name: {
-                [Op.like]: '%' + req.body.search + '%'
+                [Op.iLike]: '%' + req.body.search + '%'
             }
         }
     })
