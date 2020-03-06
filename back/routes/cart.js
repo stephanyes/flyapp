@@ -33,6 +33,7 @@ router.post("/addtocart", (req, res) => {
 });
 
 router.get("/products", (req, res) => {
+  if(req.user){
   Product.findAll({
     include: [
       {
@@ -41,6 +42,6 @@ router.get("/products", (req, res) => {
       }
     ]
   }).then(found => res.json(found));
-});
+}})
 
 module.exports = router;

@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ carrito }) => {
-  console.log(carrito);
+export default ({ carrito, cart, handleClick }) => {
+  console.log(carrito,"cart")
+  
   return (
+
     <div
       style={{
         backgroundColor: "#ffffff"
@@ -41,7 +43,7 @@ export default ({ carrito }) => {
             margin: "40px"
           }}
         >
-          {carrito.data.map(algo => (
+          {carrito.map(algo => (
             <div className="card mb-3" key={algo.id}>
               <div className="row no-gutters">
                 <div className="col-md-2">
@@ -68,7 +70,42 @@ export default ({ carrito }) => {
             </div>
           ))}
         </div>
-      ) : null}
+      ) : (
+        <div
+          style={{
+            margin: "40px"
+          }}
+        >
+          {cart.map(algo => (
+            <div className="card mb-3" key={algo.id}>
+              <div className="row no-gutters">
+                <div className="col-md-2">
+                  <img src={algo.img_1} className="card-img" alt="..." />
+                </div>
+                <div className="col-md-10">
+                  <div className="card-body">
+                    <h5 className="font-weight-bold">{algo.name}</h5>
+                    <p className="font-weight-normal">{algo.description}</p>
+                    <p className="font-weight-bold">u$S {algo.price} </p>
+                    <button
+                      onClick={()=> handleClick(`${algo.id}`)}
+                      className="btn btn-primary btn-lg"
+                      style={{
+                        backgroundColor: "#2EC4B6",
+                        borderColor: "#2EC4B6"
+                      }}
+                      to="/cart"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      
+      )}
     </div>
   );
 };
