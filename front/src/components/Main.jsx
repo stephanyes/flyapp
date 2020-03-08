@@ -12,20 +12,21 @@ import ProfileContainer from "../containers/ProfileContainer";
 import NavbarContainer from "../containers/NavbarContainer";
 
 export default class Main extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
   render() {
+    console.log(this.props)
     return (
       <div>
         <NavbarContainer />
+        {this.props.history.location.pathname == "/cart" ?(<Route exact path="/cart" component={CartContainer} />): null}
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/experiences" component={ProductsContainer} />
           <Route path="/experience/:id" component={ProductIDContainer} />
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/register" component={RegisterContainer} />
-          <Route exact path="/cart" component={CartContainer} />
           <Route exact path="/profile" component={ProfileContainer} />
         </Switch>
       </div>

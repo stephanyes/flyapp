@@ -19,6 +19,7 @@ router.get("/:id", (req, res) => {
 
 //Crea un producto
 router.post("/", (req, res) => {
+  console.log(req.body)
   Product.create(req.body).then(created => res.status(201).send(created));
 });
 //Trae Busquedas del Navbar
