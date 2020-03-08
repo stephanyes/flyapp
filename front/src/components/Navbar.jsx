@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ handleChange, user }) => {
+export default ({ handleChange,handleSubmit, user }) => {
   return (
     <div>
       <nav
@@ -38,7 +38,7 @@ export default ({ handleChange, user }) => {
               </Link>
             </li>
           </ul>
-          <form className="form-inline my-2 my-lg-0">
+          <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
             <input
               onChange={handleChange}
               className="form-control mr-sm-2"

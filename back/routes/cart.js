@@ -9,7 +9,7 @@ const Cart = require("../models/carrito");
 //creado.addProduct(found)
 // el axios post del add to cart viene aca con toda la info del producto en el req body
 router.post("/addtocart", (req, res) => {
-  console.log(req.user, "req.user");
+  console.log(req.body, "req.user");
   if (req.user) {
     Cart.create({
       quantity: 1,
@@ -31,6 +31,18 @@ router.post("/addtocart", (req, res) => {
   //   res.status(201).send(creado);
   // });
 });
+
+router.post("/delete", (req,res)=>{
+  console.log(req.body,"post delete")
+  Cart.destroy({
+    
+        where: { 
+          userId: req.user.dataValues.id,
+          total: req.body.e
+         }
+     
+  }).then(() => res.json("destruido"));
+})
 
 router.get("/products", (req, res) => {
   if(req.user){

@@ -28,20 +28,11 @@ class ProductIDContainer extends React.Component {
 
   storingLocal(e, producto) {
     e.preventDefault();
-    if(this.props.state.userLogin.loginUser){
-    Axios.post("/cart/addtocart", { producto }).then(() => {
-      console.log(producto);
-      let algo = JSON.parse(window.localStorage.getItem("testing"));
-      if (algo) {
-        window.localStorage.setItem(
-          "testing",
-          JSON.stringify([...algo, producto])
-        );
-      } else {
-        window.localStorage.setItem("testing", JSON.stringify([producto]));
-      }
-    })}
-    else {this.props.carro(producto)}
+    if(!this.props.state.userLogin.loginUser){
+    window.localStorage.setItem(producto.id, JSON.stringify(producto));
+    this.props.carro(producto)}
+     else Axios.post("/cart/addtocart", { producto })
+    
   }
 
   render() {
