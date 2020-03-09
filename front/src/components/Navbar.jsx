@@ -37,6 +37,11 @@ export default ({ handleChange, user }) => {
                 Experiences
               </Link>
             </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/editUsers">
+                Edit Users
+              </Link>
+            </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">
             <input

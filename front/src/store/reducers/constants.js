@@ -13,5 +13,5 @@ export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT'
 //Search Bar
 export const RECEIVE_SEARCHBAR = "RECEIVE_SEARCHBAR"
 
-
-
+// editUsers
+export const RECEIVE_USERS = 'RECEIVE_USERS'

@@ -6,7 +6,7 @@ import { fetchProducts } from "../store/actions/products";
 
 const mapDispatchToProps = function(dispatch, ownProps) {
   return {
-    buscandoProducts: () => dispatch(fetchProducts()) // ACA TENGO QUE USAR LA ACCION, CAMBIAR NOMBRE
+    buscandoProducts: () => dispatch(fetchProducts())
   };
 };
 const mapStateToProps = function(state) {

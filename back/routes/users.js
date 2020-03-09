@@ -6,11 +6,12 @@ const passport = require('passport')
 const { User } = require('../models/index')
 
 const isClient = (req, res, next) => {
-    
+
     if (req.isAuthenticated()) {
         console.log('pase el middleware');
         res.json(req.user)
-    } else { res.json("")
+    } else {
+        res.json("")
     }
 }
 
@@ -80,5 +81,34 @@ router.put('/superAdmin', isSuperAdmin, (req, res, next) => {
     })
 })
 
+router.get('/userList', (req, res) => {
+    User.findAll().then((users) => res.send(users))
+})
+
+router.delete('/delete/:id', function (req, res, next) {
+    User.destroy({ where: { id: req.params.id } })
+        .then(response => {
+            if (response) return res.json(response)
+            else return res.sendStatus(404)
+        })
+})
+
+router.put('/promote/:id', function (req, res, next) {
+    User.update({ rol_id: 'admin' }, { where: { id: req.params.id }, returning: true, plain: true })
+        .then(response => {
+            if (response) return res.json(response[1])
+            else return res.sendStatus(404)
+        })
+})
+
+
+//PARA HACER SUPERADMINS EN POSTMAN
+router.put('/makeSuperAdmin/:id', function (req, res, next) {
+    User.update({ rol_id: 'superAdmin' }, { where: { id: req.params.id }, returning: true, plain: true })
+        .then(response => {
+            if (response) return res.json(response[1])
+            else return res.sendStatus(404)
+        })
+})
 
 module.exports = router;
