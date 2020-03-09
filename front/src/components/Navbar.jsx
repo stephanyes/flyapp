@@ -1,8 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ handleChange, user, dropdown, open, handleSubmit }) => {
-  const menuClass = `dropdown-menu${dropdown ? " show" : ""}`
+export default ({
+  handleChange,
+  user,
+  dropdown,
+  open,
+  handleSubmit,
+  logout
+}) => {
+  const menuClass = `dropdown-menu${dropdown ? " show" : ""}`;
   return (
     <div>
       <nav
@@ -48,8 +55,6 @@ export default ({ handleChange, user, dropdown, open, handleSubmit }) => {
               aria-label="Search"
             />
             <ul className="navbar-nav mr-auto">
-
-
               {user.firstName ? (
                 <div className="dropdown" onClick={open}>
                   <button
@@ -61,33 +66,42 @@ export default ({ handleChange, user, dropdown, open, handleSubmit }) => {
                   >
                     {user.firstName}
                   </button>
-                  <div className={menuClass} aria-labelledby="dropdownMenuButton">
-                    <Link to="/profile">Profile</Link>
-                    <a className="dropdown-item" href="#nogo">
-                      Item 2
-          </a>
-                    <a className="dropdown-item" href="#nogo">
-                      Item 3
-          </a>
+                  <div
+                    className={menuClass}
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <Link className="dropdown-item" to="/profile">
+                      Profile
+                    </Link>
+                    {user.rol_id === "client" ? null : (
+                      <Link className="dropdown-item" to="/editProducts">
+                        Edit Products
+                      </Link>
+                    )}
+                    {user.rol_id === "superAdmin" ? (
+                      <Link className="dropdown-item" to="/editUsers">
+                        Edit Users
+                      </Link>
+                    ) : null}
+                    <p className="dropdown-item" href="#nogo" onClick={logout}>
+                      Logout
+                    </p>
                   </div>
                 </div>
-              )
-
-
-                : (
-                  <ul className="navbar-nav mr-auto">
-                    <li className="nav-item active">
-                      <Link className="nav-link" to="/login">
-                        Login
+              ) : (
+                <ul className="navbar-nav mr-auto">
+                  <li className="nav-item active">
+                    <Link className="nav-link" to="/login">
+                      Login
                     </Link>
-                    </li>
-                    <li className="nav-item active">
-                      <Link className="nav-link" to="/register">
-                        Register
+                  </li>
+                  <li className="nav-item active">
+                    <Link className="nav-link" to="/register">
+                      Register
                     </Link>
-                    </li>
-                  </ul>
-                )}
+                  </li>
+                </ul>
+              )}
               <li className="nav-item active">
                 <Link className="nav-link" to="/cart">
                   <img
