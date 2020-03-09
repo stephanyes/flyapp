@@ -26,17 +26,24 @@ class NavbarContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: ""
+      inputValue: "",
+      isOpen: false
     };
     this.handleChange = this.handleChange.bind(this);
+    this.toggleOpen = this.toggleOpen.bind(this);
   }
 
   componentDidMount() {
     this.props.mantenermeLogueado();
   }
 
+  handleSubmit(e) {
+    e.preventDefault()
+    //hay que prevenir q cuando apreten enter en la busqueda haga un query, deberia no hacer nada
+  }
+
   handleChange(evt) {
-    let search = evt.target.value;
+    const search = evt.target.value;
     this.setState({
       inputValue: search
     });
@@ -44,7 +51,22 @@ class NavbarContainer extends React.Component {
       this.props
         .productFinder(search)
         .then(() => this.props.history.push("/results"));
-    } else return this.props.history.push("/");
+    }
+    else return this.props.history.push("/experiences");
+  }
+
+  toggleOpen() {
+
+    if (!this.state.isOpen) {
+      this.setState({
+        isOpen: true
+      })
+    } else {
+      this.setState({
+        isOpen: false
+      })
+    }
+    console.log(this.state.isOpen);
   }
 
   render() {
@@ -55,7 +77,10 @@ class NavbarContainer extends React.Component {
           user={user}
           props={this.props}
           state={this.state}
+          handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
+          dropdown={this.state.isOpen}
+          open={this.toggleOpen}
         />
         <Search props={this.props} state={this.state} />
       </div>

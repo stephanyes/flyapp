@@ -45,7 +45,7 @@ class CheckoutContainer extends React.Component {
   }
 
   render() {
-    return <Users />;
+    return <Checkout />;
   }
 }
 

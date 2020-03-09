@@ -70,8 +70,8 @@ export default ({ producto, storing }) => {
               className="btn btn-primary btn-lg"
               style={{
                 backgroundColor: "#ffffff",
-                color: "#2EC4B6",
-                borderColor: "#2EC4B6"
+                color: "#EA526F",
+                borderColor: "#EA526F"
               }}
               to="/checkout"
             >
