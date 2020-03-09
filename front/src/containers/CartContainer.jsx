@@ -30,13 +30,15 @@ class CartContainer extends React.Component {
   componentDidMount() {
     if(this.props.state.userLogin.loginUser){
     Axios.get("/cart/products")
+    Axios.get("/cart/products")
     .then(algo => algo.data)
     .then(algo => {this.setState({ products: algo })})
     }
   }
-        
+    
   componentWillMount(){
     if(this.props.state.userLogin.loginUser){
+      Axios.get("/cart/products")
       Axios.get("/cart/products")
       .then(algo => algo.data)
       .then(algo => {this.setState({ products: algo })})
@@ -65,7 +67,6 @@ class CartContainer extends React.Component {
 
   render() {
     const logueado=this.props.state.userLogin.loginUser
-    console.log(this.state,"STATEEEEEEEEE")
     return <Cart loged={logueado} handleClick={this.handleClick} carrito={this.state.products} cart={this.props.state.cart.cart} />;
   }
 }

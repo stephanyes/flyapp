@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default ({ products, handleClick }) => {
+  
   // numberOfPages se encarga del numero de paginas y setNumberOfPages modifica el numero de paginas
   const [numberOfPages, setNumberOfPages] = useState([]);
   //currentPage se encarga de decidir en que pagina estas por deafult empieza en 1
@@ -13,14 +14,19 @@ export default ({ products, handleClick }) => {
   const [currentContent, setCurrentContent] = useState([]);
   // es el componentdidUpdate de los hooks, se encarga de verificar que cosas cambian para hacer re-render a traves
   //de su segundo paramentro que siempre por default tiene que ser un arreglo vacio si no tienes nada especifico que cambiar
+   
+  
+  products ?
   useEffect(() => {
     //se encarga de ver si los productos existen y si existen lo que hace es generar un array con la cantidad de paginas
     //dependiendo de la cantidad de productos que queremos mostrar, y ese es el numero despues de la division
     //ejemplo: setNumberOfPages(Array.from(Array(25 / 5).keys()));
     //ahi seria igual a 5 paginas
+    
     if (products.length) {
       setNumberOfPages(Array.from(Array(products.length / 6).keys()));
     }
+
     switch (currentPage) {
       case 1:
         setCurrentContent(products.slice(0, 6));
@@ -34,7 +40,12 @@ export default ({ products, handleClick }) => {
       default:
         break;
     }
-  }, [products.length, currentPage]);
+  }, [products.length, currentPage])
+  : 
+  useEffect(() => {
+    //esto es para que si no le llegan los productos q se hace de manera async no haga nada, despues cuando les llegue entra al useEffect de arriba
+  },[products, currentPage])
+  
   //La razon por la que està el products.length y el currentPage es porque queremos saber si alguna de esas 2 cosas cambian
   //para hacer re-render
   const pagination = numberOfPages =>
@@ -52,10 +63,13 @@ export default ({ products, handleClick }) => {
           </li>
         </div>
       );
-    });
-
+    })
+    
   return (
-    <div
+    <div className="">
+      {products ? (
+        <div className="">
+          <div
       style={{
         backgroundColor: "#ffffff"
       }}
@@ -183,7 +197,11 @@ export default ({ products, handleClick }) => {
         </ul>
       </nav>
     </div>
-  );
+        </div>
+      ):(null)}
+    </div>
+    
+  );  
 };
 
 // id: 1
