@@ -13,4 +13,6 @@ export const fetchUserList = () => dispatch =>
 
 export const deleteUser = (id) => dispatch => axios.delete(`/auth/delete/${id}`).then(() => dispatch(fetchUserList()))
 
-export const promoteUser = (id) => dispatch => axios.put(`/auth/promote/${id}`).then(() => dispatch(fetchUserList()))
+export const promoteUser = (id) => dispatch => axios.put(`/auth/changeRole/${id}`, { rol_id: 'admin' }).then(() => dispatch(fetchUserList()))
+
+export const demoteUser = (id) => dispatch => axios.put(`/auth/changeRole/${id}`, { rol_id: 'client' }).then(() => dispatch(fetchUserList()))

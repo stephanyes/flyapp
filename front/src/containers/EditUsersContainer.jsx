@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 import {
   fetchUserList,
   deleteUser,
-  promoteUser
+  promoteUser,
+  demoteUser
 } from "../store/actions/editUsers";
 
 const mapStateToProps = state => {
@@ -19,7 +20,8 @@ const mapDispatchToProps = function(dispatch, ownProps) {
   return {
     searchAllUsers: () => dispatch(fetchUserList()),
     deleteUser: id => dispatch(deleteUser(id)),
-    promoteUser: id => dispatch(promoteUser(id))
+    promoteUser: id => dispatch(promoteUser(id)),
+    demoteUser: id => dispatch(demoteUser(id))
   };
 };
 
@@ -28,6 +30,7 @@ class EditUsersContainer extends React.Component {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
     this.handlePromote = this.handlePromote.bind(this);
+    this.handleDemote = this.handleDemote.bind(this);
   }
   componentDidMount() {
     this.props.searchAllUsers();
@@ -41,6 +44,11 @@ class EditUsersContainer extends React.Component {
     this.props.promoteUser(id);
   }
 
+  handleDemote(id) {
+    this.props.demoteUser(id);
+    console.log("ANDA");
+  }
+
   render() {
     let { users } = this.props;
     return (
@@ -48,6 +56,7 @@ class EditUsersContainer extends React.Component {
         users={users}
         handleDelete={this.handleDelete}
         handlePromote={this.handlePromote}
+        handleDemote={this.handleDemote}
       />
     );
   }

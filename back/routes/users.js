@@ -93,8 +93,8 @@ router.delete('/delete/:id', function (req, res, next) {
         })
 })
 
-router.put('/promote/:id', function (req, res, next) {
-    User.update({ rol_id: 'admin' }, { where: { id: req.params.id }, returning: true, plain: true })
+router.put('/changeRole/:id', function (req, res, next) {
+    User.update(req.body, { where: { id: req.params.id }, returning: true, plain: true })
         .then(response => {
             if (response) return res.json(response[1])
             else return res.sendStatus(404)

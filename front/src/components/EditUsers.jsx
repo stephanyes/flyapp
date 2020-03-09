@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ users, handleDelete, handlePromote }) => {
+export default ({ users, handleDelete, handlePromote, handleDemote }) => {
   return (
     <div
       style={{
@@ -42,17 +42,44 @@ export default ({ users, handleDelete, handlePromote }) => {
               >
                 {user.firstName}
                 <div>
-                  <button
-                    className="btn btn-primary btn-lg"
-                    style={{
-                      backgroundColor: "#2EC4B6",
-                      borderColor: "#2EC4B6",
-                      marginRight: "20px"
-                    }}
-                    onClick={() => handlePromote(user.id)}
-                  >
-                    Do Admin
-                  </button>
+                  {user.rol_id === "admin" ? (
+                    <button
+                      className="btn btn-primary btn-lg"
+                      style={{
+                        backgroundColor: "#ffffff",
+                        borderColor: "#2EC4B6",
+                        color: "#2EC4B6",
+                        marginRight: "20px"
+                      }}
+                      onClick={() => handleDemote(user.id)}
+                    >
+                      Remove Admin privileges
+                    </button>
+                  ) : user.rol_id === "client" ? (
+                    <button
+                      className="btn btn-primary btn-lg"
+                      style={{
+                        backgroundColor: "#2EC4B6",
+                        borderColor: "#2EC4B6",
+                        marginRight: "20px"
+                      }}
+                      onClick={() => handlePromote(user.id)}
+                    >
+                      Give Admin privileges
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-primary btn-lg"
+                      style={{
+                        backgroundColor: "#ffffff",
+                        borderColor: "#000000",
+                        color: "#000000",
+                        marginRight: "20px"
+                      }}
+                    >
+                      Super Admin
+                    </button>
+                  )}
                   <button
                     className="btn btn-primary btn-lg"
                     style={{
