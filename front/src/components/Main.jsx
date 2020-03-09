@@ -11,17 +11,20 @@ import CartContainer from "../containers/CartContainer";
 import ProfileContainer from "../containers/ProfileContainer";
 import EditUsersContainer from "../containers/EditUsersContainer";
 import NavbarContainer from "../containers/NavbarContainer";
+import CheckoutContainer from "../containers/CheckoutContainer";
 
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
-    console.log(this.props)
+    console.log(this.props);
     return (
       <div>
         <NavbarContainer />
-        {this.props.history.location.pathname == "/cart" ?(<Route exact path="/cart" component={CartContainer} />): null}
+        {this.props.history.location.pathname == "/cart" ? (
+          <Route exact path="/cart" component={CartContainer} />
+        ) : null}
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/experiences" component={ProductsContainer} />
@@ -30,6 +33,7 @@ export default class Main extends React.Component {
           <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/profile" component={ProfileContainer} />
           <Route exact path="/editUsers" component={EditUsersContainer} />
+          <Route exact path="/checkout" component={CheckoutContainer} />
         </Switch>
       </div>
     );
