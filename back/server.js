@@ -12,7 +12,7 @@ const path = require("path");
 const LocalStrategy = require("passport-local").Strategy;
 const cart = require("./routes/cart");
 const app = express();
-
+const categories = require("./routes/categories");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
@@ -42,6 +42,7 @@ passport.deserializeUser((id, done) => {
 app.use("/products", productos);
 app.use("/auth", users);
 app.use("/cart", cart);
+app.use('/categories', categories)
 
 passport.use(
   new LocalStrategy(
