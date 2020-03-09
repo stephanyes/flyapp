@@ -37,7 +37,7 @@ class NavbarContainer extends React.Component {
     this.props.mantenermeLogueado();
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault()
     //hay que prevenir q cuando apreten enter en la busqueda haga un query, deberia no hacer nada
   }
@@ -51,7 +51,7 @@ class NavbarContainer extends React.Component {
       this.props
         .productFinder(search)
         .then(() => this.props.history.push("/results"));
-    } 
+    }
     else return this.props.history.push("/experiences");
   }
 
@@ -77,6 +77,7 @@ class NavbarContainer extends React.Component {
           user={user}
           props={this.props}
           state={this.state}
+          handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           dropdown={this.state.isOpen}
           open={this.toggleOpen}

@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const isOpen = false;
 
-
-
-export default ({ handleChange, user, dropdown, open }) => {
+export default ({ handleChange, user, dropdown, open, handleSubmit }) => {
   const menuClass = `dropdown-menu${dropdown ? " show" : ""}`
   return (
     <div>
@@ -65,9 +62,7 @@ export default ({ handleChange, user, dropdown, open }) => {
                     {user.firstName}
                   </button>
                   <div className={menuClass} aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#nogo">
-                      Item 1
-          </a>
+                    <Link to="/profile">Profile</Link>
                     <a className="dropdown-item" href="#nogo">
                       Item 2
           </a>
