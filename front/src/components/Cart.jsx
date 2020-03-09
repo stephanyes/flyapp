@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default ({ carrito, cart, handleClick }) => {
-  console.log(carrito,"cart")
-  
-  return (
+  console.log(carrito, "cart");
 
+  return (
     <div
       style={{
         backgroundColor: "#ffffff"
@@ -88,7 +87,7 @@ export default ({ carrito, cart, handleClick }) => {
                     <p className="font-weight-normal">{algo.description}</p>
                     <p className="font-weight-bold">u$S {algo.price} </p>
                     <button
-                      onClick={()=> handleClick(`${algo.id}`)}
+                      onClick={() => handleClick(`${algo.id}`)}
                       className="btn btn-primary btn-lg"
                       style={{
                         backgroundColor: "#2EC4B6",
@@ -104,31 +103,27 @@ export default ({ carrito, cart, handleClick }) => {
             </div>
           ))}
         </div>
-      
       )}
+      <div
+        class="card text-center"
+        style={{
+          borderColor: "#ffffff"
+        }}
+      >
+        <div class="card-body">
+          <Link
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#2EC4B6",
+              borderColor: "#2EC4B6",
+              marginBottom: "100px"
+            }}
+            to="/checkout"
+          >
+            Go to Checkout
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
-
-{
-  /* <div className="col-md-2">
-<img src={carrito.data.img_1} className="card-img" alt="..." />
-</div>
-<div className="col-md-10">
-<div className="card-body">
-  <h5 className="font-weight-bold">{carrito.data.name}</h5>
-  <p className="font-weight-normal">{carrito.data.description}</p>
-  <p className="font-weight-bold">u$S {carrito.data.price} </p>
-  <Link
-    className="btn btn-primary btn-lg"
-    style={{
-      backgroundColor: "#2EC4B6",
-      borderColor: "#2EC4B6"
-    }}
-    to="/cart"
-  >
-    Delete
-  </Link>
-</div>
-</div> */
-}
