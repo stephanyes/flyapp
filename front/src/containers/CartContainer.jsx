@@ -1,6 +1,6 @@
 import React from "react";
 import Cart from "../components/Cart";
-import ProductsAdmin from "../components/ProductsAdmin";
+// import Categories from "../components/Categories";
 import { connect } from "react-redux";
 import Axios from "axios";
 import { removeProduct } from "../store/actions/cart";
@@ -74,14 +74,14 @@ class CartContainer extends React.Component {
   render() {
     const logueado = this.props.state.userLogin.loginUser;
     return (
-      // <Cart
-      //   loged={logueado}
-      //   handleClick={this.handleClick}
-      //   carrito={this.state.products}
-      //   cart={this.props.state.cart.cart}
-      // />
-      <NewCategorieAdmin />
+      <Cart
+        loged={logueado}
+        handleClick={this.handleClick}
+        carrito={this.state.products}
+        cart={this.props.state.cart.cart}
+      />
     );
+    // return <Categories />;
   }
 }
 
