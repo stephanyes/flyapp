@@ -26,9 +26,11 @@ class NavbarContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: ""
+      inputValue: "",
+      isOpen: false
     };
     this.handleChange = this.handleChange.bind(this);
+    this.toggleOpen = this.toggleOpen.bind(this);
   }
 
   componentDidMount() {
@@ -47,6 +49,20 @@ class NavbarContainer extends React.Component {
     } else return this.props.history.push("/");
   }
 
+  toggleOpen() {
+
+    if (!this.state.isOpen) {
+      this.setState({
+        isOpen: true
+      })
+    } else {
+      this.setState({
+        isOpen: false
+      })
+    }
+    console.log(this.state.isOpen);
+  }
+
   render() {
     const { user } = this.props;
     return (
@@ -56,6 +72,8 @@ class NavbarContainer extends React.Component {
           props={this.props}
           state={this.state}
           handleChange={this.handleChange}
+          dropdown={this.state.isOpen}
+          open={this.toggleOpen}
         />
         <Search props={this.props} state={this.state} />
       </div>
