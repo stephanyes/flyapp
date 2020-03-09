@@ -24,6 +24,10 @@ class ProductsContainer extends React.Component {
     this.props.buscandoProducts();
   }
 
+  componentWillMount() {
+    this.props.buscandoProducts();
+  }
+
   render() {
     return <Products products={this.props.products} />;
   }

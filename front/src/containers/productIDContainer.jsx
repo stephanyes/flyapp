@@ -3,6 +3,19 @@ import Product from "../components/Product";
 import { connect } from "react-redux";
 import { fetchSingleProduct } from "../store/actions/products";
 import Axios from "axios";
+import { fillCart } from "../store/actions/cart";
+
+const mapStateToProps = state => {
+  return {
+    product: state.productList.selectedProduct,
+    state
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  seteador: id => dispatch(fetchSingleProduct(id)),
+  carro: producto => dispatch(fillCart(producto))
+});
 
 class ProductIDContainer extends React.Component {
   constructor() {
@@ -15,18 +28,11 @@ class ProductIDContainer extends React.Component {
 
   storingLocal(e, producto) {
     e.preventDefault();
-    Axios.post("/cart/addtocart", { producto }).then(() => {
-      console.log(producto);
-      let algo = JSON.parse(window.localStorage.getItem("testing"));
-      if (algo) {
-        window.localStorage.setItem(
-          "testing",
-          JSON.stringify([...algo, producto])
-        );
-      } else {
-        window.localStorage.setItem("testing", JSON.stringify([producto]));
-      }
-    });
+    if(!this.props.state.userLogin.loginUser){
+    window.localStorage.setItem(producto.id, JSON.stringify(producto));
+    this.props.carro(producto)
+    } else Axios.post("/cart/addtocart", { producto })
+    
   }
 
   render() {
@@ -34,15 +40,5 @@ class ProductIDContainer extends React.Component {
     return <Product producto={product} storing={this.storingLocal} />;
   }
 }
-
-const mapStateToProps = state => {
-  return {
-    product: state.productList.selectedProduct
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  seteador: id => dispatch(fetchSingleProduct(id))
-});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductIDContainer);

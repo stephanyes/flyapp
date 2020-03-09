@@ -53,6 +53,7 @@ Order.belongsToMany(Product, { through: "order_product" });
 Product.belongsToMany(Order, { through: "order_product" });
 
 User.hasOne(Cart); // esta cheequeado?
+// Cart.hasMany(Product)
 
 Category.hasOne(Product);
 User.hasOne(Order);
