@@ -1,10 +1,11 @@
 import React from "react";
 import Cart from "../components/Cart";
-import Categories from "../components/Categories";
+import ProductsAdmin from "../components/ProductsAdmin";
 import { connect } from "react-redux";
 import Axios from "axios";
 import { removeProduct } from "../store/actions/cart";
 import { Redirect } from "react-router-dom";
+import NewCategorieAdmin from "../components/NewCategorieAdmin";
 
 const mapStateToProps = state => {
   return {
@@ -72,8 +73,15 @@ class CartContainer extends React.Component {
 
   render() {
     const logueado = this.props.state.userLogin.loginUser;
-    //return <Cart loged={logueado} handleClick={this.handleClick} carrito={this.state.products} cart={this.props.state.cart.cart} />;
-    return <Categories />;
+    return (
+      // <Cart
+      //   loged={logueado}
+      //   handleClick={this.handleClick}
+      //   carrito={this.state.products}
+      //   cart={this.props.state.cart.cart}
+      // />
+      <NewCategorieAdmin />
+    );
   }
 }
 
