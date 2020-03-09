@@ -49,11 +49,12 @@ export default ({ users, handleDelete, handlePromote, handleDemote }) => {
                         backgroundColor: "#ffffff",
                         borderColor: "#2EC4B6",
                         color: "#2EC4B6",
-                        marginRight: "20px"
+                        marginRight: "20px",
+                        width: "200px"
                       }}
                       onClick={() => handleDemote(user.id)}
                     >
-                      Remove Admin privileges
+                      Revoke Admin
                     </button>
                   ) : user.rol_id === "client" ? (
                     <button
@@ -61,11 +62,12 @@ export default ({ users, handleDelete, handlePromote, handleDemote }) => {
                       style={{
                         backgroundColor: "#2EC4B6",
                         borderColor: "#2EC4B6",
-                        marginRight: "20px"
+                        marginRight: "20px",
+                        width: "200px"
                       }}
                       onClick={() => handlePromote(user.id)}
                     >
-                      Give Admin privileges
+                      Do Admin
                     </button>
                   ) : (
                     <button
@@ -74,7 +76,8 @@ export default ({ users, handleDelete, handlePromote, handleDemote }) => {
                         backgroundColor: "#ffffff",
                         borderColor: "#000000",
                         color: "#000000",
-                        marginRight: "20px"
+                        marginRight: "20px",
+                        width: "200px"
                       }}
                     >
                       Super Admin
@@ -83,8 +86,8 @@ export default ({ users, handleDelete, handlePromote, handleDemote }) => {
                   <button
                     className="btn btn-primary btn-lg"
                     style={{
-                      backgroundColor: "red",
-                      borderColor: "red"
+                      backgroundColor: "#EA526F",
+                      borderColor: "#EA526F"
                     }}
                     onClick={() => handleDelete(user.id)}
                   >
