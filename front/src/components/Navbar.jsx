@@ -74,11 +74,18 @@ export default ({
                       Profile
                     </Link>
                     {user.rol_id === "client" ? null : (
-                      <Link className="dropdown-item" to="/editProducts">
-                        Edit Products
-                      </Link>
+                      //si no es cliente mostra Edit Products
+                      <div className="dropdown">
+                        <Link className="dropdown-item" to="/editProducts">
+                          Edit Products
+                        </Link>
+                        <Link className="dropdown-item" to="/editCategories">
+                          Edit Categories
+                        </Link>
+                      </div>
                     )}
                     {user.rol_id === "superAdmin" ? (
+                      //si es superAdmin mostra Edit Users
                       <Link className="dropdown-item" to="/editUsers">
                         Edit Users
                       </Link>
