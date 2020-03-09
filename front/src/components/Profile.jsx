@@ -35,17 +35,6 @@ export default ({ handleClick }) => (
         >
           This is your actual profile
         </h5>
-        {/* <Link
-          className="btn btn-primary btn-lg"
-          style={{
-            backgroundColor: "#2EC4B6",
-            borderColor: "#2EC4B6"
-          }}
-          to="/"
-        >
-          Logout
-        </Link> */}
-
         <button
           type="button"
           className="btn btn-primary btn-lg"
