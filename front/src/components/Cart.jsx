@@ -1,8 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
-export default ({ carrito, cart, handleClick }) => {
+export default ({ carrito, cart, handleClick, loged }) => {
   console.log(carrito,"cart")
+  let data = Object.assign({}, localStorage)
+  let prod = Object.values(data)
+  let producto = prod.map((e)=> JSON.parse(e))
+    
   
   return (
 
@@ -36,8 +40,8 @@ export default ({ carrito, cart, handleClick }) => {
           </h5>
         </div>
       </div>
-
-      {carrito ? (
+            {/* LADO LOGUEADO!!!!!! */}
+      {loged  ? (
         <div
           style={{
             margin: "40px"
@@ -55,6 +59,8 @@ export default ({ carrito, cart, handleClick }) => {
                     <p className="font-weight-normal">{algo.description}</p>
                     <p className="font-weight-bold">u$S {algo.price} </p>
                     <Link
+                      onClick={()=>handleClick(`${algo.price}`
+                      )}
                       className="btn btn-primary btn-lg"
                       style={{
                         backgroundColor: "#2EC4B6",
@@ -75,8 +81,9 @@ export default ({ carrito, cart, handleClick }) => {
           style={{
             margin: "40px"
           }}
-        >
-          {cart.map(algo => (
+            // NO LOGUEADO!!!!!!!
+        ><h1>No logueado</h1>
+          {producto.map(algo => (
             <div className="card mb-3" key={algo.id}>
               <div className="row no-gutters">
                 <div className="col-md-2">
@@ -96,7 +103,7 @@ export default ({ carrito, cart, handleClick }) => {
                       }}
                       to="/cart"
                     >
-                      Delete
+                      Deletee
                     </button>
                   </div>
                 </div>

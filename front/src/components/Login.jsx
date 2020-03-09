@@ -21,7 +21,7 @@ export default ({ handleSubmit, handleChange1,handleChange2, state }) => {
         </div>
         <div className="col">
           <form
-            onSubmit={handleSubmit}
+            onSubmit={e=>handleSubmit(e)}
             style={{
               padding: "40px",
               marginRight: "20px"
