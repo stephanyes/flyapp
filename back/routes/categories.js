@@ -1,0 +1,25 @@
+"use strict";
+const express = require("express");
+const router = express.Router();
+const Sequelize = require("sequelize");
+const user = require("../models/users");
+const order = require("../models/order");
+const Product = require("../models/productos");
+const Cart = require("../models/carrito");
+const Category = require("../models/category");
+
+//Trae todas las categorias
+router.get('/', (req, res) => {
+    Category.findAll().then(found => res.status(200).json(found))
+})
+
+//Trae los productos que contengan la categoria deseada
+router.get('/:id', (req, res) => {
+    Product.findAll({
+        where: {
+            categoryId: req.params.id
+        }
+    }).then(found => res.status(200).json(found))
+})
+
+module.exports = router;
