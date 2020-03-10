@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 
 export default ({ carrito, cart, handleClick, loged }) => {
@@ -6,7 +6,8 @@ export default ({ carrito, cart, handleClick, loged }) => {
   let data = Object.assign({}, localStorage);
   let prod = Object.values(data);
   let producto = prod.map(e => JSON.parse(e));
-
+  useEffect(() => {}, [carrito]);
+  console.log(carrito, cart, producto);
   return (
     <div
       style={{
@@ -80,7 +81,10 @@ export default ({ carrito, cart, handleClick, loged }) => {
           }}
           // NO LOGUEADO!!!!!!!
         >
-          <h1>No logueado</h1>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <h4>No estás logueado</h4>
+          </div>
+
           {producto.map(algo => (
             <div className="card mb-3" key={algo.id}>
               <div className="row no-gutters">
@@ -110,26 +114,32 @@ export default ({ carrito, cart, handleClick, loged }) => {
           ))}
         </div>
       )}
-      <div
-        class="card text-center"
-        style={{
-          borderColor: "#ffffff"
-        }}
-      >
-        <div class="card-body">
-          <Link
-            className="btn btn-primary btn-lg"
-            style={{
-              backgroundColor: "#2EC4B6",
-              borderColor: "#2EC4B6",
-              marginBottom: "100px"
-            }}
-            to="/checkout"
-          >
-            Go to Checkout
-          </Link>
+      {cart.length >= 1 || producto.length >= 1 || carrito.length >= 1 ? (
+        <div
+          class="card text-center"
+          style={{
+            borderColor: "#ffffff"
+          }}
+        >
+          <div class="card-body">
+            <Link
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#2EC4B6",
+                borderColor: "#2EC4B6",
+                marginBottom: "100px"
+              }}
+              to="/checkout"
+            >
+              Go to Checkout
+            </Link>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <h4>No tienes productos en el carrito</h4>
+        </div>
+      )}
     </div>
   );
 };

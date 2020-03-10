@@ -1,4 +1,5 @@
 import React from "react";
+
 import Cart from "../components/Cart";
 // import Categories from "../components/Categories";
 import { connect } from "react-redux";
@@ -31,7 +32,6 @@ class CartContainer extends React.Component {
   }
   componentDidMount() {
     if (this.props.state.userLogin.loginUser) {
-      Axios.get("/cart/products");
       Axios.get("/cart/products")
         .then(algo => algo.data)
         .then(algo => {
@@ -42,7 +42,6 @@ class CartContainer extends React.Component {
 
   componentWillMount() {
     if (this.props.state.userLogin.loginUser) {
-      Axios.get("/cart/products");
       Axios.get("/cart/products")
         .then(algo => algo.data)
         .then(algo => {
@@ -70,8 +69,9 @@ class CartContainer extends React.Component {
     //   if (newCart[i].id == e){newCart.splice(i, 1)}}
     // this.props.eliminar(newCart)
   }
-
   render() {
+    console.log(this.props.state.cart.cart, this.state.products);
+
     const logueado = this.props.state.userLogin.loginUser;
     return (
       <Cart
