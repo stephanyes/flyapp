@@ -7,13 +7,14 @@ import searchReducer from './searchReducer';
 import homeReducer from './homeReducer';
 import editUsersReducer from './editUsersReducer'
 import cartReducer from './cartReducer';
+import categoryReducer from './categoryReducer'
 
 export default combineReducers({
-  userLogin: loginReducer,
-  register: registerReducer,
-  productList: productsReducer,
-  search_bar: searchReducer,
-  home: homeReducer,
-  userEdit: editUsersReducer,
-  cart: cartReducer
+    userLogin: loginReducer,
+    register: registerReducer,
+    productList: productsReducer,
+    search_bar: searchReducer,
+    home: homeReducer,
+    cart: cartReducer,
+    category: categoryReducer
 });

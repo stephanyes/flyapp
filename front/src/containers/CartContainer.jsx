@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Axios from "axios";
 import { removeProduct } from "../store/actions/cart";
 import { Redirect } from "react-router-dom";
+import NewCategorieAdmin from "../components/NewCategorieAdmin";
 
 const mapStateToProps = state => {
   return {

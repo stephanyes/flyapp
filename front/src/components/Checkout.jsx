@@ -224,7 +224,8 @@ export default ({}) => {
             style={{
               backgroundColor: "#2EC4B6",
               borderColor: "#2EC4B6",
-              marginBottom: "100px"
+              marginBottom: "100px",
+              width: "200px"
             }}
             to="/"
           >
