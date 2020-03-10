@@ -16,40 +16,38 @@ export default ({ products, handleClick }) => {
   //de su segundo paramentro que siempre por default tiene que ser un arreglo vacio si no tienes nada especifico que cambiar
 
 
-  products ?
-    useEffect(() => {
-      //se encarga de ver si los productos existen y si existen lo que hace es generar un array con la cantidad de paginas
-      //dependiendo de la cantidad de productos que queremos mostrar, y ese es el numero despues de la division
-      //ejemplo: setNumberOfPages(Array.from(Array(25 / 5).keys()));
-      //ahi seria igual a 5 paginas
+  products
+    ? useEffect(() => {
+        filterContent(products);
+        //se encarga de ver si los productos existen y si existen lo que hace es generar un array con la cantidad de paginas
+        //dependiendo de la cantidad de productos que queremos mostrar, y ese es el numero despues de la division
+        //ejemplo: setNumberOfPages(Array.from(Array(25 / 5).keys()));
+        //ahi seria igual a 5 paginas
 
-      if (products.length) {
-
-        setNumberOfPages(Array.from(Array(products.length / 6).keys()));//crea la cant dre paginas
-
-      }
-
-      switch (currentPage) {
-        case 1:
-          setCurrentContent(products.slice(0, 6));
-          break;
-        case 2:
-          setCurrentContent(products.slice(6, 12));
-          break;
-        case 3:
-          setCurrentContent(products.slice(12, 18));
-          break;
-        default:
-          break;
-      }
-    }, [products.length, currentPage])
-    :
-    useEffect(() => {
-      //esto es para que si no le llegan los productos q se hace de manera async no haga nada, despues cuando les llegue entra al useEffect de arriba
-    }, [products, currentPage])
+        if (products.length) {
+          setNumberOfPages(
+            Array.from(Array(Math.ceil(products.length / 6)).keys())
+          );
+        }
+      }, [products.length, currentPage])
+    : useEffect(() => {
+        //esto es para que si no le llegan los productos q se hace de manera async no haga nada, despues cuando les llegue entra al useEffect de arriba
+      }, [products, currentPage]);
 
   //La razon por la que està el products.length y el currentPage es porque queremos saber si alguna de esas 2 cosas cambian
   //para hacer re-render
+  const filterContent = products => {
+    let limit = currentPage * 6;
+    let start = limit - 6;
+    let arr = [];
+    if (currentPage == 1)
+      setCurrentContent(products.filter((prodct, key) => key < limit));
+    else {
+      arr = products.slice(start, limit);
+
+      setCurrentContent(arr);
+    }
+  };
   const pagination = numberOfPages =>
     numberOfPages.map((page, key) => {
       return (
@@ -65,7 +63,9 @@ export default ({ products, handleClick }) => {
           </li>
         </div>
       );
-    })
+
+    });
+
 
   return (
     <div className="">
@@ -95,10 +95,12 @@ export default ({ products, handleClick }) => {
                   }}
                 >
                   Experiences
-          </h1>
+
+                </h1>
                 <h5 className="font-weight-normal">
                   We give you a lot of special experiences for your enjoy!
-          </h5>
+                </h5>
+
               </div>
             </div>
             <div
@@ -117,37 +119,42 @@ export default ({ products, handleClick }) => {
               >
                 {currentContent
                   ? currentContent.map(single => (
-                    <div
-                      className="card"
-                      style={{
-                        marginBottom: "25px",
-                        width: "30%",
-                        margin: 10,
-                        height: "50%"
-                      }}
-                      key={single.id}
-                    >
-                      <Link
-                        style={{
-                          textDecoration: "none",
-                          color: "inherit"
-                        }}
-                        to={`/experience/${single.id}`}
-                      >
-                        <img
-                          src={single.img_1}
-                          className="card-img-top"
-                          alt="..."
-                        />
 
-                        <div className="card-body">
-                          <h5 className="font-weight-bold">{single.name}</h5>
-                          <p className="font-weight-normal">{single.description}</p>
-                          <p className="font-weight-bold">u$S {single.price}</p>
-                        </div>
-                      </Link>
-                    </div>
-                  ))
+                      <div
+                        className="card"
+                        style={{
+                          marginBottom: "25px",
+                          width: "30%",
+                          margin: 10,
+                          height: "50%"
+                        }}
+                        key={single.id}
+                      >
+                        <Link
+                          style={{
+                            textDecoration: "none",
+                            color: "inherit"
+                          }}
+                          to={`/experience/${single.id}`}
+                        >
+                          <img
+                            src={single.img_1}
+                            className="card-img-top"
+                            alt="..."
+                          />
+
+                          <div className="card-body">
+                            <h5 className="font-weight-bold">{single.name}</h5>
+                            <p className="font-weight-normal">
+                              {single.description}
+                            </p>
+                            <p className="font-weight-bold">
+                              u$S {single.price}
+                            </p>
+                          </div>
+                        </Link>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>
@@ -177,7 +184,10 @@ export default ({ products, handleClick }) => {
                   </a>
                 </li>
                 {/* la funcion pagination se encarga de iterar por el numero de paginas para saber cuantas tengo */}
-                {products.length > 1 ? pagination(numberOfPages) : "no  hay pages"}
+                {products.length > 1
+                  ? pagination(numberOfPages)
+                  : "no  hay pages"}
+
 
                 {/* funciona para la flecha de pagination pueda ir hacia adelante */}
                 <li
@@ -200,7 +210,8 @@ export default ({ products, handleClick }) => {
             </nav>
           </div>
         </div>
-      ) : (null)}
+
+      ) : null}
     </div>
 
   );
