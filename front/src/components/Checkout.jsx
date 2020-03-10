@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({}) => {
+export default ({user}) => {
+  console.log(user)
   return (
     <div
       style={{
@@ -80,7 +81,7 @@ export default ({}) => {
             type="text"
             className="form-control"
             id="inputAddress"
-            placeholder="1234 Main St"
+            placeholder={user.address1}
           />
         </div>
         <div className="form-group">
@@ -91,7 +92,7 @@ export default ({}) => {
             type="text"
             className="form-control"
             id="inputAddress2"
-            placeholder="Apartment, studio, or floor"
+            placeholder={user.address2}
           />
         </div>
         <div className="form-row">
@@ -103,6 +104,7 @@ export default ({}) => {
               type="text"
               className="form-control"
               id="inputCity"
+              placeholder={user.address3}
             />
           </div>
 
@@ -119,6 +121,7 @@ export default ({}) => {
               type="text"
               className="form-control"
               id="inputZip"
+              placeholder={user.postCode}
             />
           </div>
         </div>

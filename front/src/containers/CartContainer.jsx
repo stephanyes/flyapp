@@ -4,7 +4,7 @@ import Cart from "../components/Cart";
 import { connect } from "react-redux";
 import Axios from "axios";
 import { removeProduct } from "../store/actions/cart";
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import NewCategorieAdmin from "../components/NewCategorieAdmin";
 
 const mapStateToProps = state => {
@@ -22,12 +22,13 @@ const mapStateToProps = state => {
 // };
 
 class CartContainer extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       products: []
     };
     this.handleClick = this.handleClick.bind(this);
+    this.goTocheckOut = this.goTocheckOut.bind(this);
   }
   componentDidMount() {
     if (this.props.state.userLogin.loginUser) {
@@ -64,11 +65,18 @@ class CartContainer extends React.Component {
     } else {
       Axios.post("/cart/delete", { e });
       window.location.reload();
+      
     }
     // let newCart = this.props.state.cart.cart;
     // for(let i=0;i<newCart.length;i++){
     //   if (newCart[i].id == e){newCart.splice(i, 1)}}
     // this.props.eliminar(newCart)
+  }
+
+  goTocheckOut(){
+    console.log(this.state.products,"quuuuuuuuuuuue")
+    // console.log("checkouuut",data)
+    // this.props.history.push("/checkout")
   }
 
   render() {
@@ -79,10 +87,11 @@ class CartContainer extends React.Component {
         handleClick={this.handleClick}
         carrito={this.state.products}
         cart={this.props.state.cart.cart}
+        checkOut={this.goTocheckOut}
       />
     );
     // return <Categories />;
   }
 }
 
-export default connect(mapStateToProps, null)(CartContainer);
+export default withRouter( connect(mapStateToProps, null)(CartContainer));

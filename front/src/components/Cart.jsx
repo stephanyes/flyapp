@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 
-export default ({ carrito, cart, handleClick, loged }) => {
+export default ({ carrito, checkOut, handleClick, loged }) => {
   console.log(carrito, "cart");
   let data = Object.assign({}, localStorage);
   let prod = Object.values(data);
@@ -57,7 +57,7 @@ export default ({ carrito, cart, handleClick, loged }) => {
                     <p className="font-weight-normal">{algo.description}</p>
                     <p className="font-weight-bold">u$S {algo.price} </p>
                     <Link
-                      onClick={() => handleClick(`${algo.price}`)}
+                      onClick={() => handleClick(`${algo.id}`)}
                       className="btn btn-primary btn-lg"
                       style={{
                         backgroundColor: "#2EC4B6",
@@ -69,7 +69,7 @@ export default ({ carrito, cart, handleClick, loged }) => {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </div>id
             </div>
           ))}
         </div>
@@ -117,17 +117,18 @@ export default ({ carrito, cart, handleClick, loged }) => {
         }}
       >
         <div class="card-body">
-          <Link
+          <button
+            onClick={checkOut}
             className="btn btn-primary btn-lg"
             style={{
               backgroundColor: "#2EC4B6",
               borderColor: "#2EC4B6",
               marginBottom: "100px"
             }}
-            to="/checkout"
+            
           >
             Go to Checkout
-          </Link>
+          </button>
         </div>
       </div>
     </div>

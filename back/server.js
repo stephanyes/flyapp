@@ -79,7 +79,7 @@ app.get("/*", function(req, res) {
 //     next(createError(404));
 // });
 
-db.sync({ force: false }).then(con => {
+db.sync({ force: false}).then(con => {
   console.log(
     `${con.options.dialect} database ${con.config.database} connected at ${con.config.host}:${con.config.port}`
   );
