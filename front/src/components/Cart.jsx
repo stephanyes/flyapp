@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 
 export default ({ carrito, cart, handleClick, loged }) => {
-  console.log(carrito,"cart")
-  let data = Object.assign({}, localStorage)
-  let prod = Object.values(data)
-  let producto = prod.map((e)=> JSON.parse(e))
-    
-  
+  console.log(carrito, "cart");
+  let data = Object.assign({}, localStorage);
+  let prod = Object.values(data);
+  let producto = prod.map(e => JSON.parse(e));
+  useEffect(() => {}, [carrito]);
+  console.log(carrito, cart, producto);
   return (
-
     <div
       style={{
         backgroundColor: "#ffffff"
@@ -40,8 +39,8 @@ export default ({ carrito, cart, handleClick, loged }) => {
           </h5>
         </div>
       </div>
-            {/* LADO LOGUEADO!!!!!! */}
-      {loged  ? (
+      {/* LADO LOGUEADO!!!!!! */}
+      {loged ? (
         <div
           style={{
             margin: "40px"
@@ -59,8 +58,7 @@ export default ({ carrito, cart, handleClick, loged }) => {
                     <p className="font-weight-normal">{algo.description}</p>
                     <p className="font-weight-bold">u$S {algo.price} </p>
                     <Link
-                      onClick={()=>handleClick(`${algo.price}`
-                      )}
+                      onClick={() => handleClick(`${algo.price}`)}
                       className="btn btn-primary btn-lg"
                       style={{
                         backgroundColor: "#2EC4B6",
@@ -81,8 +79,12 @@ export default ({ carrito, cart, handleClick, loged }) => {
           style={{
             margin: "40px"
           }}
-            // NO LOGUEADO!!!!!!!
-        ><h1>No logueado</h1>
+          // NO LOGUEADO!!!!!!!
+        >
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <h4>No estás logueado</h4>
+          </div>
+
           {producto.map(algo => (
             <div className="card mb-3" key={algo.id}>
               <div className="row no-gutters">
@@ -95,7 +97,7 @@ export default ({ carrito, cart, handleClick, loged }) => {
                     <p className="font-weight-normal">{algo.description}</p>
                     <p className="font-weight-bold">u$S {algo.price} </p>
                     <button
-                      onClick={()=> handleClick(`${algo.id}`)}
+                      onClick={() => handleClick(`${algo.id}`)}
                       className="btn btn-primary btn-lg"
                       style={{
                         backgroundColor: "#2EC4B6",
@@ -103,7 +105,7 @@ export default ({ carrito, cart, handleClick, loged }) => {
                       }}
                       to="/cart"
                     >
-                      Deletee
+                      Delete
                     </button>
                   </div>
                 </div>
@@ -111,31 +113,33 @@ export default ({ carrito, cart, handleClick, loged }) => {
             </div>
           ))}
         </div>
-      
+      )}
+      {cart.length >= 1 || producto.length >= 1 || carrito.length >= 1 ? (
+        <div
+          class="card text-center"
+          style={{
+            borderColor: "#ffffff"
+          }}
+        >
+          <div class="card-body">
+            <Link
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#2EC4B6",
+                borderColor: "#2EC4B6",
+                marginBottom: "100px"
+              }}
+              to="/checkout"
+            >
+              Go to Checkout
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <h4>No tienes productos en el carrito</h4>
+        </div>
       )}
     </div>
   );
 };
-
-{
-  /* <div className="col-md-2">
-<img src={carrito.data.img_1} className="card-img" alt="..." />
-</div>
-<div className="col-md-10">
-<div className="card-body">
-  <h5 className="font-weight-bold">{carrito.data.name}</h5>
-  <p className="font-weight-normal">{carrito.data.description}</p>
-  <p className="font-weight-bold">u$S {carrito.data.price} </p>
-  <Link
-    className="btn btn-primary btn-lg"
-    style={{
-      backgroundColor: "#2EC4B6",
-      borderColor: "#2EC4B6"
-    }}
-    to="/cart"
-  >
-    Delete
-  </Link>
-</div>
-</div> */
-}
