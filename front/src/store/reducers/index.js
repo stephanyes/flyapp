@@ -16,5 +16,6 @@ export default combineReducers({
     search_bar: searchReducer,
     home: homeReducer,
     cart: cartReducer,
-    category: categoryReducer
+    category: categoryReducer,
+    userEdit: editUsersReducer
 });

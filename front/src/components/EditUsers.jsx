@@ -76,23 +76,24 @@ export default ({ users, handleDelete, handlePromote, handleDemote }) => {
                         backgroundColor: "#ffffff",
                         borderColor: "#000000",
                         color: "#000000",
-                        marginRight: "20px",
-                        width: "200px"
+                        width: "320px" //es el ancho de cada uno + los 20px del margin-right
                       }}
                     >
                       Super Admin
                     </button>
                   )}
-                  <button
-                    className="btn btn-primary btn-lg"
-                    style={{
-                      backgroundColor: "#EA526F",
-                      borderColor: "#EA526F"
-                    }}
-                    onClick={() => handleDelete(user.id)}
-                  >
-                    Delete
-                  </button>
+                  {user.rol_id === "superAdmin" ? null : (
+                    <button
+                      className="btn btn-primary btn-lg"
+                      style={{
+                        backgroundColor: "#EA526F",
+                        borderColor: "#EA526F"
+                      }}
+                      onClick={() => handleDelete(user.id)}
+                    >
+                      Delete
+                    </button>
+                  )}
                 </div>
               </li>
             );

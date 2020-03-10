@@ -70,7 +70,7 @@ passport.use(
 app.use("/products", productos);
 app.use("/auth", users);
 //serealizar y deserializar el passport
-app.get("/*", function(req, res) {
+app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 

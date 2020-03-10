@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({}) => {
+export default ({ categories }) => {
   return (
     <div
       style={{
@@ -46,6 +46,42 @@ export default ({}) => {
         New
       </Link>
       <ul class="list-group">
+        {categories.length ? (
+          categories.map(category => {
+            return (
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                {category.name}
+                <div>
+                  <Link
+                    className="btn btn-primary btn-lg"
+                    style={{
+                      backgroundColor: "#2EC4B6",
+                      borderColor: "#2EC4B6",
+                      marginRight: "20px"
+                    }}
+                    to="/users"
+                  >
+                    Edit
+                  </Link>
+                  <Link
+                    className="btn btn-primary btn-lg"
+                    style={{
+                      backgroundColor: "#EA526F",
+                      borderColor: "#EA526F"
+                    }}
+                    to="/users"
+                  >
+                    Delete
+                  </Link>
+                </div>
+              </li>
+            );
+          })
+        ) : (
+          <li>No Categories Found</li>
+        )}
+      </ul>
+      {/* <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           Categorie 1
           <div>
@@ -124,7 +160,7 @@ export default ({}) => {
             </Link>
           </div>
         </li>
-      </ul>
+      </ul> */}
     </div>
   );
 };

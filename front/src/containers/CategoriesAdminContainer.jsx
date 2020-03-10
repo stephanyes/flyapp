@@ -3,20 +3,33 @@ import CategoriesAdmin from "../components/CategoriesAdmin";
 
 import { connect } from "react-redux";
 
+import { getCategory } from "../store/actions/category";
+
 const mapStateToProps = state => {
-  return {};
+  return {
+    categories: state.category.category
+  };
 };
 
 const mapDispatchToProps = function(dispatch, ownProps) {
-  return {};
+  return {
+    searchAllCategories: () => dispatch(getCategory())
+  };
 };
 
 class EditUsersContainer extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentDidMount() {
+    this.props.searchAllCategories();
+  }
+
   render() {
-    return <CategoriesAdmin />;
+    let { categories } = this.props;
+
+    return <CategoriesAdmin categories={categories} />;
   }
 }
 
