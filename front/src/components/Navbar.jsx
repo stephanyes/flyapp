@@ -1,11 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ handleChange,handleSubmit, user }) => {
+export default ({
+  handleChange,
+  user,
+  dropdown,
+  open,
+  handleSubmit,
+  logout
+}) => {
+  const menuClass = `dropdown-menu${dropdown ? " show" : ""}`;
   return (
     <div>
       <nav
-        class="navbar navbar-expand-lg navbar-light"
+        className="navbar navbar-expand-lg navbar-light"
         style={{
           backgroundColor: "#ffffff"
         }}
@@ -37,6 +45,11 @@ export default ({ handleChange,handleSubmit, user }) => {
                 Experiences
               </Link>
             </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/category">
+                Categories
+              </Link>
+            </li>
           </ul>
           <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
             <input
@@ -48,13 +61,45 @@ export default ({ handleChange,handleSubmit, user }) => {
             />
             <ul className="navbar-nav mr-auto">
               {user.firstName ? (
-                <ul className="navbar-nav mr-auto">
-                  <li className="nav-item active">
-                    <Link className="nav-link" to="/profile">
-                      {user.firstName}
+                <div className="dropdown" onClick={open}>
+                  <button
+                    className="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                  >
+                    {user.firstName}
+                  </button>
+                  <div
+                    className={menuClass}
+                    aria-labelledby="dropdownMenuButton"
+                  >
+                    <Link className="dropdown-item" to="/profile">
+                      Profile
                     </Link>
-                  </li>
-                </ul>
+                    {user.rol_id === "client" ? null : (
+                      //si no es cliente mostra Edit Products
+                      <div className="dropdown">
+                        <Link className="dropdown-item" to="/editProducts">
+                          Edit Products
+                        </Link>
+                        <Link className="dropdown-item" to="/editCategories">
+                          Edit Categories
+                        </Link>
+                      </div>
+                    )}
+                    {user.rol_id === "superAdmin" ? (
+                      //si es superAdmin mostra Edit Users
+                      <Link className="dropdown-item" to="/editUsers">
+                        Edit Users
+                      </Link>
+                    ) : null}
+                    <p className="dropdown-item" href="#nogo" onClick={logout}>
+                      Logout
+                    </p>
+                  </div>
+                </div>
               ) : (
                 <ul className="navbar-nav mr-auto">
                   <li className="nav-item active">

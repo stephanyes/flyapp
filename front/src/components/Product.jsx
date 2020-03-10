@@ -18,7 +18,8 @@ export default ({ producto, storing }) => {
           className="col"
           style={{
             padding: "40px",
-            backgroundColor: "#ffffff"
+            backgroundColor: "#ffffff",
+            paddingBottom: "200px"
           }}
         >
           <div
@@ -72,7 +73,7 @@ export default ({ producto, storing }) => {
                 color: "#EA526F",
                 borderColor: "#EA526F"
               }}
-              to="/cart"
+              to="/checkout"
             >
               Proceed to Checkout
             </Link>

@@ -55,7 +55,7 @@ export default ({ products }) => {
         <div className="col">
           <img
             src="https://insideone.s3-sa-east-1.amazonaws.com/image-home-04.png"
-            class="img-fluid"
+            className="img-fluid"
             alt="Responsive image"
           />
         </div>
@@ -78,23 +78,23 @@ export default ({ products }) => {
         {/* ------------------------------------- */}
         {products
           ? products.slice(0, 4).map(singles => (
-              <div className="card" key={singles.id}>
-                <Link
-                  style={{
-                    textDecoration: "none",
-                    color: "inherit"
-                  }}
-                  to={`/experience/${singles.id}`}
-                >
-                  <img src={singles.img_1} class="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="font-weight-bold">{singles.name}</h5>
-                    <p className="font-weight-normal">{singles.description}</p>
-                    <p className="font-weight-bold">u$S {singles.price}</p>
-                  </div>
-                </Link>
-              </div>
-            ))
+            <div className="card" key={singles.id}>
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "inherit"
+                }}
+                to={`/experience/${singles.id}`}
+              >
+                <img src={singles.img_1} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="font-weight-bold">{singles.name}</h5>
+                  <p className="font-weight-normal">{singles.description}</p>
+                  <p className="font-weight-bold">u$S {singles.price}</p>
+                </div>
+              </Link>
+            </div>
+          ))
           : null}
         {/* ------------------------------------- */}
       </div>
@@ -148,23 +148,23 @@ export default ({ products }) => {
       >
         {products
           ? products.slice(4, 7).map(singles => (
-              <div className="card" key={singles.id}>
-                <Link
-                  style={{
-                    textDecoration: "none",
-                    color: "inherit"
-                  }}
-                  to={`/experience/${singles.id}`}
-                >
-                  <img src={singles.img_1} class="card-img-top" alt="..." />
-                  <div className="card-body">
-                    <h5 className="font-weight-bold">{singles.name}</h5>
-                    <p className="font-weight-normal">{singles.description}</p>
-                    <p className="font-weight-bold">u$S {singles.price}</p>
-                  </div>
-                </Link>
-              </div>
-            ))
+            <div className="card" key={singles.id}>
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "inherit"
+                }}
+                to={`/experience/${singles.id}`}
+              >
+                <img src={singles.img_1} className="card-img-top" alt="..." />
+                <div className="card-body">
+                  <h5 className="font-weight-bold">{singles.name}</h5>
+                  <p className="font-weight-normal">{singles.description}</p>
+                  <p className="font-weight-bold">u$S {singles.price}</p>
+                </div>
+              </Link>
+            </div>
+          ))
           : null}
       </div>
       <div
@@ -177,7 +177,7 @@ export default ({ products }) => {
         <div className="col">
           <img
             src="https://insideone.s3-sa-east-1.amazonaws.com/image-home-01.png"
-            class="img-fluid"
+            className="img-fluid"
             alt="Responsive image"
           />
         </div>
