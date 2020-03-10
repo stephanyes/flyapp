@@ -13,7 +13,7 @@ export default ({
   return (
     <div>
       <nav
-        class="navbar navbar-expand-lg navbar-light"
+        className="navbar navbar-expand-lg navbar-light"
         style={{
           backgroundColor: "#ffffff"
         }}
@@ -43,6 +43,11 @@ export default ({
             <li className="nav-item active">
               <Link className="nav-link" to="/experiences">
                 Experiences
+              </Link>
+            </li>
+            <li className="nav-item active">
+              <Link className="nav-link" to="/category">
+                Categories
               </Link>
             </li>
           </ul>

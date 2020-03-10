@@ -9,6 +9,9 @@ Category.init(
         name: {
             type: S.STRING,
             allowNull: false
+        }, img: {
+            type: S.STRING, //public/imgs
+            allowNull: false
         }
 
     },
