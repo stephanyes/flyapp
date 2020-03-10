@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({}) => {
+/*que si aprieto Edit, me mande aca pero con los valores completados con los del "edit"
+para eso en cada uno de los formularios puedo poner un ternario que va a evaluar si existe el valor a completar
+si existe, entonces, en el tag de form creo que es, value = {CATEGORY.NAME ? category.name : ""}
+sino buscar una propiedad default value*/
+
+/*va a tener que ser en otro component o en el mismo + ternario
+porque el handleSubmit en un caso triggerea un axios.POST y en otro un axios.PUT*/
+export default ({ handleChange, handleClick, nameValue, imgValue }) => {
   return (
     <div
       style={{
@@ -26,10 +33,10 @@ export default ({}) => {
               padding: "10px"
             }}
           >
-            New Categorie
+            New Category
           </h1>
           <h5 className="font-weight-normal">
-            Create a new categorie to your site.
+            Create a new category to your site.
           </h5>
         </div>
       </div>
@@ -40,25 +47,27 @@ export default ({}) => {
         }}
       >
         <div className="form-group">
-          <label for="inputNameOfExperience">Name of categorie</label>
+          <label for="inputNameOfExperience">Name of category</label>
           <input
-            //  onChange={handleAddress1}
-            name="nameOfCategorie"
+            name="name"
             type="text"
             className="form-control"
             id="inputNameOfCategorie"
             placeholder="Dinner"
+            onChange={e => handleChange(e)}
+            value={`${nameValue}`}
           />
         </div>
         <div className="form-group">
           <label for="inputImageUrl">Image URL</label>
           <input
-            //   onChange={handleAddress2}
-            name="imageUrl"
+            name="img"
             type="text"
             className="form-control"
             id="inputImageUrl"
             placeholder="https://www..."
+            onChange={e => handleChange(e)}
+            value={`${imgValue}`}
           />
         </div>
       </form>
@@ -69,7 +78,7 @@ export default ({}) => {
         }}
       >
         <div class="card-body">
-          <Link
+          <button
             className="btn btn-primary btn-lg"
             style={{
               backgroundColor: "#2EC4B6",
@@ -77,10 +86,10 @@ export default ({}) => {
               marginBottom: "100px",
               width: "200px"
             }}
-            to="/"
+            onClick={handleClick}
           >
             Create
-          </Link>
+          </button>
         </div>
       </div>
     </div>

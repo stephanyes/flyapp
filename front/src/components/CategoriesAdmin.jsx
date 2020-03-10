@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ categories }) => {
+export default ({ categories, handleDelete }) => {
   return (
     <div
       style={{
@@ -41,7 +41,7 @@ export default ({ categories }) => {
           margin: "20px",
           width: "200px"
         }}
-        to="/"
+        to="/newCategoryAdmin"
       >
         New
       </Link>
@@ -49,7 +49,10 @@ export default ({ categories }) => {
         {categories.length ? (
           categories.map(category => {
             return (
-              <li class="list-group-item d-flex justify-content-between align-items-center">
+              <li
+                key={category.id}
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
                 {category.name}
                 <div>
                   <Link
@@ -63,16 +66,16 @@ export default ({ categories }) => {
                   >
                     Edit
                   </Link>
-                  <Link
+                  <button
                     className="btn btn-primary btn-lg"
                     style={{
                       backgroundColor: "#EA526F",
                       borderColor: "#EA526F"
                     }}
-                    to="/users"
+                    onClick={() => handleDelete(category.id)}
                   >
                     Delete
-                  </Link>
+                  </button>
                 </div>
               </li>
             );
@@ -81,86 +84,6 @@ export default ({ categories }) => {
           <li>No Categories Found</li>
         )}
       </ul>
-      {/* <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          Categorie 1
-          <div>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
-                borderColor: "#2EC4B6",
-                marginRight: "20px"
-              }}
-              to="/users"
-            >
-              Edit
-            </Link>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#EA526F",
-                borderColor: "#EA526F"
-              }}
-              to="/users"
-            >
-              Delete
-            </Link>
-          </div>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          Categorie 2
-          <div>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
-                borderColor: "#2EC4B6",
-                marginRight: "20px"
-              }}
-              to="/users"
-            >
-              Edit
-            </Link>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#EA526F",
-                borderColor: "#EA526F"
-              }}
-              to="/users"
-            >
-              Delete
-            </Link>
-          </div>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          Categorie 3
-          <div>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
-                borderColor: "#2EC4B6",
-                marginRight: "20px"
-              }}
-              to="/users"
-            >
-              Edit
-            </Link>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#EA526F",
-                borderColor: "#EA526F"
-              }}
-              to="/users"
-            >
-              Delete
-            </Link>
-          </div>
-        </li>
-      </ul> */}
     </div>
   );
 };

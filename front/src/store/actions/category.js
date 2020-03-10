@@ -18,9 +18,15 @@ export const getCategory = () => dispatch =>
         .then(res => res.data)
         .then(found => dispatch(addCategory(found)))
 
-
-
 export const getCategoryById = (id) => dispatch =>
     Axios.get(`/categories/${id}`)
         .then(res => res.data)
         .then(found => dispatch(addCategoryId(found)))
+
+
+
+export const createCategory = body => dispatch =>
+    Axios.post(`/categories`, body)
+
+export const deleteCategory = id => dispatch =>
+    Axios.delete(`/categories/${id}`).then(() => dispatch(getCategory()))

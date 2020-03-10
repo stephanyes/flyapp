@@ -72,7 +72,8 @@ export default ({
                     {user.firstName}
                   </button>
                   <div
-                    className={menuClass}
+                    className={`${menuClass} dropdown-menu-right`}
+                    //dropdown-menu-right lo mantiene adentro de la pag
                     aria-labelledby="dropdownMenuButton"
                   >
                     <Link className="dropdown-item" to="/profile">
@@ -84,7 +85,7 @@ export default ({
                         <Link className="dropdown-item" to="/editProducts">
                           Edit Products
                         </Link>
-                        <Link className="dropdown-item" to="/editCategories">
+                        <Link className="dropdown-item" to="/categoriesAdmin">
                           Edit Categories
                         </Link>
                       </div>

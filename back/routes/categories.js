@@ -22,4 +22,17 @@ router.get('/:id', (req, res) => {
     }).then(found => res.status(200).json(found))
 })
 
+//EDIT CATEGORIES
+router.post('/', (req, res) => {
+    Category.create(req.body).then(createdCategory => res.status(200).send(createdCategory))
+})
+
+router.delete('/:id', (req, res) => {
+    Category.destroy({ where: { id: req.params.id } })
+        .then(response => {
+            if (response) return res.json(response)
+            else return res.sendStatus(404)
+        })
+})
+
 module.exports = router;

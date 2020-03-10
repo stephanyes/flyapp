@@ -46,7 +46,6 @@ class EditUsersContainer extends React.Component {
 
   handleDemote(id) {
     this.props.demoteUser(id);
-    console.log("ANDA");
   }
 
   render() {
