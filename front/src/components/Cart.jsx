@@ -7,7 +7,7 @@ export default ({ carrito, cart, handleClick, loged }) => {
   let prod = Object.values(data);
   let producto = prod.map(e => JSON.parse(e));
   useEffect(() => {}, [carrito]);
-  console.log(carrito, cart, producto);
+  
   return (
     <div
       style={{
@@ -58,7 +58,7 @@ export default ({ carrito, cart, handleClick, loged }) => {
                     <p className="font-weight-normal">{algo.description}</p>
                     <p className="font-weight-bold">u$S {algo.price} </p>
                     <Link
-                      onClick={() => handleClick(`${algo.price}`)}
+                      onClick={() => handleClick(`${algo.id}`)}
                       className="btn btn-primary btn-lg"
                       style={{
                         backgroundColor: "#2EC4B6",

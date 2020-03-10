@@ -66,5 +66,6 @@ module.exports = {
   Cart,
   Role,
   Category,
-  Order
+  Order,
+  Product_Cart
 };

@@ -17,5 +17,8 @@ export const FILL_CART = "FILL_CART";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 
 //Category
-export const GET_CATEGORY = "GET_CATEGORY";
-export const GET_CATEGORYID = "GET_CATEGORYID";
+export const GET_CATEGORY = "GET_CATEGORY"
+export const GET_CATEGORYID = 'GET_CATEGORYID'
+
+
+
