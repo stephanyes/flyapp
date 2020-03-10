@@ -33,22 +33,10 @@ export default ({ handleClick }) => (
             marginBottom: "20px"
           }}
         >
-          This is your actual profile
+          This is your actual profile.
         </h5>
-        <button
-          type="button"
-          className="btn btn-primary btn-lg"
-          style={{
-            backgroundColor: "#2EC4B6",
-            borderColor: "#2EC4B6"
-          }}
-          onClick={handleClick}
-        >
-          Logout
-        </button>
       </div>
     </div>
-
     <div
       className="container"
       style={{
@@ -57,26 +45,119 @@ export default ({ handleClick }) => (
     >
       <h3 className="font-weight-bold">Previous purchases</h3>
     </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
-    <div className="card">
-      <div className="card-body">This is a previous purchase.</div>
-    </div>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <span
+            style={{
+              margin: "20px"
+            }}
+          >
+            This is a previous purchase.
+          </span>
+          <span
+            style={{
+              margin: "20px"
+            }}
+          >
+            Quantity of Experiencies
+          </span>
+          <span
+            style={{
+              margin: "20px"
+            }}
+          >
+            Price
+          </span>
+        </div>
+
+        <div>
+          <Link
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#2EC4B6",
+              borderColor: "#2EC4B6"
+            }}
+            to="/review"
+          >
+            Leave a Review
+          </Link>
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <span
+            style={{
+              margin: "20px"
+            }}
+          >
+            This is a previous purchase.
+          </span>
+          <span
+            style={{
+              margin: "20px"
+            }}
+          >
+            Quantity of Experiencies
+          </span>
+          <span
+            style={{
+              margin: "20px"
+            }}
+          >
+            Price
+          </span>
+        </div>
+        <div>
+          <Link
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#2EC4B6",
+              borderColor: "#2EC4B6"
+            }}
+            to="/review"
+          >
+            Leave a Review
+          </Link>
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <span
+            style={{
+              margin: "20px"
+            }}
+          >
+            This is a previous purchase.
+          </span>
+          <span
+            style={{
+              margin: "20px"
+            }}
+          >
+            Quantity of Experiencies
+          </span>
+          <span
+            style={{
+              margin: "20px"
+            }}
+          >
+            Price
+          </span>
+        </div>
+        <div>
+          <Link
+            className="btn btn-primary btn-lg"
+            style={{
+              backgroundColor: "#2EC4B6",
+              borderColor: "#2EC4B6"
+            }}
+            to="/review"
+          >
+            Leave a Review
+          </Link>
+        </div>
+      </li>
+    </ul>
   </div>
 );

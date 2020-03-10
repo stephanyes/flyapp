@@ -63,6 +63,10 @@ export default ({
                     id="dropdownMenuButton"
                     data-toggle="dropdown"
                     aria-haspopup="true"
+                    style={{
+                      backgroundColor: "#2EC4B6",
+                      borderColor: "#2EC4B6"
+                    }}
                   >
                     {user.firstName}
                   </button>
