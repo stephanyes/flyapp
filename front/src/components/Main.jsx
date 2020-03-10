@@ -12,6 +12,7 @@ import ProfileContainer from "../containers/ProfileContainer";
 import EditUsersContainer from "../containers/EditUsersContainer";
 import NavbarContainer from "../containers/NavbarContainer";
 import CheckoutContainer from "../containers/CheckoutContainer";
+import CategoriesAdminContainer from "../containers/CategoriesAdminContainer";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -34,6 +35,11 @@ export default class Main extends React.Component {
           <Route exact path="/profile" component={ProfileContainer} />
           <Route exact path="/editUsers" component={EditUsersContainer} />
           <Route exact path="/checkout" component={CheckoutContainer} />
+          <Route
+            exact
+            path="/editCategories"
+            component={CategoriesAdminContainer}
+          />
         </Switch>
       </div>
     );
