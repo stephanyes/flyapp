@@ -18,5 +18,6 @@ export default combineReducers({
     home: homeReducer,
     cart: cartReducer,
     category: categoryReducer,
-    orders: orderHistoryReducer
+    orders: orderHistoryReducer,
+    userEdit: editUsersReducer
 });

@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import Axios from "axios";
 import { removeProduct } from "../store/actions/cart";
 import { Redirect, withRouter } from "react-router-dom";
-import NewCategorieAdmin from "../components/NewCategorieAdmin";
+import NewCategoryAdmin from "../components/NewCategoryAdmin";
 
 const mapStateToProps = state => {
   return {
@@ -64,7 +64,6 @@ class CartContainer extends React.Component {
     } else {
       Axios.post("/cart/delete", { e });
       window.location.reload();
-
     }
     // let newCart = this.props.state.cart.cart;
     // for(let i=0;i<newCart.length;i++){
@@ -73,11 +72,8 @@ class CartContainer extends React.Component {
   }
 
   goTocheckOut() {
-    console.log(this.state.products, "quuuuuuuuuuuue")
-    Axios.post("/order/create", (req, res) => {
-
-    })
-
+    console.log(this.state.products, "quuuuuuuuuuuue");
+    Axios.post("/order/create", (req, res) => {});
   }
 
   render() {
