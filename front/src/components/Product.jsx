@@ -83,11 +83,14 @@ export default ({ producto, storing }) => {
         <div className="col">
           <img
             style={{
-              height: "660px",
-              position: "fixed",
-              right: "0"
+              maxHeight: "760px"
+              //maxWidth: "660px"
+
+              // position: "fixed",
+              // right: "0"
             }}
             src={producto.img_1}
+            //src="https://insideone.s3-sa-east-1.amazonaws.com/image-home-05.png"
             class="img-fluid"
             alt="Responsive image"
           />

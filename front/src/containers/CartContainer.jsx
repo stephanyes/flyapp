@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Axios from "axios";
 import { removeProduct } from "../store/actions/cart";
 import { Redirect } from "react-router-dom";
-import NewReview from "../components/NewReview";
+import NewProductAdmin from "../components/NewProductAdmin";
 
 const mapStateToProps = state => {
   return {
@@ -81,7 +81,7 @@ class CartContainer extends React.Component {
     //     cart={this.props.state.cart.cart}
     //   />
     // );
-    return <NewReview />;
+    return <NewProductAdmin />;
   }
 }
 

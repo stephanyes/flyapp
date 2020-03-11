@@ -51,6 +51,16 @@ export default ({}) => {
             placeholder="Parachute in Dubai"
           />
         </div>
+        <div class="form-group">
+          <label for="inputSelect">Category</label>
+          <select class="form-control" id="inputSelect">
+            //aca hay que mapear las categorias existentes para asignar. Esto es
+            solo ejemplo.
+            <option>Trips</option>
+            <option>Gourmet</option>
+            <option>Extreme</option>
+          </select>
+        </div>
         <div className="form-group">
           <label for="inputDescription">Description</label>
           <input

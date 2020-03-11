@@ -42,7 +42,7 @@ passport.deserializeUser((id, done) => {
 app.use("/products", productos);
 app.use("/auth", users);
 app.use("/cart", cart);
-app.use('/categories', categories)
+app.use("/categories", categories);
 
 passport.use(
   new LocalStrategy(
