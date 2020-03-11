@@ -91,9 +91,40 @@ export default ({ producto, storing }) => {
             }}
             src={producto.img_1}
             //src="https://insideone.s3-sa-east-1.amazonaws.com/image-home-05.png"
-            class="img-fluid"
+            className="img-fluid"
             alt="Responsive image"
           />
+        </div>
+      </div>
+      <div>
+        <h2
+          className="font-weight-bold"
+          style={{ paddingBottom: "10px", margin: "60px" }}
+        >
+          Comments
+        </h2>
+        <div className="card mb-3">
+          <div className="row no-gutters">
+            <div className="col-md-10">
+              <div className="card-body">
+                <p className="font-weight-bold" style={{ marginLeft: "35px" }}>
+                  Pablito escobar
+                </p>
+                <p
+                  className="font-weight-normal"
+                  style={{ marginLeft: "35px" }}
+                >
+                  Me encanto re zarpado!!
+                </p>
+                <p
+                  className="font-weight-normal"
+                  style={{ marginLeft: "35px" }}
+                >
+                  ⭐ ⭐ ⭐ ⭐ ⭐
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

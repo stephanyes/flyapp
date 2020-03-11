@@ -86,18 +86,21 @@ export default ({
                     {user.rol_id === "client" ? null : (
                       //si no es cliente mostra Edit Products
                       <div className="dropdown">
+                        <Link className="dropdown-item" to="/orders">
+                          Orders
+                        </Link>
                         <Link className="dropdown-item" to="/editProducts">
-                          Edit Products
+                          Experiences
                         </Link>
                         <Link className="dropdown-item" to="/categoriesAdmin">
-                          Edit Categories
+                          Categories
                         </Link>
                       </div>
                     )}
                     {user.rol_id === "superAdmin" ? (
                       //si es superAdmin mostra Edit Users
                       <Link className="dropdown-item" to="/editUsers">
-                        Edit Users
+                        Users
                       </Link>
                     ) : null}
                     <p className="dropdown-item" href="#nogo" onClick={logout}>
