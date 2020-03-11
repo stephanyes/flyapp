@@ -17,10 +17,12 @@ import CheckoutContainer from "../containers/CheckoutContainer";
 import CategoriesAdminContainer from "../containers/CategoriesAdminContainer";
 import newCategoryAdminContainer from "../containers/NewCategoryAdminContainer";
 import editCategoryAdmin from "../containers/EditCategoryContainer";
+import UserOrderContainer from "../containers/UserOrderContainer";
 import ProductsAdminContainer from "../containers/ProductsAdminContainer";
 import NewProductAdminContainer from "../containers/NewProductAdminContainer";
 import EditProductAdminContainer from "../containers/EditProductAdminContainer";
 import ReviewContainer from "../containers/ReviewContainer";
+
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -65,6 +67,13 @@ export default class Main extends React.Component {
           />
           <Route
             exact
+
+            path="/order/:id"
+            component={UserOrderContainer}
+          />
+          <Route
+            exact
+            
             path="/editProducts"
             component={ProductsAdminContainer}
           />
