@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({}) => {
+export default ({ categories, handleDelete, handleSelect }) => {
   return (
     <div
       style={{
@@ -41,89 +41,49 @@ export default ({}) => {
           margin: "20px",
           width: "200px"
         }}
-        to="/"
+        to="/newCategoryAdmin"
       >
         New
       </Link>
       <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          Categorie 1
-          <div>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
-                borderColor: "#2EC4B6",
-                marginRight: "20px"
-              }}
-              to="/users"
-            >
-              Edit
-            </Link>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#EA526F",
-                borderColor: "#EA526F"
-              }}
-              to="/users"
-            >
-              Delete
-            </Link>
-          </div>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          Categorie 2
-          <div>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
-                borderColor: "#2EC4B6",
-                marginRight: "20px"
-              }}
-              to="/users"
-            >
-              Edit
-            </Link>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#EA526F",
-                borderColor: "#EA526F"
-              }}
-              to="/users"
-            >
-              Delete
-            </Link>
-          </div>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          Categorie 3
-          <div>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
-                borderColor: "#2EC4B6",
-                marginRight: "20px"
-              }}
-              to="/users"
-            >
-              Edit
-            </Link>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#EA526F",
-                borderColor: "#EA526F"
-              }}
-              to="/users"
-            >
-              Delete
-            </Link>
-          </div>
-        </li>
+        {categories.length ? (
+          categories.map(category => {
+            return (
+              <li
+                key={category.id}
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                {category.name}
+                <div>
+                  <button
+                    className="btn btn-primary btn-lg"
+                    style={{
+                      backgroundColor: "#2EC4B6",
+                      borderColor: "#2EC4B6",
+                      marginRight: "20px"
+                    }}
+                    // to="/editCategoryAdmin"
+                    onClick={() => handleSelect(category.id)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-primary btn-lg"
+                    style={{
+                      backgroundColor: "#EA526F",
+                      borderColor: "#EA526F"
+                    }}
+                    onClick={() => handleDelete(category.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </li>
+            );
+          })
+        ) : (
+          <li>No Categories Found</li>
+        )}
       </ul>
     </div>
   );
