@@ -15,7 +15,6 @@ const app = express();
 const categories = require("./routes/categories");
 const order = require("./routes/order");
 
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
@@ -83,7 +82,7 @@ app.get("/*", function(req, res) {
 //     next(createError(404));
 // });
 
-db.sync({ force: false}).then(con => {
+db.sync({ force: false }).then(con => {
   console.log(
     `${con.options.dialect} database ${con.config.database} connected at ${con.config.host}:${con.config.port}`
   );

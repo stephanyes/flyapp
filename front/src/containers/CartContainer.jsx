@@ -64,7 +64,6 @@ class CartContainer extends React.Component {
     } else {
       Axios.post("/cart/delete", { e });
       window.location.reload();
-      
     }
     // let newCart = this.props.state.cart.cart;
     // for(let i=0;i<newCart.length;i++){
@@ -72,17 +71,11 @@ class CartContainer extends React.Component {
     // this.props.eliminar(newCart)
   }
 
-  goTocheckOut(){
-    console.log(this.state.products,"quuuuuuuuuuuue")
-    Axios.post("/order/create", (req,res)=>{
-
-    })
-    
-  } 
+  goTocheckOut() {
+    Axios.post("/order/create", (req, res) => {});
+  }
 
   render() {
-    console.log(this.props.state.cart.cart, this.state.products);
-
     const logueado = this.props.state.userLogin.loginUser;
     return (
       <Cart
@@ -97,4 +90,4 @@ class CartContainer extends React.Component {
   }
 }
 
-export default withRouter( connect(mapStateToProps, null)(CartContainer));
+export default withRouter(connect(mapStateToProps, null)(CartContainer));
