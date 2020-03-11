@@ -46,10 +46,7 @@ app.use("/products", productos);
 app.use("/auth", users);
 app.use("/cart", cart);
 app.use("/categories", categories);
-<<<<<<< HEAD
-=======
 app.use("/order", order);
->>>>>>> df81dd83c838308851df92bf7ad7778a49b0aea3
 
 passport.use(
   new LocalStrategy(
