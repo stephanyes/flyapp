@@ -20,7 +20,7 @@ Product.init(
         },
         img_2: {
             type: S.STRING,
-            allowNull: false
+            allowNull: true //que no sea obligatoria la segunda img
         },
         price: {
             type: S.INTEGER,

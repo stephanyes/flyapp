@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ categories, handleChange, handleSubmit }) => {
+export default ({ categories, handleChange, handleSubmit, state }) => {
   return (
     <div
       style={{
@@ -25,11 +25,8 @@ export default ({ categories, handleChange, handleSubmit }) => {
               padding: "10px"
             }}
           >
-            New Product
+            Edit Product
           </h1>
-          <h5 className="font-weight-normal">
-            Create a new experience to your site.
-          </h5>
         </div>
       </div>
       <form
@@ -47,6 +44,7 @@ export default ({ categories, handleChange, handleSubmit }) => {
             className="form-control"
             id="inputNameOfExperience"
             placeholder="Parachute in Dubai"
+            value={state.name}
           />
         </div>
         <div class="form-group">
@@ -74,6 +72,7 @@ export default ({ categories, handleChange, handleSubmit }) => {
             className="form-control"
             id="inputDescription"
             placeholder="An extreme adventure of parachute..."
+            value={state.description}
           />
         </div>
         <div className="form-group">
@@ -85,6 +84,7 @@ export default ({ categories, handleChange, handleSubmit }) => {
             className="form-control"
             id="inputImageUrl"
             placeholder="https://www..."
+            value={state.img_1}
           />
         </div>
         <div className="form-group">
@@ -96,6 +96,7 @@ export default ({ categories, handleChange, handleSubmit }) => {
             className="form-control"
             id="inputImageUrl"
             placeholder="https://www..."
+            value={state.img_2}
           />
         </div>
         <div className="form-row">
@@ -107,6 +108,7 @@ export default ({ categories, handleChange, handleSubmit }) => {
               type="number"
               className="form-control"
               id="inputPrice"
+              value={state.price}
             />
           </div>
 
@@ -123,6 +125,7 @@ export default ({ categories, handleChange, handleSubmit }) => {
               type="number"
               className="form-control"
               id="inputStock"
+              value={state.stock}
             />
           </div>
         </div>
@@ -144,7 +147,7 @@ export default ({ categories, handleChange, handleSubmit }) => {
             }}
             onClick={handleSubmit}
           >
-            Create
+            Edit
           </button>
         </div>
       </div>
