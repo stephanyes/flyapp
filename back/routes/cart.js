@@ -14,81 +14,89 @@ router.post("/addtocart", (req, res) => {
   // console.log(req.body, "req.user");
   if (req.user) {
     Cart.findOrCreate({
-      where: { userId: req.user.dataValues.id,
-               status: "pending"},
-     
+      where: {
+        userId: req.user.dataValues.id,
+        status: "pending"
+      },
+
       defaults: {
-      quantity: 1,
-      total: req.body.producto.price,
-      userId: req.user.dataValues.id
+        total: req.body.producto.price,
+        userId: req.user.dataValues.id
       }
-    }).then(algo => { 
-    
+    }).then(algo => {
+
       let carro = algo[0]
-      if(carro.dataValues.status == "pending"){
-      
-      carro.addProduct(req.body.producto.id)
-      
-      res.status(201).send("Sumo al carrito pending")
+      if (carro.dataValues.status == "pending") {
+
+        carro.addProduct(req.body.producto.id)
+
+        res.status(201).send("Sumo al carrito pending")
       } else {
         Cart.create({
           quantity: 1,
           total: req.body.producto.price,
           userId: req.user.dataValues.id
-        }).then(algo => { 
+        }).then(algo => {
           let carro = algo[0]
           carro.addProduct(req.body.producto.id)
-          
+
           res.status(201).send("Nuevo carrito, ya hay uno fulfilled")
-        })}
-       
-      })
+        })
+      }
+
+    })
   }
 });
 
-router.post("/delete", (req,res)=>{
-  console.log(req.body,"post delete")
+router.post("/delete", (req, res) => {
+  console.log(req.body, "post delete")
   Cart.findOne({
-    where: { userId: req.user.dataValues.id}
-  }).then((data)=>{
+    where: { userId: req.user.dataValues.id }
+  }).then((data) => {
     let kartId = data.dataValues.userId
     model.Product_Cart.destroy({
-     
-      where: { productId: req.body.e,
-      cartId: kartId}     
-   
-})
+
+      where: {
+        productId: req.body.e,
+        cartId: kartId
+      }
+
+    })
   })
-  .then(() => res.json("destruido"));
+    .then(() => res.json("destruido"));
 })
 
 
 router.get("/products", (req, res) => {
-  if(req.user){
-  Product.findAll({
-    include: [
-      {
-        model: Cart,
-        where: { userId: req.user.dataValues.id,
-                 status: "pending" }
-      }
-    ]
-  }).then(found => res.json(found));
-}})
+  if (req.user) {
+    Product.findAll({
+      include: [
+        {
+          model: Cart,
+          where: {
+            userId: req.user.dataValues.id,
+            status: "pending"
+          }
+        }
+      ]
+    }).then(found => res.json(found));
+  }
+})
 
-router.post("/order", (req,res,next)=>{
- console.log("Soy Order")
+router.post("/order", (req, res, next) => {
+  console.log("Soy Order")
   Order.create({
 
     deliveryAddress: "Castillo 1332 Caba",
     paymentType: "card",
     status: "draft",
-    total:  9000,
+    total: 9000,
     userId: 1
 
   }).then(algo => {
-    algo.addProduct(1,2);
-    res.status(201).send("Orden creada con el products id")})
+    algo.addProduct(1, 2);
+    res.status(201).send("Orden creada con el products id")
+  })
 
 })
 
