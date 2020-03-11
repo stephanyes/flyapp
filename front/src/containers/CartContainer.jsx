@@ -72,13 +72,10 @@ class CartContainer extends React.Component {
   }
 
   goTocheckOut() {
-    console.log(this.state.products, "quuuuuuuuuuuue");
     Axios.post("/order/create", (req, res) => {});
   }
 
   render() {
-    console.log(this.props.state.cart.cart, this.state.products);
-
     const logueado = this.props.state.userLogin.loginUser;
     return (
       <Cart

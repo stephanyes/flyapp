@@ -16,7 +16,6 @@ const categories = require("./routes/categories");
 const order = require("./routes/order");
 const comments = require("./routes/comments");
 
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
