@@ -16,6 +16,7 @@ import CategorySingleContainer from "../containers/CategorySingleContainer";
 import CheckoutContainer from "../containers/CheckoutContainer";
 import CategoriesAdminContainer from "../containers/CategoriesAdminContainer";
 import newCategoryAdminContainer from "../containers/NewCategoryAdminContainer";
+import editCategoryAdmin from "../containers/EditCategoryContainer";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -53,6 +54,11 @@ export default class Main extends React.Component {
             exact
             path="/newCategoryAdmin"
             component={newCategoryAdminContainer}
+          />
+          <Route
+            exact
+            path="/editCategoryAdmin/:id"
+            component={editCategoryAdmin}
           />
         </Switch>
       </div>

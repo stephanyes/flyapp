@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ categories, handleDelete }) => {
+export default ({ categories, handleDelete, handleSelect }) => {
   return (
     <div
       style={{
@@ -55,17 +55,18 @@ export default ({ categories, handleDelete }) => {
               >
                 {category.name}
                 <div>
-                  <Link
+                  <button
                     className="btn btn-primary btn-lg"
                     style={{
                       backgroundColor: "#2EC4B6",
                       borderColor: "#2EC4B6",
                       marginRight: "20px"
                     }}
-                    to="/users"
+                    // to="/editCategoryAdmin"
+                    onClick={() => handleSelect(category.id)}
                   >
                     Edit
-                  </Link>
+                  </button>
                   <button
                     className="btn btn-primary btn-lg"
                     style={{

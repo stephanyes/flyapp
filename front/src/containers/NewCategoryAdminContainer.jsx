@@ -24,6 +24,7 @@ class NewCategoryAdminContainer extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -31,10 +32,9 @@ class NewCategoryAdminContainer extends React.Component {
   }
 
   handleClick(e) {
-    // console.log(this.state);
     this.props
       .createCategory(this.state)
-      .then(() => this.props.history.push("/category"));
+      .then(() => this.props.history.push("/categoriesAdmin"));
   }
 
   render() {

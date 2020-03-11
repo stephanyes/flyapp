@@ -1,7 +1,11 @@
 import React from "react";
 import CategoriesAdmin from "../components/CategoriesAdmin";
 import { connect } from "react-redux";
-import { getCategory, deleteCategory } from "../store/actions/category";
+import {
+  getCategory,
+  deleteCategory,
+  fetchCategory
+} from "../store/actions/category";
 
 const mapStateToProps = state => {
   return {
@@ -12,7 +16,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = function(dispatch, ownProps) {
   return {
     searchAllCategories: () => dispatch(getCategory()),
-    deleteCategories: id => dispatch(deleteCategory(id))
+    deleteCategories: id => dispatch(deleteCategory(id)),
+    selectCategory: id => dispatch(fetchCategory(id))
   };
 };
 
@@ -20,6 +25,7 @@ class CategoriesAdminContainer extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   componentDidMount() {
@@ -27,8 +33,13 @@ class CategoriesAdminContainer extends React.Component {
   }
 
   handleDelete(category) {
-    // console.log(category);
     this.props.deleteCategories(category);
+  }
+
+  handleSelect(id) {
+    this.props
+      .selectCategory(id)
+      .then(() => this.props.history.push(`/editCategoryAdmin/${id}`));
   }
 
   render() {
@@ -38,6 +49,7 @@ class CategoriesAdminContainer extends React.Component {
       <CategoriesAdmin
         categories={categories}
         handleDelete={this.handleDelete}
+        handleSelect={this.handleSelect}
       />
     );
   }

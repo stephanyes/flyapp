@@ -1,8 +1,9 @@
-import { GET_CATEGORY, GET_CATEGORYID } from './constants';
+import { GET_CATEGORY, GET_CATEGORYID, FIND_CATEGORY } from './constants';
 
 const initialState = {
     category: [],
-    selectedProducts: []
+    selectedProducts: [],
+    selectedCategory: {}
 }
 
 export default (state = initialState, action) => {
@@ -12,6 +13,9 @@ export default (state = initialState, action) => {
             return { ...state, category: action.categories };
         case GET_CATEGORYID:
             return { ...state, selectedProducts: action.productCategories };
+        case FIND_CATEGORY:
+            return Object.assign({}, state, { selectedCategory: action.category }); //action.user = req.user de rutas
+
         default:
             return state;
     }

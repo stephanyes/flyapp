@@ -19,6 +19,7 @@ export const REMOVE_PRODUCT = "REMOVE_PRODUCT"
 //Category
 export const GET_CATEGORY = "GET_CATEGORY"
 export const GET_CATEGORYID = 'GET_CATEGORYID'
+export const FIND_CATEGORY = "FIND_CATEGORY"
 
 //UserList
 export const RECEIVE_USERS = "RECEIVE_USERS"
