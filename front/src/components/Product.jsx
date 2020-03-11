@@ -91,7 +91,7 @@ export default ({ producto, storing }) => {
             }}
             src={producto.img_1}
             //src="https://insideone.s3-sa-east-1.amazonaws.com/image-home-05.png"
-            class="img-fluid"
+            className="img-fluid"
             alt="Responsive image"
           />
         </div>

@@ -14,6 +14,7 @@ const cart = require("./routes/cart");
 const app = express();
 const categories = require("./routes/categories");
 const order = require("./routes/order");
+const comments = require("./routes/comments");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -46,6 +47,7 @@ app.use("/auth", users);
 app.use("/cart", cart);
 app.use("/categories", categories);
 app.use("/order", order);
+app.use("/review", comments);
 
 passport.use(
   new LocalStrategy(
