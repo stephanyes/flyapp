@@ -145,7 +145,7 @@ export default ({ carrito, cart, checkOut, handleClick, loged }) => {
                 }}
               >
                 <a className="navbar-brand" href="#">
-                  Total de productos: {price}
+                  <h5> Total de productos: {price}</h5>
                 </a>
               </nav>
             ) : null}
