@@ -14,39 +14,36 @@ router.post("/addtocart", (req, res) => {
   // console.log(req.body, "req.user");
   if (req.user) {
     Cart.findOrCreate({
-      where: { userId: req.user.dataValues.id},
-      // include: [{model: Product}],
+      where: { userId: req.user.dataValues.id,
+               status: "pending"},
+     
       defaults: {
       quantity: 1,
       total: req.body.producto.price,
       userId: req.user.dataValues.id
       }
     }).then(algo => { 
+    
       let carro = algo[0]
-      // console.log(algo,"algo")
-      carro.addProduct(req.body.producto.id);
-      res.status(201).send("Carrito creado y tabla Intermedia llena")
-    })
+      if(carro.dataValues.status == "pending"){
+      
+      carro.addProduct(req.body.producto.id)
+      
+      res.status(201).send("Sumo al carrito pending")
+      } else {
+        Cart.create({
+          quantity: 1,
+          total: req.body.producto.price,
+          userId: req.user.dataValues.id
+        }).then(algo => { 
+          let carro = algo[0]
+          carro.addProduct(req.body.producto.id)
+          
+          res.status(201).send("Nuevo carrito, ya hay uno fulfilled")
+        })}
+       
+      })
   }
-      //Product.findByPk(req.body.producto.id)
-    // });
-  // } else {
-  //   Cart.create({
-  //     quantity: 1,
-  //     total: req.body.producto.price
-  //   }).then(algo => res.status(201).send(algo));
-  // }
-
-  // User.findOrCreate({
-  //   where: { username: 'sdepold' },
-  //   defaults: {
-  //     job: 'Technical Lead JavaScript'
-  //   }
-  // });
-  // .then(creado => {
-  //   Product.findByPk(req.params.id).then(found => creado.addProduct(found));
-  //   res.status(201).send(creado);
-  // });
 });
 
 router.post("/delete", (req,res)=>{
@@ -72,7 +69,8 @@ router.get("/products", (req, res) => {
     include: [
       {
         model: Cart,
-        where: { userId: req.user.dataValues.id }
+        where: { userId: req.user.dataValues.id,
+                 status: "pending" }
       }
     ]
   }).then(found => res.json(found));

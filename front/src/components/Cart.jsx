@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 
-export default ({ carrito, cart, handleClick, loged }) => {
+export default ({ carrito, cart, checkOut, handleClick, loged }) => {
   console.log(carrito, "cart");
   let data = Object.assign({}, localStorage);
   let prod = Object.values(data);
@@ -123,6 +123,7 @@ export default ({ carrito, cart, handleClick, loged }) => {
         >
           <div class="card-body">
             <Link
+              onClick={checkOut}
               className="btn btn-primary btn-lg"
               style={{
                 backgroundColor: "#2EC4B6",
