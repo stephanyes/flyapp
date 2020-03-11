@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default ({ products, handleClick }) => {
-
   // numberOfPages se encarga del numero de paginas y setNumberOfPages modifica el numero de paginas
   const [numberOfPages, setNumberOfPages] = useState([]);
   //currentPage se encarga de decidir en que pagina estas por deafult empieza en 1
@@ -14,7 +13,6 @@ export default ({ products, handleClick }) => {
   const [currentContent, setCurrentContent] = useState([]);
   // es el componentdidUpdate de los hooks, se encarga de verificar que cosas cambian para hacer re-render a traves
   //de su segundo paramentro que siempre por default tiene que ser un arreglo vacio si no tienes nada especifico que cambiar
-
 
   products
     ? useEffect(() => {
@@ -63,9 +61,7 @@ export default ({ products, handleClick }) => {
           </li>
         </div>
       );
-
     });
-
 
   return (
     <div className="">
@@ -95,12 +91,10 @@ export default ({ products, handleClick }) => {
                   }}
                 >
                   Experiences
-
                 </h1>
                 <h5 className="font-weight-normal">
                   We give you a lot of special experiences for your enjoy!
                 </h5>
-
               </div>
             </div>
             <div
@@ -119,7 +113,6 @@ export default ({ products, handleClick }) => {
               >
                 {currentContent
                   ? currentContent.map(single => (
-
                       <div
                         className="card"
                         style={{
@@ -188,7 +181,6 @@ export default ({ products, handleClick }) => {
                   ? pagination(numberOfPages)
                   : "no  hay pages"}
 
-
                 {/* funciona para la flecha de pagination pueda ir hacia adelante */}
                 <li
                   class="page-item "
@@ -210,10 +202,8 @@ export default ({ products, handleClick }) => {
             </nav>
           </div>
         </div>
-
       ) : null}
     </div>
-
   );
 };
 

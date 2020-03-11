@@ -17,14 +17,12 @@ Order.init(
         },
         date: {
             type: S.DATE,
-            get() {
-                let fecha = new Date()
-                return this.type = fecha
-            }
+            defaultValue: S.NOW
+          
         },
         status: {
             type: S.ENUM({
-                values: ['draft', 'confirmed', 'sent', 'fulfilled']
+                values: ['draft', 'confirmed', 'cancelled', 'fulfilled']
             })
         },
         total: {

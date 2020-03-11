@@ -1,11 +1,17 @@
 import React from "react";
+
 import Cart from "../components/Cart";
 // import Categories from "../components/Categories";
 import { connect } from "react-redux";
 import Axios from "axios";
 import { removeProduct } from "../store/actions/cart";
+<<<<<<< HEAD
 import { Redirect } from "react-router-dom";
 import NewProductAdmin from "../components/NewProductAdmin";
+=======
+import { Redirect, withRouter } from "react-router-dom";
+import NewCategorieAdmin from "../components/NewCategorieAdmin";
+>>>>>>> df81dd83c838308851df92bf7ad7778a49b0aea3
 
 const mapStateToProps = state => {
   return {
@@ -22,16 +28,16 @@ const mapStateToProps = state => {
 // };
 
 class CartContainer extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       products: []
     };
     this.handleClick = this.handleClick.bind(this);
+    this.goTocheckOut = this.goTocheckOut.bind(this);
   }
   componentDidMount() {
     if (this.props.state.userLogin.loginUser) {
-      Axios.get("/cart/products");
       Axios.get("/cart/products")
         .then(algo => algo.data)
         .then(algo => {
@@ -42,7 +48,6 @@ class CartContainer extends React.Component {
 
   componentWillMount() {
     if (this.props.state.userLogin.loginUser) {
-      Axios.get("/cart/products");
       Axios.get("/cart/products")
         .then(algo => algo.data)
         .then(algo => {
@@ -64,6 +69,7 @@ class CartContainer extends React.Component {
     } else {
       Axios.post("/cart/delete", { e });
       window.location.reload();
+      
     }
     // let newCart = this.props.state.cart.cart;
     // for(let i=0;i<newCart.length;i++){
@@ -71,8 +77,19 @@ class CartContainer extends React.Component {
     // this.props.eliminar(newCart)
   }
 
+  goTocheckOut(){
+    console.log(this.state.products,"quuuuuuuuuuuue")
+    Axios.post("/order/create", (req,res)=>{
+
+    })
+    
+  } 
+
   render() {
+    console.log(this.props.state.cart.cart, this.state.products);
+
     const logueado = this.props.state.userLogin.loginUser;
+<<<<<<< HEAD
     // return (
     //   <Cart
     //     loged={logueado}
@@ -82,7 +99,19 @@ class CartContainer extends React.Component {
     //   />
     // );
     return <NewProductAdmin />;
+=======
+    return (
+      <Cart
+        loged={logueado}
+        handleClick={this.handleClick}
+        carrito={this.state.products}
+        cart={this.props.state.cart.cart}
+        checkOut={this.goTocheckOut}
+      />
+    );
+    // return <Categories />;
+>>>>>>> df81dd83c838308851df92bf7ad7778a49b0aea3
   }
 }
 
-export default connect(mapStateToProps, null)(CartContainer);
+export default withRouter( connect(mapStateToProps, null)(CartContainer));
