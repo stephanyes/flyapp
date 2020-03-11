@@ -18,3 +18,5 @@ export const GET_CATEGORYID = "GET_CATEGORYID";
 //Orders for users
 export const GET_ORDERS = "GET_ORDERS"
 export const FIND_CATEGORY = "FIND_CATEGORY"
+//Comments
+export const GET_COMMENTS = "GET_COMMENTS"

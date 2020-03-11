@@ -9,6 +9,7 @@ import editUsersReducer from './editUsersReducer'
 import cartReducer from './cartReducer';
 import categoryReducer from './categoryReducer'
 import orderHistoryReducer from './orderHistoryReducer';
+import commentsReducer from './commentsReducer';
 
 export default combineReducers({
     userLogin: loginReducer,
@@ -19,5 +20,6 @@ export default combineReducers({
     cart: cartReducer,
     category: categoryReducer,
     orders: orderHistoryReducer,
-    userEdit: editUsersReducer
+    userEdit: editUsersReducer,
+    comments: commentsReducer
 });
