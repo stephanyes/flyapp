@@ -4,10 +4,6 @@ import { connect } from "react-redux";
 
 import { createCategory } from "../store/actions/category";
 
-// const mapStateToProps = state => {
-//   return {};
-// };
-
 const mapDispatchToProps = function(dispatch, ownProps) {
   return {
     createCategory: body => dispatch(createCategory(body))

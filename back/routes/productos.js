@@ -61,13 +61,21 @@ router.put("/:id", (req, res) => {
     res.status(202).send(result);
   });
 });
-//Elimina un producto
-router.delete("/:id", (req, res) => {
-  Favorite.destroy({
-    where: {
-      id: req.params.id
-    }
-  });
-});
 
+//Elimina un producto
+// router.delete("/:id", (req, res) => {
+//   Product.destroy({
+//     where: {
+//       id: req.params.id
+//     }
+//   });
+// });
+
+router.delete('/:id', function (req, res, next) {
+  Product.destroy({ where: { id: req.params.id } })
+    .then(response => {
+      if (response) return res.json(response)
+      else return res.sendStatus(404)
+    })
+})
 module.exports = router;

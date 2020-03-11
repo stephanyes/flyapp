@@ -17,6 +17,9 @@ import CheckoutContainer from "../containers/CheckoutContainer";
 import CategoriesAdminContainer from "../containers/CategoriesAdminContainer";
 import newCategoryAdminContainer from "../containers/NewCategoryAdminContainer";
 import editCategoryAdmin from "../containers/EditCategoryContainer";
+import ProductsAdminContainer from "../containers/ProductsAdminContainer";
+import NewProductAdminContainer from "../containers/NewProductAdminContainer";
+import EditProductAdminContainer from "../containers/EditProductAdminContainer";
 import ReviewContainer from "../containers/ReviewContainer";
 
 export default class Main extends React.Component {
@@ -59,6 +62,21 @@ export default class Main extends React.Component {
             exact
             path="/editCategoryAdmin/:id"
             component={editCategoryAdmin}
+          />
+          <Route
+            exact
+            path="/editProducts"
+            component={ProductsAdminContainer}
+          />
+          <Route
+            exact
+            path="/editProducts/:id"
+            component={EditProductAdminContainer}
+          />
+          <Route
+            exact
+            path="/newProductAdmin"
+            component={NewProductAdminContainer}
           />
           <Route exact path="/review" component={ReviewContainer} />
         </Switch>
