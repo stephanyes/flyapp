@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ handleSubmit, handleChange1,handleChange2, state }) => {
+export default ({ handleSubmit, handleChange1, handleChange2, state }) => {
   return (
     <div>
       <div
@@ -21,7 +21,7 @@ export default ({ handleSubmit, handleChange1,handleChange2, state }) => {
         </div>
         <div className="col">
           <form
-            onSubmit={e=>handleSubmit(e)}
+            onSubmit={e => handleSubmit(e)}
             style={{
               padding: "40px",
               marginRight: "20px"
@@ -36,7 +36,7 @@ export default ({ handleSubmit, handleChange1,handleChange2, state }) => {
               >
                 Login
               </h1>
-              <label for="exampleInputEmail1">Email address</label>
+              <label >Email address</label>
               <input
                 name="email"
                 type="email"
@@ -55,7 +55,7 @@ export default ({ handleSubmit, handleChange1,handleChange2, state }) => {
                 paddingBottom: "20px"
               }}
             >
-              <label for="exampleInputPassword1">Password</label>
+              <label >Password</label>
               <input
                 name="password"
                 type="password"

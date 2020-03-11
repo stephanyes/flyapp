@@ -3,14 +3,19 @@ import { connect } from "react-redux";
 
 import Profile from "../components/Profile";
 import { logout } from "../store/actions/login";
+import { getOrders } from "../store/actions/orderHistory";
 
-const mapDispatchToProps = function(dispatch, ownProps) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
-    logout: user => dispatch(logout(user))
+    logout: user => dispatch(logout(user)),
+    orders: () => dispatch(getOrders())
   };
 };
-const mapStateToProps = function(state) {
-  return {};
+const mapStateToProps = function (state) {
+  return {
+    user: state.userLogin.loginUser,
+    purchases: state.orders.ordersState
+  };
 };
 
 class ProfileContainer extends React.Component {
@@ -24,8 +29,11 @@ class ProfileContainer extends React.Component {
       .then(() => this.props.history.push("/"))
       .catch(() => this.setState({ error: true }));
   }
+  componentDidMount() {
+    this.props.orders()
+  }
   render() {
-    return <Profile handleClick={this.handleClick} />;
+    return <Profile handleClick={this.handleClick} profile={this.props.user} orders={this.props.purchases} />;
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);
