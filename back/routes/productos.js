@@ -2,8 +2,8 @@
 const express = require("express");
 const router = express.Router();
 const Sequelize = require("sequelize");
-
 const Product = require("../models/productos");
+const Comment = require("../models/comment_product");
 
 //Trae todos
 router.get("/all", (req, res) => {
@@ -12,10 +12,20 @@ router.get("/all", (req, res) => {
 
 //Trae uno en particular
 router.get("/:id", (req, res) => {
-  Product.findByPk(req.params.id).then(product =>
-    res.status(200).send(product)
-  );
+  Product.findOne({
+    include: [{
+      model: Comment
+    }],
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(product => {
+      res.status(200).send(product)
+    })
+
 });
+
 
 //Crea un producto
 router.post("/", (req, res) => {

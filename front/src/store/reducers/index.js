@@ -8,6 +8,7 @@ import homeReducer from './homeReducer';
 import editUsersReducer from './editUsersReducer'
 import cartReducer from './cartReducer';
 import categoryReducer from './categoryReducer'
+import orderHistoryReducer from './orderHistoryReducer';
 
 export default combineReducers({
     userLogin: loginReducer,
@@ -17,5 +18,6 @@ export default combineReducers({
     home: homeReducer,
     cart: cartReducer,
     category: categoryReducer,
+    orders: orderHistoryReducer,
     userEdit: editUsersReducer
 });

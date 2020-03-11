@@ -20,6 +20,7 @@ import editCategoryAdmin from "../containers/EditCategoryContainer";
 import ProductsAdminContainer from "../containers/ProductsAdminContainer";
 import NewProductAdminContainer from "../containers/NewProductAdminContainer";
 import EditProductAdminContainer from "../containers/EditProductAdminContainer";
+import ReviewContainer from "../containers/ReviewContainer";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -62,6 +63,7 @@ export default class Main extends React.Component {
             path="/editCategoryAdmin/:id"
             component={editCategoryAdmin}
           />
+<<<<<<< HEAD
           <Route
             exact
             path="/editProducts"
@@ -77,6 +79,9 @@ export default class Main extends React.Component {
             path="/newProductAdmin"
             component={NewProductAdminContainer}
           />
+=======
+          <Route exact path="/review" component={ReviewContainer} />
+>>>>>>> 09e43251139c4d0487069ca66cadbabce25af82c
         </Switch>
       </div>
     );
