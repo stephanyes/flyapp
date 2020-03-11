@@ -8,9 +8,11 @@ const User = require('./users')
 class Cart extends S.Model { }
 Cart.init(
     {
-        quantity: {
-            type: S.STRING,
-            defaultValue: null,
+        status: {
+            type: S.ENUM({
+                values: ['pending', 'fulfilled']
+            }),
+            defaultValue: "pending"
         },
         total: {
             type: S.STRING,

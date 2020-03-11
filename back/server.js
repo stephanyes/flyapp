@@ -13,6 +13,9 @@ const LocalStrategy = require("passport-local").Strategy;
 const cart = require("./routes/cart");
 const app = express();
 const categories = require("./routes/categories");
+const order = require("./routes/order");
+
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
@@ -43,6 +46,7 @@ app.use("/products", productos);
 app.use("/auth", users);
 app.use("/cart", cart);
 app.use("/categories", categories);
+app.use("/order", order);
 
 passport.use(
   new LocalStrategy(
