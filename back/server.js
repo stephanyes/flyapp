@@ -74,7 +74,7 @@ passport.use(
 app.use("/products", productos);
 app.use("/auth", users);
 //serealizar y deserializar el passport
-app.get("/*", function(req, res) {
+app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
@@ -83,7 +83,7 @@ app.get("/*", function(req, res) {
 //     next(createError(404));
 // });
 
-db.sync({ force: false}).then(con => {
+db.sync({ force: false }).then(con => {
   console.log(
     `${con.options.dialect} database ${con.config.database} connected at ${con.config.host}:${con.config.port}`
   );
