@@ -1,7 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactStars from "react-stars";
 
-export default ({}) => {
+
+
+
+export default ({ enviandoRating, sendComment, submit, estado }) => {
+
+  // const ratingChanged = (newRating) => {
+  //   enviandoRating(newRating)
+  // }
   return (
     <div
       style={{
@@ -26,7 +34,7 @@ export default ({}) => {
               padding: "10px"
             }}
           >
-            New Review
+            Review
           </h1>
           <h5 className="font-weight-normal">Leave your opinion.</h5>
         </div>
@@ -38,22 +46,9 @@ export default ({}) => {
         }}
       >
         <div className="form-group">
-          <label for="inputRate">Rate</label>
-          <h5
-            //  onChange={handleAddress1}
-            name="rate"
-            type="text"
-            className="form-control"
-            id="inputRate"
-            placeholder="Dinner"
-          >
-            *****
-          </h5>
-        </div>
-        <div className="form-group">
-          <label for="inputComment">Comment</label>
+          <label >Comment</label>
           <input
-            //   onChange={handleAddress2}
+            onChange={sendComment}
             name="comment"
             type="text"
             className="form-control"
@@ -63,13 +58,18 @@ export default ({}) => {
         </div>
       </form>
       <div
-        class="card text-center"
+        className="card text-center"
         style={{
           borderColor: "#ffffff"
         }}
       >
-        <div class="card-body">
+        <div className="" style={{ display: "flex", justifyContent: "center" }}>
+          <ReactStars value={estado} onChange={enviandoRating} count={5} size={40} color1={'#000'} color2={'#ffd700'} />
+        </div>
+
+        <div className="card-body">
           <Link
+            onClick={(e) => submit(e)}
             className="btn btn-primary btn-lg"
             style={{
               backgroundColor: "#2EC4B6",

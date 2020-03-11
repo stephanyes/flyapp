@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { fetchSearchBar } from "../store/actions/search";
+import { fetchComments } from "../store/actions/comments";
 import Search from "../components/Search";
 import Navbar from "../components/Navbar";
 import { withRouter } from "react-router-dom";
@@ -19,7 +20,8 @@ const mapDispatchToProps = (dispatch, state) => {
   return {
     productFinder: searched => dispatch(fetchSearchBar(searched)),
     mantenermeLogueado: () => dispatch(mantenermeLogueado()),
-    logout: user => dispatch(logout(user))
+    logout: user => dispatch(logout(user)),
+    traerComments: () => dispatch(fetchComments())
   };
 };
 
@@ -37,6 +39,7 @@ class NavbarContainer extends React.Component {
 
   componentDidMount() {
     this.props.mantenermeLogueado();
+    this.props.traerComments();
   }
 
   handleSubmit(e) {

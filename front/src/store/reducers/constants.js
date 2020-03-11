@@ -22,4 +22,8 @@ export const GET_CONFIRMED = "GET_CONFIRMED"
 export const GET_CANCELLED = "GET_CANCELLED"
 export const GET_FULFILLED = "GET_FULFILLED"
 export const SET_ORDERSELECTED = "SET_ORDERSELECTED"
+//Comments
+export const GET_COMMENTS = "GET_COMMENTS"
+
+
 
