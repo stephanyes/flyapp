@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FIND_CATEGORY } from "../store/reducers/constants";
 
-export default ({}) => {
+export default ({ products, handleDelete }) => {
   return (
     <div
       style={{
@@ -41,156 +42,66 @@ export default ({}) => {
           margin: "20px",
           width: "200px"
         }}
-        to="/"
+        to="/newProductAdmin"
       >
         New
       </Link>
       <ul class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <div>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Product 1
-            </span>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Cantidad de Stock
-            </span>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Price
-            </span>
-          </div>
-
-          <div>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
-                borderColor: "#2EC4B6",
-                marginRight: "20px"
-              }}
-              to="/users"
-            >
-              Edit
-            </Link>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#EA526F",
-                borderColor: "#EA526F"
-              }}
-              to="/users"
-            >
-              Delete
-            </Link>
-          </div>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <div>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Product 2
-            </span>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Cantidad de Stock
-            </span>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Price
-            </span>
-          </div>
-          <div>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
-                borderColor: "#2EC4B6",
-                marginRight: "20px"
-              }}
-              to="/users"
-            >
-              Edit
-            </Link>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#EA526F",
-                borderColor: "#EA526F"
-              }}
-              to="/users"
-            >
-              Delete
-            </Link>
-          </div>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <div>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Product 3
-            </span>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Cantidad de Stock
-            </span>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Price
-            </span>
-          </div>
-          <div>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
-                borderColor: "#2EC4B6",
-                marginRight: "20px"
-              }}
-              to="/users"
-            >
-              Edit
-            </Link>
-            <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#EA526F",
-                borderColor: "#EA526F"
-              }}
-              to="/users"
-            >
-              Delete
-            </Link>
-          </div>
-        </li>
+        {products
+          ? products.map(product => (
+              <li
+                key={product.id}
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                <div>
+                  <span
+                    style={{
+                      margin: "20px"
+                    }}
+                  >
+                    {product.name}
+                  </span>
+                  <span
+                    style={{
+                      margin: "20px"
+                    }}
+                  >
+                    {`Stock: ${product.stock}`}
+                  </span>
+                  <span
+                    style={{
+                      margin: "20px"
+                    }}
+                  >
+                    {`Price: U$D${product.price}`}
+                  </span>
+                </div>
+                <div>
+                  <Link
+                    className="btn btn-primary btn-lg"
+                    style={{
+                      backgroundColor: "#2EC4B6",
+                      borderColor: "#2EC4B6",
+                      marginRight: "20px"
+                    }}
+                    to={`/editProducts/${product.id}`}
+                  >
+                    Edit
+                  </Link>
+                  <button
+                    className="btn btn-primary btn-lg"
+                    style={{
+                      backgroundColor: "#EA526F",
+                      borderColor: "#EA526F"
+                    }}
+                    onClick={() => handleDelete(product.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              </li>
+            ))
+          : "No Products"}
       </ul>
     </div>
   );
