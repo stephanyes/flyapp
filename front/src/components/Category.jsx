@@ -2,36 +2,63 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default ({ categorias }) => {
-
-    return (
-
-
+  return (
+    <div>
+      <div
+        className="card text-center"
+        style={{
+          borderColor: "#ffffff"
+        }}
+      >
         <div
-            className="card-deck"
-            style={{
-                backgroundColor: "#ffffff",
-                padding: "40px"
-            }}
+          className="card-body"
+          style={{
+            padding: "40px"
+          }}
         >
-            {categorias
-                ? categorias.map(singles => (
-                    <Link
-                        style={{
-                            textDecoration: "none",
-                            color: "inherit"
-                        }}
-                        to={`/category/${singles.id}`}>
-                        <div className="card" key={singles.id} >
-                            <img src='https://data.whicdn.com/images/240129186/original.jpg' className="card-img-top" alt="..." />
-                            <div className="card-body">
-                                <h5 className="font-weight-bold">{singles.name}</h5>
-                            </div>
-
-                        </div>
-                    </Link>
-                ))
-                : null
-            }
+          <h1
+            className="font-weight-bold"
+            style={{
+              padding: "10px"
+            }}
+          >
+            Categories
+          </h1>
+          <h5 className="font-weight-normal">
+            We give you a lot of special experiences for your enjoy!
+          </h5>
         </div>
-    )
-}
+      </div>
+      <div
+        style={{
+          backgroundColor: "#ffffff",
+          padding: "40px"
+        }}
+      >
+        <div className="card-columns">
+          {categorias
+            ? categorias.map(singles => (
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit"
+                  }}
+                  to={`/category/${singles.id}`}
+                >
+                  <div
+                    className="card"
+                    style={{
+                      marginBottom: "25px"
+                    }}
+                    key={singles.id}
+                  >
+                    <img src={singles.img} className="card-img-top" alt="..." />
+                  </div>
+                </Link>
+              ))
+            : null}
+        </div>
+      </div>
+    </div>
+  );
+};
