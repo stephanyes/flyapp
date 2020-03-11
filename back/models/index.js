@@ -49,8 +49,9 @@ Order_product.init(
 Cart.belongsToMany(Product, { through: "product_cart" });
 Product.belongsToMany(Cart, { through: "product_cart" });
 //order_product
-Order.belongsToMany(Product, { through: "order_product" });
-Product.belongsToMany(Order, { through: "order_product" });
+// Order.belongsToMany(Product, { through: "order_product" });
+Order.belongsTo(Cart)
+// Product.belongsToMany(Order, { through: "order_product" });
 
 User.hasOne(Cart); // esta cheequeado?
 // Cart.hasMany(Product)
@@ -66,5 +67,6 @@ module.exports = {
   Cart,
   Role,
   Category,
-  Order
+  Order,
+  Product_Cart
 };

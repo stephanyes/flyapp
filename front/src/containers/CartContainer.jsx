@@ -1,10 +1,11 @@
 import React from "react";
+
 import Cart from "../components/Cart";
 // import Categories from "../components/Categories";
 import { connect } from "react-redux";
 import Axios from "axios";
 import { removeProduct } from "../store/actions/cart";
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 import NewCategoryAdmin from "../components/NewCategoryAdmin";
 
 const mapStateToProps = state => {
@@ -22,16 +23,16 @@ const mapStateToProps = state => {
 // };
 
 class CartContainer extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       products: []
     };
     this.handleClick = this.handleClick.bind(this);
+    this.goTocheckOut = this.goTocheckOut.bind(this);
   }
   componentDidMount() {
     if (this.props.state.userLogin.loginUser) {
-      Axios.get("/cart/products");
       Axios.get("/cart/products")
         .then(algo => algo.data)
         .then(algo => {
@@ -42,7 +43,6 @@ class CartContainer extends React.Component {
 
   componentWillMount() {
     if (this.props.state.userLogin.loginUser) {
-      Axios.get("/cart/products");
       Axios.get("/cart/products")
         .then(algo => algo.data)
         .then(algo => {
@@ -71,7 +71,14 @@ class CartContainer extends React.Component {
     // this.props.eliminar(newCart)
   }
 
+  goTocheckOut() {
+    console.log(this.state.products, "quuuuuuuuuuuue");
+    Axios.post("/order/create", (req, res) => {});
+  }
+
   render() {
+    console.log(this.props.state.cart.cart, this.state.products);
+
     const logueado = this.props.state.userLogin.loginUser;
     return (
       <Cart
@@ -79,10 +86,11 @@ class CartContainer extends React.Component {
         handleClick={this.handleClick}
         carrito={this.state.products}
         cart={this.props.state.cart.cart}
+        checkOut={this.goTocheckOut}
       />
     );
     // return <Categories />;
   }
 }
 
-export default connect(mapStateToProps, null)(CartContainer);
+export default withRouter(connect(mapStateToProps, null)(CartContainer));
