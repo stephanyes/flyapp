@@ -36,14 +36,21 @@ export default ({ handleSubmit, handleChange1, handleChange2, state }) => {
               >
                 Login
               </h1>
-              <label >Email address</label>
+              <label>Email address</label>
               <input
                 name="email"
                 type="email"
                 className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                onChange={handleChange1} // onChange para guardar el input en el estado de LoginContainer
+                onChange={handleChange1}
+                style={
+                  state.error && !state.email
+                    ? {
+                        borderColor: "red"
+                      }
+                    : null
+                }
               />
               <small id="emailHelp" className="form-text text-muted">
                 We'll never share your email with anyone else.
@@ -55,13 +62,20 @@ export default ({ handleSubmit, handleChange1, handleChange2, state }) => {
                 paddingBottom: "20px"
               }}
             >
-              <label >Password</label>
+              <label>Password</label>
               <input
                 name="password"
                 type="password"
                 className="form-control"
                 id="exampleInputPassword1"
-                onChange={handleChange2} // mismo que con el email
+                onChange={handleChange2}
+                style={
+                  state.error && !state.password
+                    ? {
+                        borderColor: "red"
+                      }
+                    : null
+                }
               />
             </div>
             <button
@@ -74,6 +88,12 @@ export default ({ handleSubmit, handleChange1, handleChange2, state }) => {
             >
               Submit
             </button>
+            {state.error ? (
+              <div>
+                <br />
+                <p>Invalid email and/or password</p>
+              </div>
+            ) : null}
           </form>
         </div>
       </div>
