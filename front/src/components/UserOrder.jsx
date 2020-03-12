@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({state, handleClick, handleClickPayment}) => {
+export default ({ state, handleClick, handleClickPayment }) => {
 
   return (
     <div
@@ -121,18 +121,22 @@ export default ({state, handleClick, handleClickPayment}) => {
                     <p className="font-weight-normal">{algo.description}</p>
                     <p className="font-weight-bold">u$S {algo.price} </p>
 
-                    {state.orders.selected.status == "fulfilled" && algo.product_cart.leftComment === false ? (
-                      <Link
-                        className="btn btn-primary btn-lg"
-                        style={{
-                          backgroundColor: "#2EC4B6",
-                          borderColor: "#2EC4B6"
-                        }}
-                        to={`/review/${algo.id}`}
-                      >
-                        Review
-                      </Link>
-                    ) : (<p>Thanks for your review <img style={{ maxHeight: "25px" }} src="https://insideone.s3-sa-east-1.amazonaws.com/check.png" alt="check_mark" /></p>)}
+                    {state.orders.selected.status == "fulfilled" ? (
+                      algo.product_cart.leftComment === false ? (
+                        <Link
+                          className="btn btn-primary btn-lg"
+                          style={{
+                            backgroundColor: "#2EC4B6",
+                            borderColor: "#2EC4B6"
+                          }}
+                          to={`/review/${algo.id}`}
+                        >
+                          Review
+                        </Link>
+                      ) :
+                        (<p>Thanks for your review <img style={{ maxHeight: "25px" }} src="https://insideone.s3-sa-east-1.amazonaws.com/check.png" alt="check_mark" /></p>)
+
+                    ) : null}
                   </div>
                 </div>
               </div>
@@ -159,23 +163,23 @@ export default ({state, handleClick, handleClickPayment}) => {
           </div>
 
           <div>
-          {state.orders.selected.status == "draft" ? (
+            {state.orders.selected.status == "draft" ? (
               <button
-              onClick={()=>handleClickPayment(state.orders.selected)}
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
+                onClick={() => handleClickPayment(state.orders.selected)}
+                className="btn btn-primary btn-lg"
+                style={{
+                  backgroundColor: "#2EC4B6",
 
-                borderColor: "#2EC4B6",
-                marginRight: "20px",
-                width: "150px"
-              }}
-              
-            >
-              Pagar
-            </button>
-              ): (null)}
-           
+                  borderColor: "#2EC4B6",
+                  marginRight: "20px",
+                  width: "150px"
+                }}
+
+              >
+                Pagar
+              </button>
+            ) : (null)}
+
             {state.orders.selected.status == "draft" ? (
               <button
                 onClick={() => handleClick(`${state.orders.selected.id}`)}
