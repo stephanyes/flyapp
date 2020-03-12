@@ -29,6 +29,10 @@ Product_Cart.init(
     quantity: {
       type: S.INTEGER,
       defaultValue: 0
+    },
+    leftComment: {
+      type: S.BOOLEAN,
+      defaultValue: false
     }
   },
   { sequelize, modelName: "product_cart" }
@@ -59,7 +63,7 @@ User.hasOne(Cart); // esta cheequeado?
 Category.hasOne(Product);
 User.hasOne(Order);
 User.hasMany
-(Comment);
+  (Comment);
 Product.hasMany(Comment);
 
 module.exports = {
