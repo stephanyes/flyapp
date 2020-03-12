@@ -42,19 +42,29 @@ export default ({ user }) => {
         }}
       >
         <div class="row no-gutters">
-          <div class="col-md-1">
+          <div class="col-md-4">
             <img
               src="https://insideone.s3-sa-east-1.amazonaws.com/experience-parachute-image-x3.png"
               class="card-img"
               alt="..."
             />
           </div>
-          <div class="col-md-11">
+          <div class="col-md-6">
             <div class="card-body">
               <h5 className="font-weight-bold">Title</h5>
               <p className="font-weight-normal">Description</p>
-              <p className="font-weight-bold">u$S Price </p>
             </div>
+          </div>
+          <div className="col-md-2">
+            <h5
+              className="font-weight-bold"
+              style={{
+                paddingTop: "20px",
+                paddingLeft: "80px"
+              }}
+            >
+              u$S Price
+            </h5>
           </div>
         </div>
       </div>
@@ -108,12 +118,7 @@ export default ({ user }) => {
             />
           </div>
 
-          <div
-            className="form-group col-md-4"
-            style={{
-              paddingBottom: "20px"
-            }}
-          >
+          <div className="form-group col-md-4">
             <label for="inputZip">Zip</label>
             <input
               //   onChange={handlePostCode}
@@ -125,21 +130,11 @@ export default ({ user }) => {
             />
           </div>
         </div>
-        <button
-          //onClick={handleSubmit}
-          type="submit"
-          className="btn btn-primary"
-          style={{
-            backgroundColor: "#2EC4B6",
-            borderColor: "#2EC4B6"
-          }}
-        >
-          Set new Address
-        </button>
       </form>
       <form
         style={{
           padding: "40px",
+          paddingTop: "0px",
           marginLeft: "20px"
         }}
       >
@@ -202,17 +197,6 @@ export default ({ user }) => {
             />
           </div>
         </div>
-        <button
-          //onClick={handleSubmit}
-          type="submit"
-          className="btn btn-primary"
-          style={{
-            backgroundColor: "#2EC4B6",
-            borderColor: "#2EC4B6"
-          }}
-        >
-          Set Payment Method
-        </button>
       </form>
 
       <div

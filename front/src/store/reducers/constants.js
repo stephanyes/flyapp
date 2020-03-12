@@ -17,13 +17,10 @@ export const GET_CATEGORY = "GET_CATEGORY";
 export const GET_CATEGORYID = "GET_CATEGORYID";
 export const FIND_CATEGORY = "FIND_CATEGORY";
 //Orders for users
-export const GET_DRAFTS = "GET_CRAFTS"
-export const GET_CONFIRMED = "GET_CONFIRMED"
-export const GET_CANCELLED = "GET_CANCELLED"
-export const GET_FULFILLED = "GET_FULFILLED"
-export const SET_ORDERSELECTED = "SET_ORDERSELECTED"
+export const GET_DRAFTS = "GET_CRAFTS";
+export const GET_CONFIRMED = "GET_CONFIRMED";
+export const GET_CANCELLED = "GET_CANCELLED";
+export const GET_FULFILLED = "GET_FULFILLED";
+export const SET_ORDERSELECTED = "SET_ORDERSELECTED";
 //Comments
-export const GET_COMMENTS = "GET_COMMENTS"
-
-
-
+export const GET_COMMENTS = "GET_COMMENTS";

@@ -54,7 +54,11 @@ export default ({ products, handleClick }) => {
             <a
               className="page-link"
               href="#"
-              style={{ color: "white", backgroundColor: "  #2EC4B6" }}
+              style={{
+                color: "white",
+                backgroundColor: "  #2EC4B6",
+                borderColor: "#ffffff"
+              }}
             >
               {key + 1}
             </a>
@@ -104,6 +108,7 @@ export default ({ products, handleClick }) => {
               }}
             >
               <div
+                className="card-columns"
                 style={{
                   display: "flex",
                   justifyContent: "space-between",
@@ -119,7 +124,14 @@ export default ({ products, handleClick }) => {
                           marginBottom: "25px",
                           width: "30%",
                           margin: 10,
+<<<<<<< HEAD
                           height: "50%"
+=======
+                          height: "50%",
+                          borderStyle: "none",
+                          boxShadow:
+                            "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+>>>>>>> 264e534f43eb8afca987d413879494304aad0f16
                         }}
                         key={single.id}
                       >
@@ -152,12 +164,16 @@ export default ({ products, handleClick }) => {
               </div>
             </div>
             {/* pagination */}
+
             <nav aria-label="Page navigation example">
               <ul
                 className="pagination"
                 style={{
+                  backgroundColor: "#fffff",
                   flex: "display",
-                  justifyContent: "center"
+                  justifyContent: "center",
+                  paddingBottom: "50px",
+                  margin: "0px"
                 }}
               >
                 {/* funciona para la flecha de pagination pueda ir hacia atrás */}
@@ -171,19 +187,21 @@ export default ({ products, handleClick }) => {
                     className="page-link"
                     href="#"
                     aria-label="Previous"
-                    style={{ color: "white", backgroundColor: "#2EC4B6" }}
+                    style={{
+                      color: "white",
+                      backgroundColor: "#2EC4B6",
+                      borderColor: "#ffffff"
+                    }}
                   >
                     <span aria-hidden="true">&laquo;</span>
                   </a>
                 </li>
                 {/* la funcion pagination se encarga de iterar por el numero de paginas para saber cuantas tengo */}
-                {products.length > 1
-                  ? pagination(numberOfPages)
-                  : "no  hay pages"}
+                {products.length > 1 ? pagination(numberOfPages) : "No pages"}
 
                 {/* funciona para la flecha de pagination pueda ir hacia adelante */}
                 <li
-                  className="page-item "
+                  class="page-item"
                   onClick={() => {
                     if (currentPage < numberOfPages.length)
                       setCurrentPage(currentPage + 1);
@@ -193,7 +211,11 @@ export default ({ products, handleClick }) => {
                     className="page-link"
                     href="#"
                     aria-label="Next"
-                    style={{ color: "white", backgroundColor: "#2EC4B6" }}
+                    style={{
+                      color: "white",
+                      backgroundColor: "#2EC4B6",
+                      borderColor: "#ffffff"
+                    }}
                   >
                     <span aria-hidden="true">&raquo;</span>
                   </a>
@@ -206,14 +228,3 @@ export default ({ products, handleClick }) => {
     </div>
   );
 };
-
-// id: 1
-// name: "Parachute jump in Dubai"
-// description: "Meet Dubai from the sky, and feel the air. Are you ready?"
-// img_1: "https://media-cdn.tripadvisor.com/media/photo-s/11/00/a6/f3/every-tandem-skydiving.jpg"
-// img_2: ""
-// price: 6500
-// stock: 20
-// createdAt: "2020-03-04T17:07:47.298Z"
-// updatedAt: "2020-03-04T17:07:47.298Z"
-// categoryId: null
