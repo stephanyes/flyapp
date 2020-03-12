@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ReactStars from "react-stars";
 
-export default ({ producto, storing }) => {
+export default ({ producto, storing, comments }) => {
   return (
     <div
       style={{
@@ -103,29 +104,46 @@ export default ({ producto, storing }) => {
         >
           Comments
         </h2>
-        <div className="card mb-3">
-          <div className="row no-gutters">
-            <div className="col-md-10">
-              <div className="card-body">
-                <p className="font-weight-bold" style={{ marginLeft: "35px" }}>
-                  Pablito escobar
-                </p>
-                <p
-                  className="font-weight-normal"
-                  style={{ marginLeft: "35px" }}
-                >
-                  Me encanto re zarpado!!
-                </p>
-                <p
-                  className="font-weight-normal"
-                  style={{ marginLeft: "35px" }}
-                >
-                  ⭐ ⭐ ⭐ ⭐ ⭐
-                </p>
+
+
+
+        {comments.map(singleComent => (
+
+          singleComent.productId == producto.id ? (
+            <div className="card mb-3" key={singleComent.id}>
+              <div className="row no-gutters">
+                <div className="col-md-10">
+                  <div className="card-body">
+                    <p className="font-weight-bold" style={{ marginLeft: "35px" }}>
+                      Pablito escobar
+                    </p>
+                    <p
+                      className="font-weight-normal"
+                      style={{ marginLeft: "35px" }}
+                    >
+                      {singleComent.comment}
+                    </p>
+                    <p
+                      className="font-weight-normal"
+                      style={{ marginLeft: "35px" }}
+                    >
+                      <div className="" style={{ display: "flex" }}>
+                        <ReactStars edit={false} value={singleComent.rating} count={5} size={30} color1={'#000'} color2={'#ffd700'} />
+                      </div>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          ) : null
+
+
+        ))}
+
+
+
+
+
       </div>
     </div>
   );

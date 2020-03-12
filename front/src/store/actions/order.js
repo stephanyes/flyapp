@@ -1,4 +1,4 @@
-import { GET_DRAFTS, GET_CONFIRMED , GET_CANCELLED , GET_FULFILLED, SET_ORDERSELECTED} from '../reducers/constants'
+import { GET_DRAFTS, GET_CONFIRMED, GET_CANCELLED, GET_FULFILLED, SET_ORDERSELECTED } from '../reducers/constants'
 import Axios from 'axios';
 
 const addDraft = (orders) => ({
@@ -34,17 +34,17 @@ export const getDrafts = () => dispatch =>
 export const getConfirmed = () => dispatch =>
     Axios.get(`/order/confirmed`)
         .then(res => res.data)
-        .then(found => dispatch(addConfirmed(found)))        
+        .then(found => dispatch(addConfirmed(found)))
 
 export const getCancelled = () => dispatch =>
     Axios.get(`/order/cancelled`)
         .then(res => res.data)
-        .then(found => dispatch(addCancelled(found)))            
+        .then(found => dispatch(addCancelled(found)))
 
 export const getFulfilled = () => dispatch =>
     Axios.get(`/order/fulfilled`)
         .then(res => res.data)
-        .then(found => dispatch(addFulfilled(found)))    
+        .then(found => dispatch(addFulfilled(found)))
 
-export const setOrder= (order) => dispatch =>
-   dispatch(setOrdersSelected(order))       
+export const setOrder = (order) => dispatch =>
+    dispatch(setOrdersSelected(order))       

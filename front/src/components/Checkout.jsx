@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({user}) => {
+export default ({ user }) => {
   console.log(user)
   return (
     <div
@@ -35,7 +35,7 @@ export default ({user}) => {
         </div>
       </div>
 
-      <div
+      {/* <div
         class="card mb-3"
         style={{
           margin: "40px"
@@ -57,7 +57,7 @@ export default ({user}) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <form
         style={{

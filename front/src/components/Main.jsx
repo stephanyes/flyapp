@@ -73,7 +73,7 @@ export default class Main extends React.Component {
           />
           <Route
             exact
-            
+
             path="/editProducts"
             component={ProductsAdminContainer}
           />
@@ -87,7 +87,7 @@ export default class Main extends React.Component {
             path="/newProductAdmin"
             component={NewProductAdminContainer}
           />
-          <Route exact path="/review" component={ReviewContainer} />
+          <Route exact path="/review/:id" component={ReviewContainer} />
         </Switch>
       </div>
     );

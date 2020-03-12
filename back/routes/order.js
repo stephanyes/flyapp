@@ -79,7 +79,7 @@ router.get("/pay", (req, res) => {
     Order.update(
         { status: "confirmed" },
 
-        { returning: true, plain: true, where: { id: 5 } }
+        { returning: true, plain: true, where: { id: 2 } }
     )
         .then((data) => res.status(201).send(data[1]))
         .then(() => {
@@ -87,9 +87,9 @@ router.get("/pay", (req, res) => {
                 Order.update(
                     { status: "fulfilled" },
 
-                    { returning: true, plain: true, where: { id: 5} }
+                    { returning: true, plain: true, where: { id: 2 } }
                 )
-            }, 20000)
+            }, 10000)
         })
 })
 
@@ -113,7 +113,7 @@ router.get("/draft", (req, res) => {
 })
 
 router.get("/confirmed", (req, res) => {
-    
+
     Order.findAll({
         include: [{
             model: Cart,
@@ -131,7 +131,7 @@ router.get("/confirmed", (req, res) => {
 })
 
 router.get("/cancelled", (req, res) => {
-    
+
     Order.findAll({
         include: [{
             model: Cart,
@@ -149,7 +149,7 @@ router.get("/cancelled", (req, res) => {
 })
 
 router.get("/fulfilled", (req, res) => {
-    
+
     Order.findAll({
         include: [{
             model: Cart,
@@ -178,8 +178,24 @@ router.get("/lala/:id", (req, res) => {
             }]
         }],
         where: {
-           id: req.params.id,
-           userId:  req.user.dataValues.id
+            id: req.params.id,
+            userId: req.user.dataValues.id
+        }
+    })
+        .then(orders => res.status(200).json(orders))
+        .catch(err => res.send("NO ORDERS FOUND"))
+})
+
+router.get("/getProdCart", (req, res) => {
+    Order.findAll({
+        include: [{
+            model: Cart,
+            include: [{
+                model: model.Product
+            }]
+        }],
+        where: {
+            userId: req.user.dataValues.id,
         }
     })
         .then(orders => res.status(200).json(orders))
