@@ -7,9 +7,8 @@ const Category = require("./category");
 const Comment = require("./comment_product");
 const S = require("sequelize");
 const sequelize = require("../db/db");
-
 //Tablas intermedias
-class Product_Cart extends S.Model { }
+class Product_Cart extends S.Model {}
 Product_Cart.init(
   {
     productId: {
@@ -34,7 +33,7 @@ Product_Cart.init(
   { sequelize, modelName: "product_cart" }
 );
 
-class Order_product extends S.Model { }
+class Order_product extends S.Model {}
 Order_product.init(
   {
     quantity: {
@@ -50,7 +49,7 @@ Cart.belongsToMany(Product, { through: "product_cart" });
 Product.belongsToMany(Cart, { through: "product_cart" });
 //order_product
 // Order.belongsToMany(Product, { through: "order_product" });
-Order.belongsTo(Cart)
+Order.belongsTo(Cart);
 // Product.belongsToMany(Order, { through: "order_product" });
 
 User.hasOne(Cart); // esta cheequeado?
@@ -68,5 +67,6 @@ module.exports = {
   Role,
   Category,
   Order,
-  Product_Cart
+  Product_Cart,
+  Comment
 };
