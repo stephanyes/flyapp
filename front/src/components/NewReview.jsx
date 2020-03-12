@@ -2,11 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReactStars from "react-stars";
 
-
-
-
 export default ({ enviandoRating, sendComment, submit, estado }) => {
-
   // const ratingChanged = (newRating) => {
   //   enviandoRating(newRating)
   // }
@@ -46,7 +42,7 @@ export default ({ enviandoRating, sendComment, submit, estado }) => {
         }}
       >
         <div className="form-group">
-          <label >Comment</label>
+          <label>Comment</label>
           <input
             onChange={sendComment}
             name="comment"
@@ -64,12 +60,19 @@ export default ({ enviandoRating, sendComment, submit, estado }) => {
         }}
       >
         <div className="" style={{ display: "flex", justifyContent: "center" }}>
-          <ReactStars value={estado} onChange={enviandoRating} count={5} size={40} color1={'#000'} color2={'#ffd700'} />
+          <ReactStars
+            value={estado}
+            onChange={enviandoRating}
+            count={5}
+            size={40}
+            color1={"#000"}
+            color2={"#ffd700"}
+          />
         </div>
 
         <div className="card-body">
           <Link
-            onClick={(e) => submit(e)}
+            onClick={e => submit(e)}
             className="btn btn-primary btn-lg"
             style={{
               backgroundColor: "#2EC4B6",

@@ -22,7 +22,7 @@ import ProductsAdminContainer from "../containers/ProductsAdminContainer";
 import NewProductAdminContainer from "../containers/NewProductAdminContainer";
 import EditProductAdminContainer from "../containers/EditProductAdminContainer";
 import ReviewContainer from "../containers/ReviewContainer";
-
+import Footercito from "../components/Footer";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -65,15 +65,9 @@ export default class Main extends React.Component {
             path="/editCategoryAdmin/:id"
             component={editCategoryAdmin}
           />
+          <Route exact path="/order/:id" component={UserOrderContainer} />
           <Route
             exact
-
-            path="/order/:id"
-            component={UserOrderContainer}
-          />
-          <Route
-            exact
-            
             path="/editProducts"
             component={ProductsAdminContainer}
           />

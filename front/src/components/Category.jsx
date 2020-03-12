@@ -38,25 +38,25 @@ export default ({ categorias }) => {
         <div className="card-columns">
           {categorias
             ? categorias.map(singles => (
-              <Link
-                key={singles.id}
-                style={{
-                  textDecoration: "none",
-                  color: "inherit"
-                }}
-                to={`/category/${singles.id}`}
-              >
-                <div
-                  className="card"
-                  style={{
-                    marginBottom: "25px"
-                  }}
+                <Link
                   key={singles.id}
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit"
+                  }}
+                  to={`/category/${singles.id}`}
                 >
-                  <img src={singles.img} className="card-img-top" alt="..." />
-                </div>
-              </Link>
-            ))
+                  <div
+                    className="card"
+                    style={{
+                      marginBottom: "25px"
+                    }}
+                    key={singles.id}
+                  >
+                    <img src={singles.img} className="card-img-top" alt="..." />
+                  </div>
+                </Link>
+              ))
             : null}
         </div>
       </div>

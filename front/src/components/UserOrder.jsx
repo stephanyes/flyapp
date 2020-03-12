@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({state, handleClick, handleClickReview}) => {
+export default ({ state, handleClick, handleClickReview }) => {
   return (
     <div
       style={{
@@ -28,7 +28,9 @@ export default ({state, handleClick, handleClickReview}) => {
           >
             Order #{state.orders.selected.id}
           </h1>
-          <h5 className="font-weight-normal">Your orders status is {state.orders.selected.status}.</h5>
+          <h5 className="font-weight-normal">
+            Your orders status is {state.orders.selected.status}.
+          </h5>
         </div>
       </div>
       <h2
@@ -54,7 +56,9 @@ export default ({state, handleClick, handleClickReview}) => {
                 margin: "20px"
               }}
             >
-              {state.userLogin.loginUser.firstName + " "+ state.userLogin.loginUser.secondName}
+              {state.userLogin.loginUser.firstName +
+                " " +
+                state.userLogin.loginUser.secondName}
             </span>
           </div>
         </li>
@@ -90,7 +94,12 @@ export default ({state, handleClick, handleClickReview}) => {
                 margin: "20px"
               }}
             >
-              {state.userLogin.loginUser.address1 + " " + state.userLogin.loginUser.address2 + ", " + state.userLogin.loginUser.address3 + ". " }
+              {state.userLogin.loginUser.address1 +
+                " " +
+                state.userLogin.loginUser.address2 +
+                ", " +
+                state.userLogin.loginUser.address3 +
+                ". "}
             </span>
           </div>
         </li>
@@ -120,7 +129,7 @@ export default ({state, handleClick, handleClickReview}) => {
                     <p className="font-weight-normal">{algo.description}</p>
                     <p className="font-weight-bold">u$S {algo.price} </p>
                     {state.orders.selected.status == "fulfilled" ? (
-                        <Link
+                      <Link
                         onClick={() => handleClickReview(`${algo.id}`)}
                         className="btn btn-primary btn-lg"
                         style={{
@@ -131,7 +140,7 @@ export default ({state, handleClick, handleClickReview}) => {
                       >
                         Review
                       </Link>
-                    ): (null)}
+                    ) : null}
                   </div>
                 </div>
               </div>
@@ -156,27 +165,27 @@ export default ({state, handleClick, handleClickReview}) => {
               Purchased {}
             </span>
           </div>
-          
-          <div>
-          {state.orders.selected.status == "draft" ? (
-              <Link
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
 
-                borderColor: "#2EC4B6",
-                marginRight: "20px",
-                width: "150px"
-              }}
-              to="/users"
-            >
-              Pagar
-            </Link>
-              ): (null)}
-            
+          <div>
             {state.orders.selected.status == "draft" ? (
-                <button
-                onClick={()=>handleClick(`${state.orders.selected.id}`)}
+              <Link
+                className="btn btn-primary btn-lg"
+                style={{
+                  backgroundColor: "#2EC4B6",
+
+                  borderColor: "#2EC4B6",
+                  marginRight: "20px",
+                  width: "150px"
+                }}
+                to="/users"
+              >
+                Pagar
+              </Link>
+            ) : null}
+
+            {state.orders.selected.status == "draft" ? (
+              <button
+                onClick={() => handleClick(`${state.orders.selected.id}`)}
                 className="btn btn-primary btn-lg"
                 style={{
                   backgroundColor: "#EA526F",
@@ -186,8 +195,7 @@ export default ({state, handleClick, handleClickReview}) => {
               >
                 Cancel
               </button>
-            ):(null)}
-            
+            ) : null}
           </div>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -202,7 +210,6 @@ export default ({state, handleClick, handleClickReview}) => {
           </div>
           <div>
             <Link
-              
               className="btn btn-primary btn-lg"
               style={{
                 backgroundColor: "#2EC4B6",

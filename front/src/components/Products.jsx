@@ -16,21 +16,21 @@ export default ({ products, handleClick }) => {
 
   products
     ? useEffect(() => {
-      filterContent(products);
-      //se encarga de ver si los productos existen y si existen lo que hace es generar un array con la cantidad de paginas
-      //dependiendo de la cantidad de productos que queremos mostrar, y ese es el numero despues de la division
-      //ejemplo: setNumberOfPages(Array.from(Array(25 / 5).keys()));
-      //ahi seria igual a 5 paginas
+        filterContent(products);
+        //se encarga de ver si los productos existen y si existen lo que hace es generar un array con la cantidad de paginas
+        //dependiendo de la cantidad de productos que queremos mostrar, y ese es el numero despues de la division
+        //ejemplo: setNumberOfPages(Array.from(Array(25 / 5).keys()));
+        //ahi seria igual a 5 paginas
 
-      if (products.length) {
-        setNumberOfPages(
-          Array.from(Array(Math.ceil(products.length / 6)).keys())
-        );
-      }
-    }, [products.length, currentPage])
+        if (products.length) {
+          setNumberOfPages(
+            Array.from(Array(Math.ceil(products.length / 6)).keys())
+          );
+        }
+      }, [products.length, currentPage])
     : useEffect(() => {
-      //esto es para que si no le llegan los productos q se hace de manera async no haga nada, despues cuando les llegue entra al useEffect de arriba
-    }, [products, currentPage]);
+        //esto es para que si no le llegan los productos q se hace de manera async no haga nada, despues cuando les llegue entra al useEffect de arriba
+      }, [products, currentPage]);
 
   //La razon por la que està el products.length y el currentPage es porque queremos saber si alguna de esas 2 cosas cambian
   //para hacer re-render
@@ -113,41 +113,41 @@ export default ({ products, handleClick }) => {
               >
                 {currentContent
                   ? currentContent.map(single => (
-                    <div
-                      className="card"
-                      style={{
-                        marginBottom: "25px",
-                        width: "30%",
-                        margin: 10,
-                        height: "50%"
-                      }}
-                      key={single.id}
-                    >
-                      <Link
+                      <div
+                        className="card"
                         style={{
-                          textDecoration: "none",
-                          color: "inherit"
+                          marginBottom: "25px",
+                          width: "30%",
+                          margin: 10,
+                          height: "50%"
                         }}
-                        to={`/experience/${single.id}`}
+                        key={single.id}
                       >
-                        <img
-                          src={single.img_1}
-                          className="card-img-top"
-                          alt="..."
-                        />
+                        <Link
+                          style={{
+                            textDecoration: "none",
+                            color: "inherit"
+                          }}
+                          to={`/experience/${single.id}`}
+                        >
+                          <img
+                            src={single.img_1}
+                            className="card-img-top"
+                            alt="..."
+                          />
 
-                        <div className="card-body">
-                          <h5 className="font-weight-bold">{single.name}</h5>
-                          <p className="font-weight-normal">
-                            {single.description}
-                          </p>
-                          <p className="font-weight-bold">
-                            u$S {single.price}
-                          </p>
-                        </div>
-                      </Link>
-                    </div>
-                  ))
+                          <div className="card-body">
+                            <h5 className="font-weight-bold">{single.name}</h5>
+                            <p className="font-weight-normal">
+                              {single.description}
+                            </p>
+                            <p className="font-weight-bold">
+                              u$S {single.price}
+                            </p>
+                          </div>
+                        </Link>
+                      </div>
+                    ))
                   : null}
               </div>
             </div>

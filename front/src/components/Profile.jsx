@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ handleClick, profile, props })=>{
-  console.log(props,"profileeeeeeeeeeeeeeeeeeee")
+export default ({ handleClick, profile, props }) => {
+  console.log(props, "profileeeeeeeeeeeeeeeeeeee");
 
   return (
-
-  
     <div
       style={{
         backgroundColor: "#fff"
@@ -31,7 +29,7 @@ export default ({ handleClick, profile, props })=>{
             }}
           >
             Profile
-        </h1>
+          </h1>
           <h5
             className="font-weight-normal"
             style={{
@@ -39,9 +37,9 @@ export default ({ handleClick, profile, props })=>{
             }}
           >
             This is your actual profile.
-        </h5>
+          </h5>
         </div>
-        {profile ?
+        {profile ? (
           <ul className="list-group">
             <li className="list-group-item d-flex justify-content-between align-items-center">
               <div>
@@ -51,7 +49,7 @@ export default ({ handleClick, profile, props })=>{
                   }}
                 >
                   Name:
-          </span>
+                </span>
                 <span
                   style={{
                     margin: "20px"
@@ -69,7 +67,7 @@ export default ({ handleClick, profile, props })=>{
                   }}
                 >
                   Email:
-          </span>
+                </span>
                 <span
                   style={{
                     margin: "20px"
@@ -87,7 +85,7 @@ export default ({ handleClick, profile, props })=>{
                   }}
                 >
                   Address:
-          </span>
+                </span>
                 <span
                   style={{
                     margin: "0px"
@@ -105,7 +103,7 @@ export default ({ handleClick, profile, props })=>{
                   }}
                 >
                   Zip:
-          </span>
+                </span>
                 <span
                   style={{
                     margin: "20px"
@@ -123,7 +121,7 @@ export default ({ handleClick, profile, props })=>{
                   }}
                 >
                   Phone:
-          </span>
+                </span>
                 <span
                   style={{
                     margin: "20px"
@@ -134,8 +132,7 @@ export default ({ handleClick, profile, props })=>{
               </div>
             </li>
           </ul>
-          : null}
-
+        ) : null}
       </div>
       <div
         className="container"
@@ -144,220 +141,203 @@ export default ({ handleClick, profile, props })=>{
         }}
       >
         <h3 className="font-weight-bold">Your Orders...</h3>
+      </div>
 
+      {props.state.orders.draft.length ? (
+        <div className="">
+          {props.state.orders.draft.map(order => (
+            <div className="" key={order.id}>
+              <ul className="list-group">
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Order # {order.id}
+                    </span>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Quantity of Experiencies {order.cart.products.length}
+                    </span>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Awaiting payment
+                    </span>
+                  </div>
+                  <div>
+                    <Link
+                      onClick={() => handleClick(order)}
+                      className="btn btn-primary btn-lg"
+                      style={{
+                        backgroundColor: "#2EC4B6",
+                        borderColor: "#2EC4B6"
+                      }}
+                      to={`/order/${order.id}`}
+                    >
+                      View Order
+                    </Link>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          ))}
         </div>
+      ) : null}
 
-        {props.state.orders.draft.length ? (
+      {props.state.orders.confirmed.length ? (
+        <div className="">
+          {props.state.orders.confirmed.map(order => (
+            <div className="" key={order.id}>
+              <ul className="list-group">
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Order # {order.id}
+                    </span>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Quantity of Experiencies {order.cart.products.length}
+                    </span>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Payment successful
+                    </span>
+                  </div>
+                  <div>
+                    <Link
+                      onClick={() => handleClick(order)}
+                      className="btn btn-primary btn-lg"
+                      style={{
+                        backgroundColor: "#2EC4B6",
+                        borderColor: "#2EC4B6"
+                      }}
+                      to={`/order/${order.id}`}
+                    >
+                      View Order
+                    </Link>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          ))}
+        </div>
+      ) : null}
 
-          <div className="">
-              {props.state.orders.draft.map(order=>
-                <div className="" key={order.id}>
-                <ul className="list-group">
-        <li className="list-group-item d-flex justify-content-between align-items-center">
-          <div>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Order # {order.id}
-          </span>
-            <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Quantity of Experiencies {order.cart.products.length}
-          </span>
-          <span
-              style={{
-                margin: "20px"
-              }}
-            >
-              Awaiting payment
-          </span>
-          </div>
-          <div>
-            <Link
-              onClick={()=>handleClick(order)}
-              className="btn btn-primary btn-lg"
-              style={{
-                backgroundColor: "#2EC4B6",
-                borderColor: "#2EC4B6"
-              }}
-              to={`/order/${order.id}`}
-            >
-              View Order
-          </Link>
-          </div>
-        </li>
-      </ul>
-      </div>
-      )}
-      </div>
-        ): (
-          null
-        )}
+      {props.state.orders.cancelled.length ? (
+        <div className="">
+          {props.state.orders.cancelled.map(order => (
+            <div className="" key={order.id}>
+              <ul className="list-group">
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Order # {order.id}
+                    </span>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Quantity of Experiencies {order.cart.products.length}
+                    </span>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Your order has been cancelled
+                    </span>
+                  </div>
+                  <div>
+                    <Link
+                      onClick={() => handleClick(order)}
+                      className="btn btn-primary btn-lg"
+                      style={{
+                        backgroundColor: "#2EC4B6",
+                        borderColor: "#2EC4B6"
+                      }}
+                      to={`/order/${order.id}`}
+                    >
+                      View Order
+                    </Link>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          ))}
+        </div>
+      ) : null}
 
-
-{props.state.orders.confirmed.length ? (
-
-<div className="">
-    {props.state.orders.confirmed.map(order=>
-      <div className="" key={order.id}>
-      <ul className="list-group">
-<li className="list-group-item d-flex justify-content-between align-items-center">
-<div>
-  <span
-    style={{
-      margin: "20px"
-    }}
-  >
-    Order # {order.id}
-</span>
-  <span
-    style={{
-      margin: "20px"
-    }}
-  >
-    Quantity of Experiencies {order.cart.products.length}
-</span>
-<span
-    style={{
-      margin: "20px"
-    }}
-  >
-    Payment successful
-</span>
-</div>
-<div>
-  <Link
-    onClick={()=>handleClick(order)}
-    className="btn btn-primary btn-lg"
-    style={{
-      backgroundColor: "#2EC4B6",
-      borderColor: "#2EC4B6"
-    }}
-    to={`/order/${order.id}`}
-  >
-    View Order
-</Link>
-</div>
-</li>
-</ul>
-</div>
-)}
-</div>
-): (
-null
-)}
-
-
-
-{props.state.orders.cancelled.length ? (
-
-<div className="">
-    {props.state.orders.cancelled.map(order=>
-      <div className="" key={order.id}>
-      <ul className="list-group">
-<li className="list-group-item d-flex justify-content-between align-items-center">
-<div>
-  <span
-    style={{
-      margin: "20px"
-    }}
-  >
-    Order # {order.id}
-</span>
-  <span
-    style={{
-      margin: "20px"
-    }}
-  >
-    Quantity of Experiencies {order.cart.products.length}
-</span>
-<span
-    style={{
-      margin: "20px"
-    }}
-  >
-    Your order has been cancelled
-</span>
-</div>
-<div>
-  <Link
-  onClick={()=>handleClick(order)}
-    className="btn btn-primary btn-lg"
-    style={{
-      backgroundColor: "#2EC4B6",
-      borderColor: "#2EC4B6"
-    }}
-    to={`/order/${order.id}`}
-  >
-    View Order
-</Link>
-</div>
-</li>
-</ul>
-</div>
-)}
-</div>
-): (
-null
-)}
-
-{props.state.orders.fulfilled.length ? (
-
-<div className="">
-    {props.state.orders.fulfilled.map(order=>
-      <div className="" key={order.id}>
-      <ul className="list-group">
-<li className="list-group-item d-flex justify-content-between align-items-center">
-<div>
-  <span
-    style={{
-      margin: "20px"
-    }}
-  >
-    Order # {order.id}
-</span>
-  <span
-    style={{
-      margin: "20px"
-    }}
-  >
-    Quantity of Experiencies {order.cart.products.length}
-</span>
-<span
-    style={{
-      margin: "20px"
-    }}
-  >
-    Delivered
-</span>
-</div>
-<div>
-  <Link
-    onClick={()=>handleClick(order)}
-    className="btn btn-primary btn-lg"
-    style={{
-      backgroundColor: "#2EC4B6",
-      borderColor: "#2EC4B6"
-    }}
-    to={`/order/${order.id}`}
-  >
-    View Order
-</Link>
-</div>
-</li>
-</ul>
-</div>
-)}
-</div>
-): (
-null
-)}
-      
+      {props.state.orders.fulfilled.length ? (
+        <div className="">
+          {props.state.orders.fulfilled.map(order => (
+            <div className="" key={order.id}>
+              <ul className="list-group">
+                <li className="list-group-item d-flex justify-content-between align-items-center">
+                  <div>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Order # {order.id}
+                    </span>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Quantity of Experiencies {order.cart.products.length}
+                    </span>
+                    <span
+                      style={{
+                        margin: "20px"
+                      }}
+                    >
+                      Delivered
+                    </span>
+                  </div>
+                  <div>
+                    <Link
+                      onClick={() => handleClick(order)}
+                      className="btn btn-primary btn-lg"
+                      style={{
+                        backgroundColor: "#2EC4B6",
+                        borderColor: "#2EC4B6"
+                      }}
+                      to={`/order/${order.id}`}
+                    >
+                      View Order
+                    </Link>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          ))}
+        </div>
+      ) : null}
     </div>
-  
-  )}
+  );
+};

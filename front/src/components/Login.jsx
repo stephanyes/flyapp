@@ -36,7 +36,7 @@ export default ({ handleSubmit, handleChange1, handleChange2, state }) => {
               >
                 Login
               </h1>
-              <label >Email address</label>
+              <label>Email address</label>
               <input
                 name="email"
                 type="email"
@@ -55,7 +55,7 @@ export default ({ handleSubmit, handleChange1, handleChange2, state }) => {
                 paddingBottom: "20px"
               }}
             >
-              <label >Password</label>
+              <label>Password</label>
               <input
                 name="password"
                 type="password"

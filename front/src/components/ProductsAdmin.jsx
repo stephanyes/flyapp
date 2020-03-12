@@ -4,11 +4,7 @@ import { FIND_CATEGORY } from "../store/reducers/constants";
 
 export default ({ products, handleDelete }) => {
   return (
-    <div
-      style={{
-        backgroundColor: "#ffffff"
-      }}
-    >
+    <div style={{}}>
       <div
         className="card text-center"
         style={{

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({user}) => {
-  console.log(user)
+export default ({ user }) => {
+  console.log(user);
   return (
     <div
       style={{
