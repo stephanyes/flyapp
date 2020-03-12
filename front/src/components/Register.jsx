@@ -144,7 +144,8 @@ export default ({
       <div className="col">
         <img
           style={{
-            maxHeight: "660px"
+            //maxHeight: "660px"
+            maxHeight: "680px"
           }}
           src="https://insideone.s3-sa-east-1.amazonaws.com/register-image-x2.png"
           className="img-fluid"

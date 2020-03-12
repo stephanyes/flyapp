@@ -15,6 +15,10 @@ const app = express();
 const categories = require("./routes/categories");
 const order = require("./routes/order");
 
+const email = require("./mailDispatcher");
+//email.sendTemplateConfirmation();
+//email.sendTemplateSent();
+//email.sendTemplateCompleted();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -46,10 +50,7 @@ app.use("/products", productos);
 app.use("/auth", users);
 app.use("/cart", cart);
 app.use("/categories", categories);
-<<<<<<< HEAD
-=======
 app.use("/order", order);
->>>>>>> df81dd83c838308851df92bf7ad7778a49b0aea3
 
 passport.use(
   new LocalStrategy(
@@ -86,7 +87,7 @@ app.get("/*", function(req, res) {
 //     next(createError(404));
 // });
 
-db.sync({ force: false}).then(con => {
+db.sync({ force: false }).then(con => {
   console.log(
     `${con.options.dialect} database ${con.config.database} connected at ${con.config.host}:${con.config.port}`
   );
