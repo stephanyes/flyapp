@@ -60,7 +60,7 @@ router.get("/all", (req, res) => {
                 ]
             }
         ],
-        order: [ [ 'createdAt', 'DESC' ]]
+        order: [['createdAt', 'DESC']]
     })
         .then((found) => res.status(200).json(found))
 })
@@ -76,7 +76,7 @@ router.post("/cancelorder", (req, res) => {
 })
 
 router.get("/orderpayment/:id", (req, res) => {
-   
+
 
     Order.findOne({
         include: [{
@@ -86,8 +86,8 @@ router.get("/orderpayment/:id", (req, res) => {
             }]
         }],
         where: {
-           id: req.params.id,
-           userId: req.user.dataValues.id
+            id: req.params.id,
+            userId: req.user.dataValues.id
         }
     })
         .then(orders => res.status(200).json(orders))
@@ -98,7 +98,7 @@ router.get("/orderpayment/:id", (req, res) => {
 
 
 router.post("/pay", (req, res) => {
-    console.log(req.body,"bodyyyyyyyyyyyyy")
+    console.log(req.body, "bodyyyyyyyyyyyyy")
     Order.update(
         { status: "confirmed" },
 
@@ -112,31 +112,31 @@ router.post("/pay", (req, res) => {
                 Order.update(
                     { status: "fulfilled" },
 
-                    { returning: true, plain: true, where: { id: req.body.e} }
+                    { returning: true, plain: true, where: { id: req.body.e } }
                 )
             }, 25000)
 
         })
 })
 
-router.get("/ultimaorden", (req,res) =>{
+router.get("/ultimaorden", (req, res) => {
 
- Order.findOne({
-  
- 
-    include: [{
-        model: Cart,
+    Order.findOne({
+
+
         include: [{
-            model: model.Product
-        }]
-    }],
-    where: {
-       userId:  req.user.dataValues.id
-  },
-  order: [ [ 'createdAt', 'DESC' ]]
-  })
-  .then(orders => res.status(201).json(orders))
-  .catch(err => res.send("NO ORDERS FOUND"))
+            model: Cart,
+            include: [{
+                model: model.Product
+            }]
+        }],
+        where: {
+            userId: req.user.dataValues.id
+        },
+        order: [['createdAt', 'DESC']]
+    })
+        .then(orders => res.status(201).json(orders))
+        .catch(err => res.send("NO ORDERS FOUND"))
 })
 
 //Traemos todas las orders de un cliente que no sean draft
@@ -154,7 +154,7 @@ router.get("/draft", (req, res) => {
             status: statusCondition
         }
         ,
-  order: [ [ 'createdAt', 'DESC' ]]
+        order: [['createdAt', 'DESC']]
     })
         .then(orders => res.status(200).json(orders))
         .catch(err => res.send("NO ORDERS FOUND"))
@@ -173,7 +173,7 @@ router.get("/confirmed", (req, res) => {
             userId: req.user.dataValues.id,
             status: "confirmed"
         },
-        order: [ [ 'createdAt', 'DESC' ]]
+        order: [['createdAt', 'DESC']]
     })
         .then(orders => res.status(200).json(orders))
         .catch(err => res.send("NO ORDERS FOUND"))
@@ -210,7 +210,7 @@ router.get("/fulfilled", (req, res) => {
             userId: req.user.dataValues.id,
             status: "fulfilled"
         },
-        order: [ [ 'createdAt', 'DESC' ]]
+        order: [['createdAt', 'DESC']]
     })
         .then(orders => res.status(200).json(orders))
         .catch(err => res.send("NO ORDERS FOUND"))
@@ -237,26 +237,26 @@ router.get("/lala/:id", (req, res) => {
         .catch(err => res.send("NO ORDERS FOUND"))
 })
 
-router.get("/getProdCart", (req, res) => {
-    Order.findAll({
-        include: [{
-            model: Cart,
-            include: [{
-                model: model.Product
-            }]
-        }],
-        where: {
-            userId: req.user.dataValues.id,
-        }
+// router.get("/getProdCart", (req, res) => {
+//     Order.findAll({
+//         include: [{
+//             model: Cart,
+//             include: [{
+//                 model: model.Product
+//             }]
+//         }],
+//         where: {
+//             userId: req.user.dataValues.id,
+//         }
 
-           id: req.params.id,
-           userId:  req.user.dataValues.id
-        },
-        order: [ [ 'createdAt', 'DESC' ]]
+//            id: req.params.id,
+//            userId:  req.user.dataValues.id
+//         },
+//         order: [ [ 'createdAt', 'DESC' ]]
 
-    })
-        .then(orders => res.status(200).json(orders))
-        .catch(err => res.send("NO ORDERS FOUND"))
-})
+//     })
+//         .then(orders => res.status(200).json(orders))
+//         .catch(err => res.send("NO ORDERS FOUND"))
+// })
 
 module.exports = router;
