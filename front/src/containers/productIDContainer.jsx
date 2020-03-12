@@ -25,15 +25,15 @@ class ProductIDContainer extends React.Component {
   }
   componentDidMount() {
     this.props.seteador(this.props.match.params.id);
+    window.scrollTo(0, 0);
   }
 
   storingLocal(e, producto) {
     e.preventDefault();
     if (!this.props.state.userLogin.loginUser) {
       window.localStorage.setItem(producto.id, JSON.stringify(producto));
-      this.props.carro(producto)
-    } else Axios.post("/cart/addtocart", { producto })
-
+      this.props.carro(producto);
+    } else Axios.post("/cart/addtocart", { producto });
   }
 
   render() {

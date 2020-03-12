@@ -58,7 +58,15 @@ export default ({ carrito, cart, checkOut, handleClick, loged }) => {
           }}
         >
           {carrito.map(algo => (
-            <div className="card mb-3" key={algo.id}>
+            <div
+              className="card mb-3"
+              key={algo.id}
+              style={{
+                borderStyle: "none",
+                boxShadow:
+                  "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+              }}
+            >
               <div className="row no-gutters">
                 <div className="col-md-4">
                   <img src={algo.img_1} className="card-img" alt="..." />
@@ -104,7 +112,15 @@ export default ({ carrito, cart, checkOut, handleClick, loged }) => {
           // NO LOGUEADO!!!!!!!
         >
           {producto.map(algo => (
-            <div className="card mb-3" key={algo.id}>
+            <div
+              className="card mb-3"
+              key={algo.id}
+              style={{
+                borderStyle: "none",
+                boxShadow:
+                  "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+              }}
+            >
               <div className="row no-gutters">
                 <div className="col-md-4">
                   <img src={algo.img_1} className="card-img" alt="..." />
@@ -153,19 +169,36 @@ export default ({ carrito, cart, checkOut, handleClick, loged }) => {
           <div class="card-body">
             {/* total */}
             {carrito.length ? (
-              <nav
-                className="navbar navbar-light bg-light"
+              <div
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  width: "50%",
-                  margin: "0 auto"
+                  margin: "20px",
+                  marginTop: "0px"
                 }}
               >
-                <a className="navbar-brand" href="#">
-                  <h5> Total de productos: {price}</h5>
-                </a>
-              </nav>
+                <div
+                  className="card mb-3"
+                  style={{
+                    borderStyle: "none"
+                    // boxShadow:
+                    //  "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+                  }}
+                >
+                  <div className="row no-gutters">
+                    <div className="col-md-10"></div>
+                    <div className="col-md-2">
+                      <h5
+                        className="font-weight-bold"
+                        style={{
+                          padding: "20px"
+                          //paddingLeft: "80px"
+                        }}
+                      >
+                        Total: u$S {price}
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             ) : null}
 
             <button
