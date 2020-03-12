@@ -14,6 +14,11 @@ const cart = require("./routes/cart");
 const app = express();
 const categories = require("./routes/categories");
 const order = require("./routes/order");
+
+const email = require("./mailDispatcher");
+//email.sendTemplateConfirmation();
+//email.sendTemplateSent();
+//email.sendTemplateCompleted();
 const comments = require("./routes/comments");
 
 app.use(express.urlencoded({ extended: false }));
@@ -75,7 +80,7 @@ passport.use(
 app.use("/products", productos);
 app.use("/auth", users);
 //serealizar y deserializar el passport
-app.get("/*", function (req, res) {
+app.get("/*", function(req, res) {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 

@@ -131,6 +131,19 @@ export default ({
                   />
                 </Link>
               </li>
+              <li className="nav-item active">
+                <Link
+                  class="badge badge-pill badge-primary"
+                  style={{
+                    backgroundColor: "#2EC4B6",
+                    borderColor: "#2EC4B6"
+                  }}
+                  to="/cart"
+                >
+                  {/* Remplazar por numero real de cantidad de experiencias en carrito */}
+                  9
+                </Link>
+              </li>
             </ul>
           </form>
         </div>
