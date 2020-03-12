@@ -1,15 +1,13 @@
-import React  from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-
 export default ({user,handleClick, order}) => {
-  let suma = 0
+let suma = 0
 if (order.cart){
     order.cart.products.map(ele=>{
         suma = suma + ele.price
     })
 }
-
 
   return (
     <div
@@ -35,16 +33,15 @@ if (order.cart){
               padding: "10px"
             }}
           >
-            Checkout
+            Pay your order
           </h1>
           <h5 className="font-weight-normal">
-            This are the resume of your cart.
+            #{order.id}
           </h5>
         </div>
       </div>
 
-
-      <div>
+       <div>
       {(order.cart ? order.cart.products : []).map(algo => (
           <div key={algo.id}> 
             <div className="card mb-3" >
@@ -117,7 +114,12 @@ if (order.cart){
             />
           </div>
 
-          <div className="form-group col-md-4">
+          <div
+            className="form-group col-md-4"
+            style={{
+              paddingBottom: "20px"
+            }}
+          >
             <label for="inputZip">Zip</label>
             <input
               //   onChange={handlePostCode}
@@ -129,11 +131,21 @@ if (order.cart){
             />
           </div>
         </div>
+        <button
+          //onClick={handleSubmit}
+          type="submit"
+          className="btn btn-primary"
+          style={{
+            backgroundColor: "#2EC4B6",
+            borderColor: "#2EC4B6"
+          }}
+        >
+          Set new Address
+        </button>
       </form>
       <form
         style={{
           padding: "40px",
-          paddingTop: "0px",
           marginLeft: "20px"
         }}
       >
@@ -196,6 +208,17 @@ if (order.cart){
             />
           </div>
         </div>
+        <button
+          //onClick={handleSubmit}
+          type="submit"
+          className="btn btn-primary"
+          style={{
+            backgroundColor: "#2EC4B6",
+            borderColor: "#2EC4B6"
+          }}
+        >
+          Set Payment Method
+        </button>
       </form>
 
       <div

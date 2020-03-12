@@ -168,7 +168,7 @@ export default ({ carrito, cart, checkOut, handleClick, loged }) => {
               </nav>
             ) : null}
 
-            <Link
+            <button
               onClick={checkOut}
               className="btn btn-primary btn-lg"
               style={{
@@ -177,10 +177,9 @@ export default ({ carrito, cart, checkOut, handleClick, loged }) => {
                 marginBottom: "100px",
                 marginTop: "30px"
               }}
-              to="/checkout"
             >
               Go to Checkout
-            </Link>
+            </button>
           </div>
         </div>
       ) : (

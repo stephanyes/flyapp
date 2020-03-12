@@ -23,6 +23,7 @@ class UserOrderContainer extends React.Component {
   constructor(props) {
     super(props);
    this.handleClick=this.handleClick.bind(this)
+   this.handleClickPayment=this.handleClickPayment.bind(this)
   }
 
   componentDidMount() {
@@ -37,12 +38,13 @@ class UserOrderContainer extends React.Component {
      
   }
 
-  handleClickReview(e) {
-    prompt("holis")
-//   Axios.post("/order/cancelorder", {e})
-//   this.props.history.push("/profile")   
-   
-}
+
+  handleClickPayment(e) {
+    const orderId = e.id
+    Axios.get(`/order/orderpayment/${orderId}`)  
+    this.props.history.push(`/payment/${orderId}`)   
+  
+  }
 
   render() {
     console.log(this.props , "propsdelUserOrder")
@@ -51,7 +53,7 @@ class UserOrderContainer extends React.Component {
       <UserOrder
         state={this.props.state}
         handleClick={this.handleClick}
-        handleClickReview={this.handleClickReview}
+        handleClickPayment={this.handleClickPayment}
       />
     );
   }
