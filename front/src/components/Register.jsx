@@ -10,7 +10,8 @@ export default ({
   handleAddress2,
   handleAddress3,
   handlePostCode,
-  handlePhone
+  handlePhone,
+  state
 }) => (
   <div>
     <div
@@ -21,6 +22,7 @@ export default ({
     >
       <div className="col">
         <form
+          onSubmit={handleSubmit}
           style={{
             padding: "40px",
             marginLeft: "20px"
@@ -43,6 +45,13 @@ export default ({
                 type="text"
                 className="form-control"
                 id="inputFirstName"
+                style={
+                  state.error && !state.firstName
+                    ? {
+                        borderColor: "red"
+                      }
+                    : null
+                }
               />
             </div>
             <div className="form-group col-md-6">
@@ -53,6 +62,13 @@ export default ({
                 type="text"
                 className="form-control"
                 id="inputLastName"
+                style={
+                  state.error && !state.lastName
+                    ? {
+                        borderColor: "red"
+                      }
+                    : null
+                }
               />
             </div>
           </div>
@@ -65,6 +81,13 @@ export default ({
                 type="email"
                 className="form-control"
                 id="inputEmail4"
+                style={
+                  state.error && !state.email
+                    ? {
+                        borderColor: "red"
+                      }
+                    : null
+                }
               />
             </div>
             <div className="form-group col-md-6">
@@ -75,6 +98,13 @@ export default ({
                 type="password"
                 className="form-control"
                 id="inputPassword4"
+                style={
+                  state.error && !state.password
+                    ? {
+                        borderColor: "red"
+                      }
+                    : null
+                }
               />
             </div>
           </div>
@@ -87,6 +117,13 @@ export default ({
               className="form-control"
               id="inputAddress"
               placeholder="1234 Main St"
+              style={
+                state.error && !state.address1
+                  ? {
+                      borderColor: "red"
+                    }
+                  : null
+              }
             />
           </div>
           <div className="form-group">
@@ -98,6 +135,13 @@ export default ({
               className="form-control"
               id="inputAddress2"
               placeholder="Apartment, studio, or floor"
+              style={
+                state.error && !state.address2
+                  ? {
+                      borderColor: "red"
+                    }
+                  : null
+              }
             />
           </div>
           <div className="form-row">
@@ -109,6 +153,13 @@ export default ({
                 type="text"
                 className="form-control"
                 id="inputCity"
+                style={
+                  state.error && !state.address3
+                    ? {
+                        borderColor: "red"
+                      }
+                    : null
+                }
               />
             </div>
 
@@ -125,11 +176,17 @@ export default ({
                 type="text"
                 className="form-control"
                 id="inputZip"
+                style={
+                  state.error && !state.postCode
+                    ? {
+                        borderColor: "red"
+                      }
+                    : null
+                }
               />
             </div>
           </div>
           <button
-            onClick={handleSubmit}
             type="submit"
             className="btn btn-primary"
             style={{
@@ -139,6 +196,12 @@ export default ({
           >
             Register
           </button>
+          {state.error ? (
+            <div>
+              <br />
+              <p>Please fill out all fields</p>
+            </div>
+          ) : null}
         </form>
       </div>
       <div className="col">
