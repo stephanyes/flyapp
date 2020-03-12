@@ -1,8 +1,8 @@
-import React  from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default ({user,handleClick, order}) => {
-  let suma = 0
+let suma = 0
 if (order.cart){
     order.cart.products.map(ele=>{
         suma = suma + ele.price
@@ -33,16 +33,15 @@ if (order.cart){
               padding: "10px"
             }}
           >
-            Checkout
+            Pay your order
           </h1>
           <h5 className="font-weight-normal">
-            This are the resume of your cart.
+            #{order.id}
           </h5>
         </div>
       </div>
 
-
-      <div>
+       <div>
       {(order.cart ? order.cart.products : []).map(algo => (
           <div key={algo.id}> 
             <div className="card mb-3" >

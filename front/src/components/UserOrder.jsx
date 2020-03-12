@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({state, handleClick, handleClickReview}) => {
+export default ({state, handleClick, handleClickPayment}) => {
   return (
     <div
       style={{
@@ -121,7 +121,6 @@ export default ({state, handleClick, handleClickReview}) => {
                     <p className="font-weight-bold">u$S {algo.price} </p>
                     {state.orders.selected.status == "fulfilled" ? (
                         <Link
-                        onClick={() => handleClickReview(`${algo.id}`)}
                         className="btn btn-primary btn-lg"
                         style={{
                           backgroundColor: "#2EC4B6",
@@ -159,7 +158,8 @@ export default ({state, handleClick, handleClickReview}) => {
           
           <div>
           {state.orders.selected.status == "draft" ? (
-              <Link
+              <button
+              onClick={()=>handleClickPayment(state.orders.selected)}
               className="btn btn-primary btn-lg"
               style={{
                 backgroundColor: "#2EC4B6",
@@ -168,10 +168,10 @@ export default ({state, handleClick, handleClickReview}) => {
                 marginRight: "20px",
                 width: "150px"
               }}
-              to="/users"
+              
             >
               Pagar
-            </Link>
+            </button>
               ): (null)}
             
             {state.orders.selected.status == "draft" ? (

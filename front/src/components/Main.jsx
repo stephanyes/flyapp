@@ -22,6 +22,7 @@ import ProductsAdminContainer from "../containers/ProductsAdminContainer";
 import NewProductAdminContainer from "../containers/NewProductAdminContainer";
 import EditProductAdminContainer from "../containers/EditProductAdminContainer";
 import ReviewContainer from "../containers/ReviewContainer";
+import PaymentContainer from "../containers/PaymentContainer";
 
 
 export default class Main extends React.Component {
@@ -88,6 +89,11 @@ export default class Main extends React.Component {
             component={NewProductAdminContainer}
           />
           <Route exact path="/review" component={ReviewContainer} />
+          <Route
+            exact
+            path="/payment/:id"
+            component={PaymentContainer}
+          />
         </Switch>
       </div>
     );
