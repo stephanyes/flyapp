@@ -7,15 +7,16 @@ class RegisterContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      address1: "",
-      address2: "",
-      address3: "",
-      postCode: "",
-      email: "",
-      phone: "",
-      password: ""
+      firstName: null,
+      lastName: null,
+      address1: null,
+      address2: null,
+      address3: null,
+      postCode: null,
+      email: null,
+      phone: null, //EN EL MERGE, AGREGAR PHONE AL FORM
+      password: null,
+      error: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFirstName = this.handleFirstName.bind(this);
@@ -31,46 +32,49 @@ class RegisterContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.crear(this.state);
-    this.props.history.push("/login");
+    console.log(this.state);
+    this.props
+      .crear(this.state)
+      .then(() => this.props.history.push("/login"))
+      .catch(() => this.setState({ error: true }));
+    // .catch(err => console.log(err));
   }
+
   handleFirstName(e) {
     const value = e.target.value;
-    this.setState({ firstName: value });
+    this.setState({ firstName: value.trim() || null });
   }
   handleLastName(e) {
     const value = e.target.value;
-    this.setState({ lastName: value });
+    this.setState({ lastName: value.trim() || null });
   }
   handleAddress1(e) {
     const value = e.target.value;
-    this.setState({ address1: value });
+    this.setState({ address1: value.trim() || null });
   }
   handleAddress2(e) {
     const value = e.target.value;
-    this.setState({ address2: value });
+    this.setState({ address2: value.trim() || null });
   }
   handleAddress3(e) {
     const value = e.target.value;
-    this.setState({ address3: value });
+    this.setState({ address3: value.trim() || null });
   }
   handlePostCode(e) {
     const value = e.target.value;
-    this.setState({ postCode: value });
+    this.setState({ postCode: value.trim() || null });
   }
-
   handlePhone(e) {
     const value = e.target.value;
-    this.setState({ phone: value });
+    this.setState({ phone: value.trim() || null });
   }
-
   handleEmail(e) {
     const value = e.target.value;
-    this.setState({ email: value });
+    this.setState({ email: value.trim() || null });
   }
   handlePassword(e) {
     const value = e.target.value;
-    this.setState({ password: value });
+    this.setState({ password: value.trim() || null });
   }
   render() {
     return (
@@ -86,6 +90,7 @@ class RegisterContainer extends React.Component {
           handleAddress3={this.handleAddress3}
           handlePostCode={this.handlePostCode}
           handlePhone={this.handlePhone}
+          state={this.state}
         />
       </div>
     );

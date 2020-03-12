@@ -78,23 +78,32 @@ export default ({ products }) => {
         {/* ------------------------------------- */}
         {products
           ? products.slice(0, 4).map(singles => (
-            <div className="card" key={singles.id}>
-              <Link
+              <div
+                className="card"
+                key={singles.id}
                 style={{
-                  textDecoration: "none",
-                  color: "inherit"
+                  borderColor: "#ffffff",
+                  borderStyle: "none",
+                  boxShadow:
+                    "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
                 }}
-                to={`/experience/${singles.id}`}
               >
-                <img src={singles.img_1} className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="font-weight-bold">{singles.name}</h5>
-                  <p className="font-weight-normal">{singles.description}</p>
-                  <p className="font-weight-bold">u$S {singles.price}</p>
-                </div>
-              </Link>
-            </div>
-          ))
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit"
+                  }}
+                  to={`/experience/${singles.id}`}
+                >
+                  <img src={singles.img_1} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="font-weight-bold">{singles.name}</h5>
+                    <p className="font-weight-normal">{singles.description}</p>
+                    <p className="font-weight-bold">u$S {singles.price}</p>
+                  </div>
+                </Link>
+              </div>
+            ))
           : null}
         {/* ------------------------------------- */}
       </div>
@@ -148,23 +157,32 @@ export default ({ products }) => {
       >
         {products
           ? products.slice(4, 7).map(singles => (
-            <div className="card" key={singles.id}>
-              <Link
+              <div
+                className="card"
+                key={singles.id}
                 style={{
-                  textDecoration: "none",
-                  color: "inherit"
+                  borderColor: "#ffffff",
+                  borderStyle: "none",
+                  boxShadow:
+                    "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
                 }}
-                to={`/experience/${singles.id}`}
               >
-                <img src={singles.img_1} className="card-img-top" alt="..." />
-                <div className="card-body">
-                  <h5 className="font-weight-bold">{singles.name}</h5>
-                  <p className="font-weight-normal">{singles.description}</p>
-                  <p className="font-weight-bold">u$S {singles.price}</p>
-                </div>
-              </Link>
-            </div>
-          ))
+                <Link
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit"
+                  }}
+                  to={`/experience/${singles.id}`}
+                >
+                  <img src={singles.img_1} className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="font-weight-bold">{singles.name}</h5>
+                    <p className="font-weight-normal">{singles.description}</p>
+                    <p className="font-weight-bold">u$S {singles.price}</p>
+                  </div>
+                </Link>
+              </div>
+            ))
           : null}
       </div>
       <div

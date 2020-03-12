@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ state, handleClick }) => {
+export default ({state, handleClick, handleClickPayment}) => {
+
   return (
     <div
       style={{
@@ -119,6 +120,7 @@ export default ({ state, handleClick }) => {
                     <h5 className="font-weight-bold">{algo.name}</h5>
                     <p className="font-weight-normal">{algo.description}</p>
                     <p className="font-weight-bold">u$S {algo.price} </p>
+
                     {state.orders.selected.status == "fulfilled" && algo.product_cart.leftComment === false ? (
                       <Link
                         className="btn btn-primary btn-lg"
@@ -157,22 +159,23 @@ export default ({ state, handleClick }) => {
           </div>
 
           <div>
-            {state.orders.selected.status == "draft" ? (
-              <Link
-                className="btn btn-primary btn-lg"
-                style={{
-                  backgroundColor: "#2EC4B6",
+          {state.orders.selected.status == "draft" ? (
+              <button
+              onClick={()=>handleClickPayment(state.orders.selected)}
+              className="btn btn-primary btn-lg"
+              style={{
+                backgroundColor: "#2EC4B6",
 
-                  borderColor: "#2EC4B6",
-                  marginRight: "20px",
-                  width: "150px"
-                }}
-                to="/users"
-              >
-                Pagar
-              </Link>
-            ) : (null)}
-
+                borderColor: "#2EC4B6",
+                marginRight: "20px",
+                width: "150px"
+              }}
+              
+            >
+              Pagar
+            </button>
+              ): (null)}
+           
             {state.orders.selected.status == "draft" ? (
               <button
                 onClick={() => handleClick(`${state.orders.selected.id}`)}

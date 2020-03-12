@@ -1,7 +1,7 @@
 import React from "react";
-import Checkout from "../components/Checkout";
 import { connect } from "react-redux";
 import Axios from "axios";
+import Payment from "../components/Payment";
 import { withRouter } from "react-router-dom";
 
 
@@ -17,7 +17,7 @@ const mapDispatchToProps = function(dispatch, ownProps) {
   };
 };
 
-class CheckoutContainer extends React.Component {
+class PaymentContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +27,7 @@ class CheckoutContainer extends React.Component {
   }
   componentDidMount() {
 
-    Axios.get(`/order/ultimaorden`) 
+    Axios.get(`/order/orderpayment/${this.props.match.params.id}`) 
       .then(algo => algo.data)
       .then(algo => {
         this.setState({ order: algo });
@@ -40,8 +40,8 @@ class CheckoutContainer extends React.Component {
   }
 
   render() {
-    return <Checkout handleClick={this.handleClick} user={this.props.state.userLogin.loginUser} order={this.state.order}/>;
+    return <Payment handleClick={this.handleClick} user={this.props.state.userLogin.loginUser} order={this.state.order}/>;
   }
 }
 
-export default  withRouter( connect(mapStateToProps, mapDispatchToProps)(CheckoutContainer));
+export default withRouter( connect(mapStateToProps, mapDispatchToProps)(PaymentContainer));

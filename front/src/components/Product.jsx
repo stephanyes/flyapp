@@ -19,8 +19,8 @@ export default ({ producto, storing, comments }) => {
           className="col"
           style={{
             padding: "40px",
-            backgroundColor: "#ffffff",
-            paddingBottom: "200px"
+            backgroundColor: "#ffffff"
+            //paddingBottom: "200px"
           }}
         >
           <div
@@ -84,15 +84,13 @@ export default ({ producto, storing, comments }) => {
         <div className="col">
           <img
             style={{
-              maxHeight: "760px"
-              //maxWidth: "660px"
-
-              // position: "fixed",
-              // right: "0"
+              marginTop: "25px",
+              paddingBottom: "100px",
+              backgroundColor: "#ffffff"
             }}
-            src={producto.img_1}
-            //src="https://insideone.s3-sa-east-1.amazonaws.com/image-home-05.png"
-            className="img-fluid"
+            src={producto.img_2}
+            // src="https://insideone.s3-sa-east-1.amazonaws.com/image-home-02+copy+3.png"
+            class="img-fluid"
             alt="Responsive image"
           />
         </div>

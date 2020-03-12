@@ -22,7 +22,9 @@ const mapDispatchToProps = function (dispatch, ownProps) {
 class UserOrderContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this)
+   this.handleClick=this.handleClick.bind(this)
+   this.handleClickPayment=this.handleClickPayment.bind(this)
+
   }
 
   componentDidMount() {
@@ -38,11 +40,22 @@ class UserOrderContainer extends React.Component {
   }
 
 
+
+  handleClickPayment(e) {
+    const orderId = e.id
+    Axios.get(`/order/orderpayment/${orderId}`)  
+    this.props.history.push(`/payment/${orderId}`)   
+  
+  }
+
+
   render() {
     return (
       <UserOrder
         state={this.props.state}
         handleClick={this.handleClick}
+        handleClickPayment={this.handleClickPayment}
+
       />
     );
   }
