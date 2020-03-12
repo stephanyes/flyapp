@@ -3,6 +3,15 @@ import { Link } from "react-router-dom";
 import ReactStars from "react-stars";
 
 export default ({ producto, storing, comments }) => {
+  console.log(producto);
+  let value = 0;
+  let count = 0;
+  comments.map(algo => algo.productId == producto.id ? (
+    value += algo.rating,
+    count += 1
+  ) : null)
+  let promedio = (value / count)
+
   return (
     <div
       style={{
@@ -29,7 +38,16 @@ export default ({ producto, storing, comments }) => {
               backgroundColor: "#ffffff"
             }}
           >
-            <h4>****</h4>
+            < ReactStars
+              edit={false}
+              value={promedio}
+              count={5}
+              size={30}
+              color1={"#000"}
+              color2={"#ffd700"} />
+
+
+
             <h1
               className="font-weight-bold"
               style={{

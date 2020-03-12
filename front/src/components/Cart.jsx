@@ -11,8 +11,8 @@ export default ({ carrito, cart, checkOut, handleClick, loged }) => {
 
   useEffect(() => {
     if (carrito.length >= 1) {
-      let priceSum = carrito
-        .map(product => product.price)
+      let priceSum = 
+      carrito.map(product => product.price)
         .reduce((a, b) => a + b);
       console.log(price);
       setPrice(priceSum);
