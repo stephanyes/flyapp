@@ -88,7 +88,7 @@ export default class Main extends React.Component {
             path="/newProductAdmin"
             component={NewProductAdminContainer}
           />
-          <Route exact path="/review" component={ReviewContainer} />
+          <Route exact path="/review/:id" component={ReviewContainer} />
           <Route
             exact
             path="/payment/:id"
