@@ -81,13 +81,6 @@ export default ({
                 type="email"
                 className="form-control"
                 id="inputEmail4"
-                style={
-                  state.error && !state.email
-                    ? {
-                        borderColor: "red"
-                      }
-                    : null
-                }
               />
             </div>
             <div className="form-group col-md-6">
@@ -107,6 +100,24 @@ export default ({
                 }
               />
             </div>
+          </div>
+          <div className="form-group">
+            <label>Phone</label>
+            <input
+              onChange={handlePhone}
+              name="phone"
+              type="number"
+              className="form-control"
+              id="inputPhone"
+              placeholder="+54 9 11 ..."
+              style={
+                state.error && !state.phone
+                  ? {
+                      borderColor: "red"
+                    }
+                  : null
+              }
+            />
           </div>
           <div className="form-group">
             <label for="inputAddress">Address</label>
@@ -173,7 +184,7 @@ export default ({
               <input
                 onChange={handlePostCode}
                 name="postCode"
-                type="text"
+                type="number"
                 className="form-control"
                 id="inputZip"
                 style={

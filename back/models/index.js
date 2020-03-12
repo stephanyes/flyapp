@@ -58,7 +58,8 @@ User.hasOne(Cart); // esta cheequeado?
 
 Category.hasOne(Product);
 User.hasOne(Order);
-User.hasMany(Comment);
+User.hasMany
+(Comment);
 Product.hasMany(Comment);
 
 module.exports = {

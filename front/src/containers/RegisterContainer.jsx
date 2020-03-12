@@ -14,7 +14,7 @@ class RegisterContainer extends React.Component {
       address3: null,
       postCode: null,
       email: null,
-      phone: "", //EN EL MERGE, AGREGAR PHONE AL FORM
+      phone: null, //EN EL MERGE, AGREGAR PHONE AL FORM
       password: null,
       error: false
     };
