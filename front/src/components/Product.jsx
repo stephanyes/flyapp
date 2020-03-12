@@ -98,22 +98,22 @@ export default ({ producto, storing, comments }) => {
       <div>
         <h2
           className="font-weight-bold"
-          style={{ paddingBottom: "10px", margin: "60px" }}
+          style={{ paddingBottom: "10px", margin: "20px", marginLeft: "60px" }}
         >
           Comments
         </h2>
 
-
-
-        {comments.map(singleComent => (
-
+        {comments.map(singleComent =>
           singleComent.productId == producto.id ? (
             <div className="card mb-3" key={singleComent.id}>
               <div className="row no-gutters">
                 <div className="col-md-10">
                   <div className="card-body">
-                    <p className="font-weight-bold" style={{ marginLeft: "35px" }}>
-                      Pablito escobar
+                    <p
+                      className="font-weight-bold"
+                      style={{ marginLeft: "35px" }}
+                    >
+                      John Doe
                     </p>
                     <p
                       className="font-weight-normal"
@@ -126,7 +126,14 @@ export default ({ producto, storing, comments }) => {
                       style={{ marginLeft: "35px" }}
                     >
                       <div className="" style={{ display: "flex" }}>
-                        <ReactStars edit={false} value={singleComent.rating} count={5} size={30} color1={'#000'} color2={'#ffd700'} />
+                        <ReactStars
+                          edit={false}
+                          value={singleComent.rating}
+                          count={5}
+                          size={30}
+                          color1={"#000"}
+                          color2={"#ffd700"}
+                        />
                       </div>
                     </p>
                   </div>
@@ -134,14 +141,7 @@ export default ({ producto, storing, comments }) => {
               </div>
             </div>
           ) : null
-
-
-        ))}
-
-
-
-
-
+        )}
       </div>
     </div>
   );
