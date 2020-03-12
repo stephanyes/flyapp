@@ -13,7 +13,7 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = function(dispatch, ownProps) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
     order: (order) => dispatch(setOrder(order))
   };
@@ -24,19 +24,21 @@ class UserOrderContainer extends React.Component {
     super(props);
    this.handleClick=this.handleClick.bind(this)
    this.handleClickPayment=this.handleClickPayment.bind(this)
+
   }
 
   componentDidMount() {
     Axios.get(`/order/lala/${this.props.match.params.id}`)
-    .then((ord)=> this.props.order(ord.data))
+      .then((ord) => this.props.order(ord.data))
   }
 
   handleClick(e) {
-      
-    Axios.post("/order/cancelorder", {e})
-    this.props.history.push("/profile")   
-     
+
+    Axios.post("/order/cancelorder", { e })
+    this.props.history.push("/profile")
+
   }
+
 
 
   handleClickPayment(e) {
@@ -46,20 +48,20 @@ class UserOrderContainer extends React.Component {
   
   }
 
-  render() {
-    console.log(this.props , "propsdelUserOrder")
 
+  render() {
     return (
       <UserOrder
         state={this.props.state}
         handleClick={this.handleClick}
         handleClickPayment={this.handleClickPayment}
+
       />
     );
   }
 }
 
-export default withRouter( connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
 )(UserOrderContainer));

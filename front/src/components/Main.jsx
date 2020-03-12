@@ -74,7 +74,7 @@ export default class Main extends React.Component {
           />
           <Route
             exact
-            
+
             path="/editProducts"
             component={ProductsAdminContainer}
           />

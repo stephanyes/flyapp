@@ -9,23 +9,30 @@ import Axios from "axios";
 //         orders: () => dispatch(getOrders())
 //     };
 // };
-// const mapStateToProps = function (state) {
-//     return {
-//         user: state.userLogin.loginUser,
-//         purchases: state.orders.ordersState
-//     };
-// };
+const mapStateToProps = function (state) {
+    return {
+        obtenerCosas: state.orders.selected.cart.products,
+        testing: state.orders.selected.cart.id
+    };
+};
 
 class ReviewContainer extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             rating: "",
-            comment: ""
+            comment: "",
+            productId: ""
         }
         this.sendComment = this.sendComment.bind(this)
         this.recibiendoRating = this.recibiendoRating.bind(this)
         this.sendToDb = this.sendToDb.bind(this)
+    }
+
+    componentDidMount() {
+        this.setState({
+            productId: this.props.match.params.id
+        })
     }
 
     recibiendoRating(e) {
@@ -42,12 +49,12 @@ class ReviewContainer extends React.Component {
     }
 
     sendToDb(e) {
-        e.preventDefault();
-        Axios.post("/review/rateProduct", { rating: this.state.rating, comment: this.state.comment })
+        alert("Thanks for the rating!")
+        Axios.post("/review/rateProduct", { rating: this.state.rating, comment: this.state.comment, productId: this.state.productId, cartId: this.props.testing })
     }
 
     render() {
         return <NewReview estado={this.state.rating} submit={this.sendToDb} enviandoRating={this.recibiendoRating} sendComment={this.sendComment} />
     }
 }
-export default connect(null)(ReviewContainer);
+export default connect(mapStateToProps)(ReviewContainer);

@@ -1,4 +1,4 @@
-import { GET_DRAFTS , GET_CONFIRMED, GET_CANCELLED, GET_FULFILLED, SET_ORDERSELECTED } from './constants';
+import { GET_DRAFTS, GET_CONFIRMED, GET_CANCELLED, GET_FULFILLED, SET_ORDERSELECTED } from './constants';
 
 const initialState = {
     draft: [],
@@ -13,13 +13,13 @@ export default (state = initialState, action) => {
         case GET_DRAFTS:
             return { ...state, draft: action.orders };
         case GET_CONFIRMED:
-            return { ...state, confirmed: action.orders };  
+            return { ...state, confirmed: action.orders };
         case GET_CANCELLED:
             return { ...state, cancelled: action.orders };
         case GET_FULFILLED:
-            return { ...state, fulfilled: action.orders };  
+            return { ...state, fulfilled: action.orders };
         case SET_ORDERSELECTED:
-            return { ...state, selected: action.order };        
+            return { ...state, selected: action.order };
         default:
             return state;
     }

@@ -1,7 +1,6 @@
 import React  from "react";
 import { Link } from "react-router-dom";
 
-
 export default ({user,handleClick, order}) => {
   let suma = 0
 if (order.cart){
@@ -9,6 +8,7 @@ if (order.cart){
         suma = suma + ele.price
     })
 }
+
 
 
   return (
@@ -42,6 +42,7 @@ if (order.cart){
           </h5>
         </div>
       </div>
+
 
 
       <div>

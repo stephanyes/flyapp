@@ -8,7 +8,8 @@ import { fillCart } from "../store/actions/cart";
 const mapStateToProps = state => {
   return {
     product: state.productList.selectedProduct,
-    state
+    state,
+    comments: state.comments.comments
   };
 };
 
@@ -36,8 +37,8 @@ class ProductIDContainer extends React.Component {
   }
 
   render() {
-    const { product } = this.props;
-    return <Product producto={product} storing={this.storingLocal} />;
+    const { product, comments } = this.props;
+    return <Product producto={product} storing={this.storingLocal} comments={comments} />;
   }
 }
 

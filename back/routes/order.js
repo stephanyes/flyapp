@@ -102,7 +102,9 @@ router.post("/pay", (req, res) => {
     Order.update(
         { status: "confirmed" },
 
+
         { returning: true, plain: true, where: { id: req.body.e } }
+
     )
         .then((data) => res.status(201).send(data[1]))
         .then(() => {
@@ -113,6 +115,7 @@ router.post("/pay", (req, res) => {
                     { returning: true, plain: true, where: { id: req.body.e} }
                 )
             }, 25000)
+
         })
 })
 
@@ -158,7 +161,7 @@ router.get("/draft", (req, res) => {
 })
 
 router.get("/confirmed", (req, res) => {
-    
+
     Order.findAll({
         include: [{
             model: Cart,
@@ -177,7 +180,7 @@ router.get("/confirmed", (req, res) => {
 })
 
 router.get("/cancelled", (req, res) => {
-    
+
     Order.findAll({
         include: [{
             model: Cart,
@@ -195,7 +198,7 @@ router.get("/cancelled", (req, res) => {
 })
 
 router.get("/fulfilled", (req, res) => {
-    
+
     Order.findAll({
         include: [{
             model: Cart,
@@ -225,10 +228,32 @@ router.get("/lala/:id", (req, res) => {
             }]
         }],
         where: {
+
+            id: req.params.id,
+            userId: req.user.dataValues.id
+        }
+    })
+        .then(orders => res.status(200).json(orders))
+        .catch(err => res.send("NO ORDERS FOUND"))
+})
+
+router.get("/getProdCart", (req, res) => {
+    Order.findAll({
+        include: [{
+            model: Cart,
+            include: [{
+                model: model.Product
+            }]
+        }],
+        where: {
+            userId: req.user.dataValues.id,
+        }
+
            id: req.params.id,
            userId:  req.user.dataValues.id
         },
         order: [ [ 'createdAt', 'DESC' ]]
+
     })
         .then(orders => res.status(200).json(orders))
         .catch(err => res.send("NO ORDERS FOUND"))

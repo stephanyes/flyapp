@@ -32,14 +32,14 @@ class ProfileContainer extends React.Component {
   handleClick(e) {
     Axios.get(`/order/lala/${e.id}`)
     this.props.order(e)
-      // .then(() => this.props.history.push("/"))
-      // .catch(() => this.setState({ error: true }));
+    // .then(() => this.props.history.push("/"))
+    // .catch(() => this.setState({ error: true }));
   }
   componentDidMount() {
     this.props.drafts()
-    .then(()=>this.props.confirmed())
-    .then(()=>this.props.cancelled())
-    .then(()=>this.props.fulfilled())
+      .then(() => this.props.confirmed())
+      .then(() => this.props.cancelled())
+      .then(() => this.props.fulfilled())
 
   }
   render() {
