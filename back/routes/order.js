@@ -64,11 +64,13 @@ router.get("/all", (req, res) => {
         .then((found) => res.status(200).json(found))
 })
 
-router.get("/cancel", (req, res) => {
+router.post("/cancelorder", (req, res) => {
+    console.log("entre al cancel")
+
     Order.update(
         { status: "cancelled" },
 
-        { returning: true, plain: true, where: { id: req.body.orderId } }
+        { returning: true, plain: true, where: { id: req.body.e } }
     ).then((data) => res.status(201).send(data[1]))
 })
 
@@ -77,7 +79,7 @@ router.get("/pay", (req, res) => {
     Order.update(
         { status: "confirmed" },
 
-        { returning: true, plain: true, where: { id: 3 } }
+        { returning: true, plain: true, where: { id: 5 } }
     )
         .then((data) => res.status(201).send(data[1]))
         .then(() => {
@@ -85,14 +87,14 @@ router.get("/pay", (req, res) => {
                 Order.update(
                     { status: "fulfilled" },
 
-                    { returning: true, plain: true, where: { id: 3 } }
+                    { returning: true, plain: true, where: { id: 5} }
                 )
             }, 20000)
         })
 })
 
 //Traemos todas las orders de un cliente que no sean draft
-router.get("/history", (req, res) => {
+router.get("/draft", (req, res) => {
     let statusCondition = "draft"
     Order.findAll({
         include: [{
@@ -110,5 +112,78 @@ router.get("/history", (req, res) => {
         .catch(err => res.send("NO ORDERS FOUND"))
 })
 
+router.get("/confirmed", (req, res) => {
+    
+    Order.findAll({
+        include: [{
+            model: Cart,
+            include: [{
+                model: model.Product
+            }]
+        }],
+        where: {
+            userId: req.user.dataValues.id,
+            status: "confirmed"
+        }
+    })
+        .then(orders => res.status(200).json(orders))
+        .catch(err => res.send("NO ORDERS FOUND"))
+})
+
+router.get("/cancelled", (req, res) => {
+    
+    Order.findAll({
+        include: [{
+            model: Cart,
+            include: [{
+                model: model.Product
+            }]
+        }],
+        where: {
+            userId: req.user.dataValues.id,
+            status: "cancelled"
+        }
+    })
+        .then(orders => res.status(200).json(orders))
+        .catch(err => res.send("NO ORDERS FOUND"))
+})
+
+router.get("/fulfilled", (req, res) => {
+    
+    Order.findAll({
+        include: [{
+            model: Cart,
+            include: [{
+                model: model.Product
+            }]
+        }],
+        where: {
+            userId: req.user.dataValues.id,
+            status: "fulfilled"
+        }
+    })
+        .then(orders => res.status(200).json(orders))
+        .catch(err => res.send("NO ORDERS FOUND"))
+})
+
+router.get("/lala/:id", (req, res) => {
+    console.log("soy buscar order")
+    console.log(req.params, "params")
+
+    Order.findOne({
+        include: [{
+            model: Cart,
+            include: [{
+                model: model.Product
+            }]
+        }],
+        where: {
+           id: req.params.id,
+           userId:  req.user.dataValues.id
+        }
+    })
+        .then(orders => res.status(200).json(orders))
+        .catch(err => res.send("NO ORDERS FOUND"))
+})
 
 module.exports = router;

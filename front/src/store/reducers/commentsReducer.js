@@ -1,13 +1,13 @@
-import { GET_ORDERS } from './constants';
+import { GET_COMMENTS } from './constants';
 
 const initialState = {
-    ordersState: []
+    comments: []
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case GET_ORDERS:
-            return { ...state, ordersState: action.orders };
+        case GET_COMMENTS:
+            return { ...state, comments: action.commentsDB };
         default:
             return state;
     }
