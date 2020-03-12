@@ -1,12 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
+import Products from "./Products";
 
 export default ({ carrito, cart, checkOut, handleClick, loged }) => {
-  console.log(carrito, "cart");
   let data = Object.assign({}, localStorage);
   let prod = Object.values(data);
   let producto = prod.map(e => JSON.parse(e));
-  useEffect(() => {}, [carrito]);
+
+  const [price, setPrice] = useState([]);
+
+  useEffect(() => {
+    if (carrito.length >= 1) {
+      let priceSum = carrito
+        .map(product => product.price)
+        .reduce((a, b) => a + b);
+      console.log(price);
+      setPrice(priceSum);
+    }
+  }, [carrito]);
 
   return (
     <div
@@ -140,13 +151,31 @@ export default ({ carrito, cart, checkOut, handleClick, loged }) => {
           }}
         >
           <div class="card-body">
+            {/* total */}
+            {carrito.length ? (
+              <nav
+                className="navbar navbar-light bg-light"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "50%",
+                  margin: "0 auto"
+                }}
+              >
+                <a className="navbar-brand" href="#">
+                  <h5> Total de productos: {price}</h5>
+                </a>
+              </nav>
+            ) : null}
+
             <Link
               onClick={checkOut}
               className="btn btn-primary btn-lg"
               style={{
                 backgroundColor: "#2EC4B6",
                 borderColor: "#2EC4B6",
-                marginBottom: "100px"
+                marginBottom: "100px",
+                marginTop: "30px"
               }}
               to="/checkout"
             >

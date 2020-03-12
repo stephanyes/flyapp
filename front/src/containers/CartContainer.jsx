@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import Axios from "axios";
 import { removeProduct } from "../store/actions/cart";
 import { Redirect, withRouter } from "react-router-dom";
-import NewCategorieAdmin from "../components/NewCategorieAdmin";
+import NewCategoryAdmin from "../components/NewCategoryAdmin";
 
 const mapStateToProps = state => {
   return {
@@ -72,13 +72,10 @@ class CartContainer extends React.Component {
   }
 
   goTocheckOut() {
-    console.log(this.state.products, "quuuuuuuuuuuue");
     Axios.post("/order/create", (req, res) => {});
   }
 
   render() {
-    console.log(this.props.state.cart.cart, this.state.products);
-
     const logueado = this.props.state.userLogin.loginUser;
     return (
       <Cart

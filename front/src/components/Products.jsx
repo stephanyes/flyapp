@@ -50,9 +50,9 @@ export default ({ products, handleClick }) => {
     numberOfPages.map((page, key) => {
       return (
         <div key={`${key + page}`}>
-          <li class="page-item" onClick={() => setCurrentPage(key + 1)}>
+          <li className="page-item" onClick={() => setCurrentPage(key + 1)}>
             <a
-              class="page-link"
+              className="page-link"
               href="#"
               style={{
                 color: "white",
@@ -163,7 +163,7 @@ export default ({ products, handleClick }) => {
 
             <nav aria-label="Page navigation example">
               <ul
-                class="pagination"
+                className="pagination"
                 style={{
                   backgroundColor: "#fffff",
                   flex: "display",
@@ -174,13 +174,13 @@ export default ({ products, handleClick }) => {
               >
                 {/* funciona para la flecha de pagination pueda ir hacia atrás */}
                 <li
-                  class="page-item"
+                  className="page-item"
                   onClick={() => {
                     if (currentPage > 1) setCurrentPage(currentPage - 1);
                   }}
                 >
                   <a
-                    class="page-link"
+                    className="page-link"
                     href="#"
                     aria-label="Previous"
                     style={{
@@ -204,7 +204,7 @@ export default ({ products, handleClick }) => {
                   }}
                 >
                   <a
-                    class="page-link"
+                    className="page-link"
                     href="#"
                     aria-label="Next"
                     style={{

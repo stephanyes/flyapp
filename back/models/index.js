@@ -9,7 +9,7 @@ const S = require("sequelize");
 const sequelize = require("../db/db");
 
 //Tablas intermedias
-class Product_Cart extends S.Model {}
+class Product_Cart extends S.Model { }
 Product_Cart.init(
   {
     productId: {
@@ -34,7 +34,7 @@ Product_Cart.init(
   { sequelize, modelName: "product_cart" }
 );
 
-class Order_product extends S.Model {}
+class Order_product extends S.Model { }
 Order_product.init(
   {
     quantity: {
@@ -58,8 +58,9 @@ User.hasOne(Cart); // esta cheequeado?
 
 Category.hasOne(Product);
 User.hasOne(Order);
-User.hasOne(Comment);
-Product.hasOne(Comment);
+User.hasMany
+(Comment);
+Product.hasMany(Comment);
 
 module.exports = {
   Product,

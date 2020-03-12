@@ -8,6 +8,9 @@ import homeReducer from './homeReducer';
 import editUsersReducer from './editUsersReducer'
 import cartReducer from './cartReducer';
 import categoryReducer from './categoryReducer'
+import commentsReducer from './commentsReducer';
+import orderReducer from './orderReducer';
+
 
 export default combineReducers({
     userLogin: loginReducer,
@@ -16,5 +19,9 @@ export default combineReducers({
     search_bar: searchReducer,
     home: homeReducer,
     cart: cartReducer,
-    category: categoryReducer
+    category: categoryReducer,
+    orders: orderReducer,
+    userEdit: editUsersReducer,
+    comments: commentsReducer
+
 });

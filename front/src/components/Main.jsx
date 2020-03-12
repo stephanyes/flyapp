@@ -12,15 +12,23 @@ import ProfileContainer from "../containers/ProfileContainer";
 import EditUsersContainer from "../containers/EditUsersContainer";
 import NavbarContainer from "../containers/NavbarContainer";
 import CategoryContainer from "../containers/CategoryContainer";
-import CategorySingleContainer from '../containers/CategorySingleContainer'
+import CategorySingleContainer from "../containers/CategorySingleContainer";
 import CheckoutContainer from "../containers/CheckoutContainer";
+import CategoriesAdminContainer from "../containers/CategoriesAdminContainer";
+import newCategoryAdminContainer from "../containers/NewCategoryAdminContainer";
+import editCategoryAdmin from "../containers/EditCategoryContainer";
+import UserOrderContainer from "../containers/UserOrderContainer";
+import ProductsAdminContainer from "../containers/ProductsAdminContainer";
+import NewProductAdminContainer from "../containers/NewProductAdminContainer";
+import EditProductAdminContainer from "../containers/EditProductAdminContainer";
+import ReviewContainer from "../containers/ReviewContainer";
+
 
 export default class Main extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
-    console.log(this.props);
     return (
       <div>
         <NavbarContainer />
@@ -35,9 +43,51 @@ export default class Main extends React.Component {
           <Route exact path="/register" component={RegisterContainer} />
           <Route exact path="/profile" component={ProfileContainer} />
           <Route exact path="/category" component={CategoryContainer} />
-          <Route exact path="/category/:id" component={CategorySingleContainer} />
+          <Route
+            exact
+            path="/category/:id"
+            component={CategorySingleContainer}
+          />
           <Route exact path="/editUsers" component={EditUsersContainer} />
           <Route exact path="/checkout" component={CheckoutContainer} />
+          <Route
+            exact
+            path="/categoriesAdmin"
+            component={CategoriesAdminContainer}
+          />
+          <Route
+            exact
+            path="/newCategoryAdmin"
+            component={newCategoryAdminContainer}
+          />
+          <Route
+            exact
+            path="/editCategoryAdmin/:id"
+            component={editCategoryAdmin}
+          />
+          <Route
+            exact
+
+            path="/order/:id"
+            component={UserOrderContainer}
+          />
+          <Route
+            exact
+            
+            path="/editProducts"
+            component={ProductsAdminContainer}
+          />
+          <Route
+            exact
+            path="/editProducts/:id"
+            component={EditProductAdminContainer}
+          />
+          <Route
+            exact
+            path="/newProductAdmin"
+            component={NewProductAdminContainer}
+          />
+          <Route exact path="/review" component={ReviewContainer} />
         </Switch>
       </div>
     );

@@ -19,6 +19,7 @@ const email = require("./mailDispatcher");
 //email.sendTemplateConfirmation();
 //email.sendTemplateSent();
 //email.sendTemplateCompleted();
+const comments = require("./routes/comments");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -51,6 +52,7 @@ app.use("/auth", users);
 app.use("/cart", cart);
 app.use("/categories", categories);
 app.use("/order", order);
+app.use("/review", comments);
 
 passport.use(
   new LocalStrategy(

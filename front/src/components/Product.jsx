@@ -94,6 +94,37 @@ export default ({ producto, storing }) => {
           />
         </div>
       </div>
+      <div>
+        <h2
+          className="font-weight-bold"
+          style={{ paddingBottom: "10px", margin: "60px" }}
+        >
+          Comments
+        </h2>
+        <div className="card mb-3">
+          <div className="row no-gutters">
+            <div className="col-md-10">
+              <div className="card-body">
+                <p className="font-weight-bold" style={{ marginLeft: "35px" }}>
+                  Pablito escobar
+                </p>
+                <p
+                  className="font-weight-normal"
+                  style={{ marginLeft: "35px" }}
+                >
+                  Me encanto re zarpado!!
+                </p>
+                <p
+                  className="font-weight-normal"
+                  style={{ marginLeft: "35px" }}
+                >
+                  ⭐ ⭐ ⭐ ⭐ ⭐
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -79,6 +79,17 @@ export default ({
             </div>
           </div>
           <div className="form-group">
+            <label>Phone</label>
+            <input
+              onChange={handlePhone}
+              name="phone"
+              type="number"
+              className="form-control"
+              id="inputPhone"
+              placeholder="+54 9 11 ..."
+            />
+          </div>
+          <div className="form-group">
             <label for="inputAddress">Address</label>
             <input
               onChange={handleAddress1}
@@ -122,7 +133,7 @@ export default ({
               <input
                 onChange={handlePostCode}
                 name="postCode"
-                type="text"
+                type="number"
                 className="form-control"
                 id="inputZip"
               />
@@ -144,8 +155,7 @@ export default ({
       <div className="col">
         <img
           style={{
-            //maxHeight: "660px"
-            maxHeight: "680px"
+            maxHeight: "760px"
           }}
           src="https://insideone.s3-sa-east-1.amazonaws.com/register-image-x2.png"
           className="img-fluid"

@@ -11,7 +11,7 @@ Comment_product.init(
             defaultValue: null
         },
         rating: {
-            type: S.INTEGER,
+            type: S.FLOAT,
             allowNull: false,
             validate: {
                 notEmpty: true,

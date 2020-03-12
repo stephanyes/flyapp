@@ -76,7 +76,8 @@ export default ({
                     {user.firstName}
                   </button>
                   <div
-                    className={menuClass}
+                    className={`${menuClass} dropdown-menu-right`}
+                    //dropdown-menu-right lo mantiene adentro de la pag
                     aria-labelledby="dropdownMenuButton"
                   >
                     <Link className="dropdown-item" to="/profile">
@@ -85,18 +86,21 @@ export default ({
                     {user.rol_id === "client" ? null : (
                       //si no es cliente mostra Edit Products
                       <div className="dropdown">
-                        <Link className="dropdown-item" to="/editProducts">
-                          Edit Products
+                        <Link className="dropdown-item" to="/orders">
+                          Orders
                         </Link>
-                        <Link className="dropdown-item" to="/editCategories">
-                          Edit Categories
+                        <Link className="dropdown-item" to="/editProducts">
+                          Experiences
+                        </Link>
+                        <Link className="dropdown-item" to="/categoriesAdmin">
+                          Categories
                         </Link>
                       </div>
                     )}
                     {user.rol_id === "superAdmin" ? (
                       //si es superAdmin mostra Edit Users
                       <Link className="dropdown-item" to="/editUsers">
-                        Edit Users
+                        Users
                       </Link>
                     ) : null}
                     <p className="dropdown-item" href="#nogo" onClick={logout}>
