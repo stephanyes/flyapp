@@ -109,19 +109,19 @@ export default ({
                   </div>
                 </div>
               ) : (
-                <ul className="navbar-nav mr-auto">
-                  <li className="nav-item active">
-                    <Link className="nav-link" to="/login">
-                      Login
+                  <ul className="navbar-nav mr-auto">
+                    <li className="nav-item active">
+                      <Link className="nav-link" to="/login">
+                        Login
                     </Link>
-                  </li>
-                  <li className="nav-item active">
-                    <Link className="nav-link" to="/register">
-                      Register
+                    </li>
+                    <li className="nav-item active">
+                      <Link className="nav-link" to="/register">
+                        Register
                     </Link>
-                  </li>
-                </ul>
-              )}
+                    </li>
+                  </ul>
+                )}
               <li className="nav-item active">
                 <Link className="nav-link" to="/cart">
                   <img
@@ -133,7 +133,7 @@ export default ({
               </li>
               <li className="nav-item active">
                 <Link
-                  class="badge badge-pill badge-primary"
+                  className="badge badge-pill badge-primary"
                   style={{
                     backgroundColor: "#2EC4B6",
                     borderColor: "#2EC4B6"
